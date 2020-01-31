@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta http-equiv="content-Type" charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <script src="./static/vue.min.js"></script>
+</head>
+<body>
+
+    <div id="app">
+        <ul>
+            <li v-for="aihao in funingbo">{{ aihao }}</li>
+        </ul>
+        <ul>
+            <li v-for="student in students">姓名：{{ student.name}}, 年龄：{{ student.age }}, 爱好: {{ student.hobby }}</li>
+        </ul>
+    </div>
+
+    <script>
+        // 数据模板引擎
+        // v-开头的指令是帮助我们渲染数据用的
+        new Vue({
+            el: "#app",
+            data: {
+                funingbo: ["披黄袍", "吃鸡", "大鱼大肉", "骑士"],
+                students: [
+                    {
+                        name: "张敏聪",
+                        age: 28,
+                        hobby: 'girls',
+                    },
+                    {
+                        name: "徐卫星",
+                        age: 35,
+                        hobby: 'oldboy',
+                    },
+                    {
+                        name: "赵岩",
+                        age: 21,
+                        hobby: 'sao'
+                    }
+                ]
+            }
+        })
+    </script>
+
+</body>
+</html>

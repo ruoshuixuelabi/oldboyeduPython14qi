@@ -1,0 +1,75 @@
+[2019-02-28 20:02:30,996][Thread-3:7144][task_id:django.request][views.py:41][INFO][你好]
+[2019-02-28 20:02:30,996][Thread-3:7144][task_id:django.request][views.py:42][INFO][你好]
+[2019-02-28 20:02:30,996][Thread-3:7144][task_id:django.request][views.py:43][INFO][你好]
+[2019-02-28 20:02:30,996][Thread-3:7144][task_id:django.request][views.py:44][INFO][你好]
+[2019-02-28 20:02:30,996][Thread-3:7144][task_id:django.request][views.py:45][INFO][你好]
+[2019-02-28 20:02:30,997][Thread-3:7144][task_id:django.request][views.py:46][INFO][你好]
+[2019-02-28 20:02:30,997][Thread-3:7144][task_id:django.request][views.py:47][INFO][你好]
+[2019-02-28 20:02:30,997][Thread-3:7144][task_id:django.request][views.py:48][INFO][你好]
+[2019-02-28 20:02:30,997][Thread-3:7144][task_id:django.request][views.py:49][INFO][你好]
+[2019-02-28 20:02:30,997][Thread-3:7144][task_id:django.request][views.py:50][INFO][你好]
+[2019-02-28 20:02:40,795][Thread-5:7472][task_id:django.request][views.py:41][INFO][你好]
+[2019-02-28 20:03:43,941][Thread-1:1580][task_id:django.request][views.py:41][INFO][你好]
+[2019-02-28 20:03:43,942][Thread-1:1580][task_id:django.request][views.py:42][INFO][你好]
+[2019-02-28 20:03:43,942][Thread-1:1580][task_id:django.request][views.py:43][INFO][你好]
+[2019-02-28 20:03:43,942][Thread-1:1580][task_id:django.request][views.py:44][INFO][你好]
+[2019-02-28 20:03:43,942][Thread-1:1580][task_id:django.request][views.py:45][INFO][你好]
+[2019-02-28 20:03:43,943][Thread-1:1580][task_id:django.request][views.py:46][INFO][你好]
+[2019-02-28 20:03:43,943][Thread-1:1580][task_id:django.request][views.py:47][INFO][你好]
+[2019-02-28 20:03:43,943][Thread-1:1580][task_id:django.request][views.py:48][INFO][你好]
+[2019-02-28 20:03:43,943][Thread-1:1580][task_id:django.request][views.py:49][INFO][你好]
+[2019-02-28 20:03:43,944][Thread-1:1580][task_id:django.request][views.py:50][INFO][你好]
+[2019-02-28 20:07:53,461][Thread-3:4164][task_id:utils.polyv][polyv.py:93][INFO][POLYV TOKEN RESULT： {'message': '', 'code': 200, 'status': 'success', 'data': {'iswxa': 0, 'expiredTime': 1551356241967, 'token': '32b80976986b416a9cba563eaa91f36f', 'extraParams': 'HTML5', 'viewerIp': '127.0.0.1', 'viewerId': 'customuserid', 'viewerName': 'customid', 'userId': '03b56854c0', 'videoId': '03b56854c0970bde8598a0659e8cafa6_0', 'ttl': 600000, 'disposable': False, 'createdTime': 1551355641967}}]
+[2019-02-28 20:08:03,292][Thread-5:7808][task_id:django.request][base.py:152][WARNING][Not Found: /video]
+[2019-02-28 20:08:13,066][Thread-1:1148][task_id:utils.polyv][polyv.py:93][INFO][POLYV TOKEN RESULT： {'status': 'success', 'code': 200, 'data': {'token': '32b80976986b416a9cba563eaa91f36f', 'viewerName': 'customid', 'userId': '03b56854c0', 'disposable': False, 'expiredTime': 1551356261535, 'videoId': '03b56854c0970bde8598a0659e8cafa6_0', 'extraParams': 'HTML5', 'iswxa': 0, 'viewerIp': '127.0.0.1', 'ttl': 600000, 'createdTime': 1551355661535, 'viewerId': 'customuserid'}, 'message': ''}]
+[2019-02-28 20:08:14,245][Thread-4:3324][task_id:utils.polyv][polyv.py:93][INFO][POLYV TOKEN RESULT： {'status': 'success', 'code': 200, 'data': {'token': '210fe5940d8743ef9c15ec4369bcd15a', 'viewerName': 'customid', 'userId': '03b56854c0', 'disposable': False, 'expiredTime': 1551356262717, 'videoId': '03b56854c0970bde8598a0659e8cafa6_0', 'extraParams': 'HTML5', 'iswxa': 0, 'viewerIp': '192.168.19.26', 'ttl': 600000, 'createdTime': 1551355662717, 'viewerId': 'customuserid'}, 'message': ''}]
+[2019-02-28 20:08:15,365][Thread-6:3796][task_id:utils.polyv][polyv.py:93][INFO][POLYV TOKEN RESULT： {'status': 'success', 'code': 200, 'data': {'token': 'ff18ae87dc9c495ea02f0b1f169b6758', 'viewerName': 'customid', 'userId': '03b56854c0', 'disposable': False, 'expiredTime': 1551356263876, 'videoId': '03b56854c0970bde8598a0659e8cafa6_0', 'extraParams': 'HTML5', 'iswxa': 0, 'viewerIp': '192.168.19.62', 'ttl': 600000, 'createdTime': 1551355663876, 'viewerId': 'customuserid'}, 'message': ''}]
+[2019-02-28 20:08:28,237][Thread-7:5172][task_id:utils.polyv][polyv.py:93][INFO][POLYV TOKEN RESULT： {'status': 'success', 'code': 200, 'data': {'token': '210fe5940d8743ef9c15ec4369bcd15a', 'viewerName': 'customid', 'userId': '03b56854c0', 'disposable': False, 'expiredTime': 1551356276716, 'videoId': '03b56854c0970bde8598a0659e8cafa6_0', 'extraParams': 'HTML5', 'iswxa': 0, 'viewerIp': '192.168.19.26', 'ttl': 600000, 'createdTime': 1551355676716, 'viewerId': 'customuserid'}, 'message': ''}]
+[2019-02-28 20:08:57,622][Thread-8:6160][task_id:utils.polyv][polyv.py:93][INFO][POLYV TOKEN RESULT： {'status': 'success', 'code': 200, 'data': {'token': '210fe5940d8743ef9c15ec4369bcd15a', 'viewerName': 'customid', 'userId': '03b56854c0', 'disposable': False, 'expiredTime': 1551356306156, 'videoId': '03b56854c0970bde8598a0659e8cafa6_0', 'extraParams': 'HTML5', 'iswxa': 0, 'viewerIp': '192.168.19.26', 'ttl': 600000, 'createdTime': 1551355706156, 'viewerId': 'customuserid'}, 'message': ''}]
+[2019-02-28 20:09:05,693][Thread-9:7984][task_id:utils.polyv][polyv.py:93][INFO][POLYV TOKEN RESULT： {'status': 'success', 'code': 200, 'data': {'token': '210fe5940d8743ef9c15ec4369bcd15a', 'viewerName': 'customid', 'userId': '03b56854c0', 'disposable': False, 'expiredTime': 1551356314184, 'videoId': '03b56854c0970bde8598a0659e8cafa6_0', 'extraParams': 'HTML5', 'iswxa': 0, 'viewerIp': '192.168.19.26', 'ttl': 600000, 'createdTime': 1551355714184, 'viewerId': 'customuserid'}, 'message': ''}]
+[2019-02-28 20:09:11,090][Thread-10:1508][task_id:utils.polyv][polyv.py:93][INFO][POLYV TOKEN RESULT： {'status': 'success', 'code': 200, 'data': {'token': '210fe5940d8743ef9c15ec4369bcd15a', 'viewerName': 'customid', 'userId': '03b56854c0', 'disposable': False, 'expiredTime': 1551356319622, 'videoId': '03b56854c0970bde8598a0659e8cafa6_0', 'extraParams': 'HTML5', 'iswxa': 0, 'viewerIp': '192.168.19.26', 'ttl': 600000, 'createdTime': 1551355719622, 'viewerId': 'customuserid'}, 'message': ''}]
+[2019-02-28 20:09:38,357][Thread-11:7712][task_id:utils.polyv][polyv.py:93][INFO][POLYV TOKEN RESULT： {'status': 'success', 'code': 200, 'data': {'token': '210fe5940d8743ef9c15ec4369bcd15a', 'viewerName': 'customid', 'userId': '03b56854c0', 'disposable': False, 'expiredTime': 1551356346854, 'videoId': '03b56854c0970bde8598a0659e8cafa6_0', 'extraParams': 'HTML5', 'iswxa': 0, 'viewerIp': '192.168.19.26', 'ttl': 600000, 'createdTime': 1551355746854, 'viewerId': 'customuserid'}, 'message': ''}]
+[2019-02-28 20:10:37,327][Thread-12:5680][task_id:utils.polyv][polyv.py:93][INFO][POLYV TOKEN RESULT： {'status': 'success', 'code': 200, 'data': {'token': 'ff18ae87dc9c495ea02f0b1f169b6758', 'viewerName': 'customid', 'userId': '03b56854c0', 'disposable': False, 'expiredTime': 1551356405898, 'videoId': '03b56854c0970bde8598a0659e8cafa6_0', 'extraParams': 'HTML5', 'iswxa': 0, 'viewerIp': '192.168.19.62', 'ttl': 600000, 'createdTime': 1551355805898, 'viewerId': 'customuserid'}, 'message': ''}]
+[2019-02-28 20:17:54,862][Thread-14:6956][task_id:utils.polyv][polyv.py:93][INFO][POLYV TOKEN RESULT： {'status': 'success', 'code': 200, 'data': {'token': '32b80976986b416a9cba563eaa91f36f', 'viewerName': 'customid', 'userId': '03b56854c0', 'disposable': False, 'expiredTime': 1551356843557, 'videoId': '03b56854c0970bde8598a0659e8cafa6_0', 'extraParams': 'HTML5', 'iswxa': 0, 'viewerIp': '127.0.0.1', 'ttl': 600000, 'createdTime': 1551356243557, 'viewerId': 'customuserid'}, 'message': ''}]
+[2019-02-28 20:26:35,515][Thread-1:5424][task_id:django.request][exception.py:135][ERROR][Internal Server Error: /email/send_mail/]
+Traceback (most recent call last):
+  File "C:\Python35\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Administrator\Desktop\otherDemo\web\views.py", line 72, in send_mail
+    "404042726@qq.com", "17611061199@163.com", "kangchen112358@aliyun.com"
+  File "C:\Python35\lib\site-packages\django\core\mail\__init__.py", line 62, in send_mail
+    return mail.send()
+  File "C:\Python35\lib\site-packages\django\core\mail\message.py", line 348, in send
+    return self.get_connection(fail_silently).send_messages([self])
+  File "C:\Python35\lib\site-packages\django\core\mail\backends\smtp.py", line 111, in send_messages
+    sent = self._send(message)
+  File "C:\Python35\lib\site-packages\django\core\mail\backends\smtp.py", line 127, in _send
+    self.connection.sendmail(from_email, recipients, message.as_bytes(linesep='\r\n'))
+  File "C:\Python35\lib\smtplib.py", line 862, in sendmail
+    raise SMTPSenderRefused(code, resp, from_addr)
+smtplib.SMTPSenderRefused: (553, b'Mail from must equal authorized user', 'admin@luffycity.com')
+[2019-02-28 20:26:41,441][Thread-5:4172][task_id:django.request][exception.py:135][ERROR][Internal Server Error: /email/send_mail/]
+Traceback (most recent call last):
+  File "C:\Python35\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Administrator\Desktop\otherDemo\web\views.py", line 72, in send_mail
+    "404042726@qq.com", "17611061199@163.com", "kangchen112358@aliyun.com"
+  File "C:\Python35\lib\site-packages\django\core\mail\__init__.py", line 62, in send_mail
+    return mail.send()
+  File "C:\Python35\lib\site-packages\django\core\mail\message.py", line 348, in send
+    return self.get_connection(fail_silently).send_messages([self])
+  File "C:\Python35\lib\site-packages\django\core\mail\backends\smtp.py", line 111, in send_messages
+    sent = self._send(message)
+  File "C:\Python35\lib\site-packages\django\core\mail\backends\smtp.py", line 127, in _send
+    self.connection.sendmail(from_email, recipients, message.as_bytes(linesep='\r\n'))
+  File "C:\Python35\lib\smtplib.py", line 862, in sendmail
+    raise SMTPSenderRefused(code, resp, from_addr)
+smtplib.SMTPSenderRefused: (553, b'Mail from must equal authorized user', 'admin@luffycity.com')

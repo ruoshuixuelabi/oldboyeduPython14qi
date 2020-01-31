@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta http-equiv="content-Type" charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <script src="./static/vue.min.js"></script>
+    <script src="./static/vue-router.js"></script>
+</head>
+<body>
+    <div id="app">
+
+    </div>
+
+    <script>
+        // 1. 使用VueRouter
+        Vue.use(VueRouter);
+
+        let Home = {
+            template: `
+                <div>
+                    <h1>这是首页页面</h1>
+                </div>
+            `
+        };
+
+        let Login = {
+            template: `
+                <div>
+                    <h1>这是登录页面</h1>
+                </div>
+            `
+        };
+
+        let Pay = {
+            template: `
+                <div>
+                    <h1>这是支付页面</h1>
+                </div>
+            `
+        };
+
+        let App = {
+            // router-link会渲染成a标签，to会渲染成href
+            // router-view是内容的渲染出口
+            template: `
+                <div>
+                    <router-link :to="{ name: 'home' }">首页</router-link>
+                    <router-link :to="{ name: 'login' }">登录</router-link>
+                    <router-link :to="{ name: 'pay' }">支付</router-link>
+
+                    <router-view></router-view>
+                </div>
+            `
+        };
+
+        // 2. 创建一个router对象
+        // 把a标签的锚点值和页面内容绑定了对应关系
+        let router = new VueRouter({
+            routes: [
+                {
+                    name: 'home',
+                    path: '/',
+                    component: Home,
+                },
+                {
+                    name: 'login',
+                    path: '/login',
+                    component: Login
+                },
+                {
+                    name: 'pay',
+                    path: '/pay',
+                    redirect: '/login',
+                    component: Pay,
+                },
+            ]
+        });
+
+        new Vue({
+            el: "#app",
+            template: `<App/>`,
+            components: {
+                App,
+            },
+            // 在根实例中注册router对象
+            router: router,
+        })
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,79 @@
+{% extends 'layout.html' %}
+
+
+{% block content %}
+    <div style="margin: 20px">
+        <div class="col-sm-3">
+            <div class="panel panel-default">
+                <!-- Default panel contents -->
+                <div class="panel-heading"><i class="fa fa-book"></i> 菜单管理
+                    <a href="{% url 'rbac:menu_add' %}" class="btn btn-success btn-sm pull-right " style="padding: 2px 8px;margin: -3px;"> <i
+                            class="fa fa-plus"></i> 新建</a>
+                </div>
+
+                <!-- Table -->
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>名称</th>
+                        <th>图标</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for menu in all_menu %}
+                        <tr>
+                            <td>{{ menu.title }}</td>
+                            <td> <i class="fa {{ menu.icon }} "></i> </td>
+                            <td>
+                                <a href="{% url 'rbac:menu_edit' menu.id %}"> <i class="fa fa-edit"></i> </a>
+                                <a href=""> <i class="fa fa-trash-o"></i> </a>
+                            </td>
+                        </tr>
+
+                    {% endfor %}
+
+                    </tbody>
+
+                </table>
+            </div>
+        </div>
+        <div class="col-sm-9">
+            <div class="panel panel-default">
+                <!-- Default panel contents -->
+                <div class="panel-heading"><i class="fa fa-cubes"></i> 权限管理</div>
+
+                <!-- Table -->
+                <table class="table">
+                   <thead>
+                    <tr>
+                        <th>名称</th>
+                        <th>URL</th>
+                        <th>URL别名</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for permission in all_permission %}
+                        <tr>
+                            <td>{{ permission.title }}</td>
+                            <td>{{ permission.url }}</td>
+                            <td>{{ permission.name }}</td>
+
+                            <td>
+                                <a href=""> <i class="fa fa-edit"></i> </a>
+                                <a href=""> <i class="fa fa-trash-o"></i> </a>
+                            </td>
+                        </tr>
+
+                    {% endfor %}
+
+                    </tbody>
+
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

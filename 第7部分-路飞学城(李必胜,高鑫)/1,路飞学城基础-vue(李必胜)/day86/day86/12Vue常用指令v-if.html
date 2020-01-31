@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta http-equiv="content-Type" charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <script src="./static/vue.min.js"></script>
+</head>
+<body>
+
+    <div id="app">
+        <div v-if="role == 'cainingning'">
+            <h1>欢迎美女光临~~~</h1>
+        </div>
+        <div v-else-if="role == 'juyingying'">
+            <h1>欢迎美女再次光临</h1>
+        </div>
+        <div v-else>
+            <h1>gun</h1>
+        </div>
+    </div>
+
+    <script>
+        // 数据模板引擎
+        // v-开头的指令是帮助我们渲染数据用的
+        let vm = new Vue({
+            el: "#app",
+            data: {
+                role: "cainingning"
+            }
+        })
+    </script>
+
+</body>
+</html>

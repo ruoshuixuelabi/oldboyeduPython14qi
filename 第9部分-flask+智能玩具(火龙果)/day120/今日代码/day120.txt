@@ -1,0 +1,197 @@
+2018年12月24日：
+上节回顾：
+	WebSocket：
+		ws://192.168.12.47:5000/  WebSocket("ws://192.168.12.47:5000")
+	
+	搭建服务：
+		from geventwebsocket.handler import WebSocketHandler
+		from gevent.pywsgi import WSGIServer
+		from geventwebsocket.websocket import WebSocket
+
+		from flask import Flask,request
+
+		app = Flask(__name__)
+
+		@app.route("/ws")
+		def ws():
+			user_socket = request.environ.get("wsgi.websocket") # type:WebSocket 
+			user_msg = user_socket.receive()
+			
+			user_socket.send()
+			
+
+
+		if __name__ == '__main__':
+			http_serv = WSGIServer(("0.0.0.0",9527),app,handler_class=WebSocketHandler)
+			http_serv.serve_forever()
+	
+	客户端访问：
+		var ws = new WebSocket("ws://192.168.12.47:9527/ws");
+		console.log(ws);
+		ws.onopen = function () {
+			alert("websocket is 就绪");
+			console.log(ws);
+		};
+
+		ws.onmessage = function (ws_status) {
+			console.log(ws_status.data)
+		};
+
+		ws.onclose = function () {
+			window.location.reload();
+		}
+	
+	
+	群聊：[websocket,websocket]
+	for usocket in [websocket,websocket]
+	
+	单聊: 
+	dict = {ID:websocket,ID2:websocket}
+	dict.get(ID2)
+	send_msg = {from_user:ID,to_user:ID2,msg:"hello word"}
+	ID2.send(json.dumps({from_user:ID,to_user:ID2,msg:"hello.amr"}))
+	
+	websocket握手：
+	Sec-WebSocket-Key: jocLOLLq1BQWp0aZgEWL5A==
+	magic_string = '258EAFA5-E914-47DA-95CA-C5AB0DC85B11'
+	key = jocLOLLq1BQWp0aZgEWL5A==258EAFA5-E914-47DA-95CA-C5AB0DC85B11
+	new_key = base64(sha1(key))
+	将 new_key 返回客户端
+	
+	
+	websocket解密：
+	
+	websocket加密：
+		import struct
+		msg_bytes = "hello".encode("utf8")
+		token = b"\x81"
+		length = len(msg_bytes) # 5 #"\x81\xshello"
+
+		if length < 126:
+			token += struct.pack("B", length)
+		elif length == 126:
+			token += struct.pack("!BH", 126, length)
+		else:
+			token += struct.pack("!BQ", 127, length)
+
+		msg = token + msg_bytes
+
+		print(msg)
+		
+2018年12月24日：
+SQL - MySQL Oracel DB2 sybase MSSQL
+MySQL ： PHP > LAMP
+MySQL - 关系型数据库  - 语言学习成本高
+user_info
+id		name		age
+1		yinwangba	73
+2		laojin		84
+
+MongoDB - NoSQL - Alex 不仅仅只是数据库 - 文件型数据库 - 原生ORM
+user_info = [
+	{
+		"id":1,
+		"name":yinwangba,
+		"age":73,
+	},
+	{
+		"id":2,
+		"name":laojin,
+		"age":84,
+	}
+]
+
+
+MongoDB 安装:
+
+MongoDB 操作：
+show dbs 查看所有数据库(已创建在磁盘上的) 
+db 当前使用的数据库
+use db 切换数据库
+show tables 查看当前db下的所有数据（表？）
+
+使用了不存在的对象即创建该对象
+
+MySQL				MongoDB
+DB					DB
+table				Collections
+row					Documents
+column				Field
+
+
+
+增：insert into table() values ()
+db.table.insert({
+		"id":1,
+		"name":yinwangba,
+		"age":73,
+	})
+
+官方推荐：
+db.user_info.insertOne({name:"ywb",age:73})
+db.user_info.insertMany([{name:"dwb",age:999},{name:"lwb",age:999.5}])
+
+	
+查：select * from table 
+db.table.find() 
+{,} and 条件
+{"$or":[{name:"ywb"},{age:999}]} $or
+{"name":{"$in":["ywb","dwb"]}} $in
+{hobby:{$all: [0,1,3,5,7,9]}} $all
+
+$关键字：
+	$gt 大于
+	$gte
+	$lt
+	$lte
+	$eq :
+	
+
+改：update table set name="yinwang"
+db.table.update({},{$set:{name:"yinwang"}})
+
+官方推荐写法
+db.user_info.updateOne({age:200},{$set:{name:"200wansui",borthday:new Date()}})
+db.user_info.updateMany({age:{$gt:0}},{$set:{age:200}})
+
+
+删: delete table 
+db.table.remove({})
+
+官方推荐写法
+db.user_info.deleteOne({name:"dwb"})
+db.user_info.deleteMany({name:"200wansui"})
+
+
+清除表
+db.table.drop()
+
+
+MongoDB的数据类型：
+
+Object  ID ：Documents 自生成的 _id ？
+"_id":ObjectId("5c2055565859600c44892ec2")
+5c2055565859600c44892ec2
+
+
+String： 字符串，必须是utf-8 
+Boolean：布尔值，true 或者 false (这里有坑哦~在我们大Python中 True False 首字母大写)
+Integer：整数 (Int32 Int64 你们就知道有个Int就行了,一般我们用Int32)
+Double：浮点数 (没有float类型,所有小数都是Double)
+Arrays：数组或者列表，多个值存储到一个键 (list哦,大Python中的List哦)
+Object：如果你学过Python的话,那么这个概念特别好理解,就是Python中的字典,这个数据类型就是字典
+Null：空数据类型 , 一个特殊的概念,None Null
+Timestamp：时间戳
+Date：存储当前日期或时间unix时间格式 (我们一般不用这个Date类型,时间戳可以秒杀一切时间类型)
+看着挺多的,但是真要是用的话,没那么复杂,很简单的哦
+
+
+
+
+
+
+
+
+	
+	
+	

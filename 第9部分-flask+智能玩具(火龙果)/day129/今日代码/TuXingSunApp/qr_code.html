@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>6666666</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link rel="stylesheet" type="text/css" href="css/mui.css"/>
+</head>
+<body>
+    <header class="mui-bar mui-bar-nav">
+        <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+        <h1 class="mui-title">扫描玩具二维码</h1>
+    </header>
+    <div class="mui-content">
+        <div id="bcid" style="width: 100%;height: 750px;">
+        	
+        </div>
+    </div>
+    <script src="js/mui.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+    mui.init();
+    var scan = null;
+    var Sdata = null;
+    mui.plusReady(function () {
+		Sdata = plus.webview.currentWebview();
+		send_qrcode("559d82041c6a4fd7beee010fac5faa19");
+    })
+    
+    function send_qrcode(qrcode){
+    	mui.post(window.serv+'/validate',{
+    			qrcode:qrcode
+    		},function(data){
+    			console.log(JSON.stringify(data));
+    			mui.toast(data.msg);
+    			if(data.code==0 && Sdata.type == "app" ){
+    				//1.进入绑定流程
+    				mui.openWindow({
+    					url:"bind_toy.html",
+			        	id:"bind_toy.html",
+			        	extras:data.data
+			        })
+    			}else if(data.code==2){
+    				//2.重新扫描
+    				mui.toast("请扫描玩具二维码");
+    				mui.back();
+    			}else if(data.code==1){
+    				//3.进入添加好友流程
+    				data.data.user_id = Sdata.user_id
+    				data.data.type = Sdata.type
+    				mui.toast("添加好友逻辑");
+    				mui.openWindow({
+    					url:"add_req.html",
+			        	id:"add_req.html",
+			        	extras:data.data
+			       })
+    			}else{
+    				mui.toast("当前的玩具还没有被绑定");
+    				mui.back();
+    			}
+    			
+    		},'json'
+    	);
+    }
+    </script>
+</body>
+</html>

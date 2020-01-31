@@ -1,0 +1,62 @@
+day94
+内容回顾
+	RESTful规范
+	CBV以及FBV的区别
+	序列化组件
+	视图组件
+		-- 第一次封装
+			class GenericAPIView(APIView):
+				queryset = None
+				serializer_class = None
+
+				def get_querset(self, request):
+					return self.queryset.all()
+
+				def get_serializer(self, *args, **kwargs):
+					return self.serializer_class(*args, **kwargs)
+
+			class ListModelMixin(object):
+				def list(self, request):
+					queryset = self.get_queryset()
+					ser_obj = self.get_serializer(queryset, many=True)
+					return Response(ser_obj.data)
+
+			class BookView(GnericAPIView, ListModelMixin):
+				queryset = Book.objects.all()
+				serializer_class = BookSerializer
+
+				def get(self, request):
+					return self.list(request)
+		-- 第二次封装
+			-- 方便继承
+		-- 第三次封装
+			-- ViewSetMixin 重写了as_view方法
+			-- 路由可以传参
+	路由组件
+		-- from rest_framwork.routers import DefaultRouter
+		-- router = DefaultRouter()
+		-- router.register(路由， 视图)
+		-- 自动生成的都是带参数的路由
+		   router.urls
+	版本控制
+		-- 详情请见博客
+今日内容
+	认证
+	   -- https://www.cnblogs.com/GGGG-XXXX/p/9564651.html
+	权限
+	   -- https://www.cnblogs.com/GGGG-XXXX/p/9564651.html
+	频率
+		原理
+		1 拿到用户的IP地址
+		2 访问记录： {IP: [最近访问时间，....第一次的访问时间]}
+		3 确保这个列表最近的访问时间以及最远的访问时间差 《= 规定时间
+		4 判断列表的长度 《= 设置的访问频率
+		使用DRF内部的频率类
+			-- 必须实现 get_cache_key方法
+			-- 必须配置 scope
+			-- settings 中配置
+				REST_FRAMEWORK = {
+				    "DEFAULT_THROTTLE_RATES": {
+				        "WD": "3/m"
+				    }
+				}

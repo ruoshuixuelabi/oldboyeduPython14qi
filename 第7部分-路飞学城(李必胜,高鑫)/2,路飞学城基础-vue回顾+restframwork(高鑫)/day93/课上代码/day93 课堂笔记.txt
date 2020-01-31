@@ -1,0 +1,116 @@
+day93
+	序列化组件
+		-- 序列化以及反序列化
+			-- 声明序列化器
+				-- 自己写字段
+				-- 重写create以及update方法
+			-- GET请求
+				-- ser_obj = BookSerializer(queryset, many=True)
+				-- 如果有many=True认为我们的queryset是可迭代的对象
+				-- 循环我们的queryset 拿到每一个模型对象
+				-- 把每个模型对象的字段跟序列化器的字段进行匹配
+				-- 匹配成功的进行序列化 没匹配上的丢弃
+				-- 必须满足序列化器里的所有字段要求
+				-- 返回ser_obj.data
+			-- POST请求  
+				-- 注意序列化器里 序列化和反序列化字段不统一的情况
+					-- read_only   write_only  required=False
+				-- 视图
+					-- ser_obj = BookSerializer(data=request.data)
+						if ser_obj.is_valid():
+							ser_obj.save() 内部调用create方法
+							return Response(ser_obj.data)
+						return Response(ser_obj.errors)
+			-- put请求
+				-- 视图
+					-- ser_obj = BookSerializer(instance, data=request.data, partial=True)
+						if ser_obj.is_valid():
+							ser_obj.save() 内部调用create方法
+							return Response(ser_obj.data)
+						return Response(ser_obj.errors)				
+		-- 验证
+			-- 单个字段的验证
+				-- def validate_字段名称(self, value):
+						value是字段的值
+			-- 多个字段的验证
+				-- def validate(self, attrs):
+						attrs 传过来的所有的字段信息组成的字典
+			-- 自定义的验证
+				-- 自己定义一个验证函数
+					def my_validate(value):
+						value字段值
+				-- 给字段加validators=[my_validate,]
+		-- ModelSerializer
+			-- 默认生成关联的模型表里的所有字段
+			-- 配置
+				class Meta:
+					model=表名
+					fields="__all__"/["字段名",]
+					exclude=["字段名",]
+					depth=1 外键关系找一层  会让外键关系字段变成read_only=True
+					extra_kwargs={"字段名": {配置的属性}}
+			-- SerializerMethodField()
+				-- 方法字段 会调用它自己的钩子方法，把方法的返回值给字段
+				-- def get_字段名(self, obj):
+						循环序列化的每个模型对象就是obj
+						对obj进行ORM操作
+						return 自定义的数据结构
+今日内容：
+	视图组件
+		-- 第一次封装
+			-- GenericAPIView(APIView):
+				queryset = None
+				serializer_class = None
+				def get_queryset(self):
+					return self.queryset.all()
+				def get_serializer(self, *args, **kwargs):
+					return self.serializer_class(*args, **kwargs)
+			-- class ListModelMixin(object):
+					def list(...):
+						pass
+			-- 各个视图方法封装成类
+			-- 视图
+				class BookView(GenericAPIView, ListModelMixin):
+					def get(self, request):
+						return self.list(request)
+		-- 第二次封装 
+			-- 方便继承
+		-- 第三次封装
+			-- ViewSetMixin 重写as_view方法
+				在执行self.dispatch()方法之前
+				把self.get = self.list
+			-- 在ViewSetMixin后 路由才可以传参
+	路由组件
+		-- 导入
+			from rest_framwork.routers import DefaultRouter
+		-- 实例化对象
+			router = DefaultRouter()
+		-- 注册
+			router.register(路由，视图)
+		-- urlpatterns += router.urls
+		-- 生成的路由都是带参数的 你的视图类必须支持路由传参
+	版本控制
+		-- # 初始化我们的版本
+			version, scheme = self.determine_version(request, *args, **kwargs)
+			request.version, request.versioning_scheme = version, scheme
+		--  def determine_version(self, request, *args, **kwargs):
+				if self.versioning_class is None:
+					return (None, None)
+				scheme = self.versioning_class()
+				# scheme我配置的版本控制类的实例化对象
+				# 调用了determine_version(request, *args, **kwargs)
+				# 把方法的返回值给version
+				return (scheme.determine_version(request, *args, **kwargs), scheme)
+					
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		

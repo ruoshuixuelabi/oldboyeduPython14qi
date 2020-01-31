@@ -1,0 +1,207 @@
+day102Linux下午：
+
+1.什么是服务器
+2.什么是linux
+3.如何安装linux
+	-通过vmware这个虚拟化软件，安装linux且学习
+	-准备一个云服务器
+	-这些服务器准备的步骤，是不需要自己来做的
+	-在公司里，都有运维人员配置好了
+	-配置一个linux上网方式
+		-桥接(dhcp) 动态获取一个ip地址
+		-nat
+		-host only
+	
+	
+4.如何远程连接linux服务器
+	-咱们准备一个xshell客户端工具，用于连接linux
+	-通过linux一个命令登录linx
+		ssh  root@ip
+		ssh root@192.168.12.85
+		
+		
+5.linux管理网络的命令
+	1.在系统刚装好的时候，默认可能没有启动网卡
+		ifup 网卡名字		#启动网卡
+		ifdown 网卡名字    #关闭网卡
+		
+	2.管理网络配置的文件 
+	/etc/sysconfig/network-scripts/  #网络配置相关信息文件夹
+	可以通过vi，打开这个网卡文件，修改一个参数使得开机加载网卡
+	onboot=yes
+	网卡对应的文件叫做
+	ifcfg-ens33 大家的网卡配置文件可能与我不一样
+	ifcfg-eth0
+	ifcfg-ens167777
+	
+	3.管理网络的一个服务脚本文件
+	/etc/init.d/network  start/stop/restart  对网络服务进行启停/重启
+	4.查看linux ip地址信息
+		ip addr  show
+		ifconfig
+		
+	
+Linux基本命令学习：
+查看当前位置，打印当前工作目录
+pwd  (print work directory )
+得到一个反馈结果
+/root 
+
+Linux下，文本是白色的，文件夹是蓝色的
+
+
+对文件/文件的增删改查：
+增
+mkdir 创建文件夹
+mkdir hellos14  #创建一个名为hellos14的文件夹
+
+touch test.txt 
+touch test.py 
+touch test.java 
+touch test.go 
+
+
+
+删
+rm (remove)，删除文件的命令
+
+rm  要删的文件
+rm  test.txt 
+rm -i  test.txt
+	-i 参数是删除文件要提醒
+
+rm -i  test*    #删除所有以test打头的文件
+rm -r  递归删除文件夹
+
+
+
+#友情提醒，实验之前，做好快照
+linux之作死命令
+	rm -rf /*   #删除linux底下所有东西，然后收拾东西辞职
+#vmware提供了快照功能
+
+
+rmdir 命令只能删除   空 文件夹
+
+
+
+linux善用tab键进行命令补全
+既可以补全命令
+又可以补全文件
+
+Linux的帮助手册，查看命令详细用法
+man  rm 
+man  ls   
+
+
+
+改
+
+mv命令，移动，改名
+
+mv   旧文件名   新文件名
+
+#把 test文件夹改为  prod文件
+
+mv  test   prod 
+
+cp （copy）复制命令
+cp 文件名   新文件名
+
+cp  test.py   test.py.back
+
+cp -r  test   test2 #递归拷贝文件夹，把test文件下所有子孙后代都 复制一份 为 test2
+
+
+
+查
+ls 查看命令，查看文件夹的命令
+ls  操作对象
+ls /root 
+ls -l  /root  显示/root文件夹下详细信息
+ls -la
+	-l 显示详细信息
+	-a 显示隐藏文件/文件夹 
+ls -la /root/  #显示/root文件下所有文件和文件夹
+	drwxr-xr-x. 2 root root   37 Nov 28 14:58 .
+	dr-xr-x---. 6 root root 4096 Nov 28 14:53 ..
+	-rw-r--r--. 1 root root    0 Nov 28 14:58 test.py
+	-rw-r--r--. 1 root root    0 Nov 28 14:58 test.txt
+	
+	这个 .  代表当前目录
+	这个 ..  代表上一级目录
+	
+	
+
+cd （切换目录）
+cd /root/helloS14   #切换目录到/root/helloS14文件夹中
+cd 命令只能进入文件夹，不能进入文本文件
+
+查看文本内容
+cat 命令，查看文件信息
+
+cat   文件 
+
+
+cat  first.py 
+
+
+
+#修改密码的linux命令
+passwd  用户名
+passwd  root  #输入两次密码
+
+
+vi编辑使用笔记：
+1.  vi   first.py  #打开文件
+2.  此时你进入了一个叫做命令模式的状态，等待输入命令，一般会输入 i/o/a 
+	i 是 insert插入的意思
+	o是在光标所在行的下一行写入信息
+3.输入 i之后，进入编辑模式，就可以写入代码了
+
+4.按下esc，退出编辑模式，此时回到了命令模式，输入  :wq!  退出且写入文本信息
+	:  是 进入底线命令模式的参数
+	w  是写入的意思
+	q  是退出的含义
+	!   强制性的含义
+	
+
+	
+远程登录服务器的命令
+ssh  root@192.168.12.85  
+
+redhat123  #输入root的密码
+
+
+Linux查看用户登录终端的命令
+w   #此命令记录用户登录的，用户身份，来源ip
+
+1.如果你是通过xshell直接登录我的这个机器，那么我记录的ip的就是你windows的ip地址
+2.如果你是已经登录了linux，然后通过你的linux，再ssh登录我的机器，那么我记录的就是你linux的ip
+
+Linux下查看用户身份信息的命令
+
+whoami 
+
+
+查看终端信息的命令
+tty 
+
+
+
+#更改linux主机名
+hostnamectl    set-hostname  s14linux
+
+
+#退出linux登录会话的命令
+logout 
+
+
+
+#xshell的快捷命令
+#清屏命令 clear    ctrl + L   
+#快速退出   ctrl + d   等同于logout
+#快速登录  ctrl + shift + r 
+ 
+#关机命令
+poweroff 

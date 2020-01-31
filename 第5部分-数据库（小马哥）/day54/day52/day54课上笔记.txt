@@ -1,0 +1,151 @@
+内容回顾：
+		一、MySql是基于C/S端的一个软件
+			1.安装
+			2.初始化 mysqld --initialize-insecure
+			3.mysqd --install 安装windows服务
+			4.net start mysql 开启服务
+			5.mysql -uroot -p
+		
+		二、破解密码
+			跳过授权表来破解密码 mysqld --skip-grant-tables
+		
+		三、同一字符串编码
+			my.ini
+			一定要重启MySQl服务器
+			
+			host  loacalhost 或者127.0.0.1
+			port  3306
+		四、常用的sql语句
+			show databases; 查看所有的数据库
+			
+			创建数据库
+			create database db1;
+			
+			使用数据库
+			use db1;
+			
+			创建表
+			create table s1(id int,name char(20));
+			
+			插入数据
+			insert into s1 values(1,'娜扎'),(2,'alex');
+			
+			desc s1;
+			
+			数据驱动视图
+		
+今日内容：
+		1.数据类型
+		 数值类型：
+			默认是有符号(-128,127)
+			
+			无符号的 （0,255）
+			unsigned：给当前的字段设置约束
+			create table t2(x tinyint unsigned);
+			
+		 浮点型：
+			float
+			double
+			decimal
+		datatime ***
+			
+		字符
+			char 定长 存储速度快，但是浪费空间
+			varchar 边长 存储速度慢，节省空间
+			
+		
+		enum
+			create table consumer(
+				id int unsigned,
+				name char(20),
+				sex enum('male','female') not null default 'male',
+				fav set('抽烟','喝酒','烫头')
+			);
+			insert into consumer(id,name,sex,fav) values (1,'alex','female','抽烟,烫头');
+			insert into consumer(id,name,sex) values (2,'alex2','female');
+		
+		set
+			
+			
+		2.表的约束
+		
+			作用：保证数据的完整性和一致性
+			- not null 和default
+				create table tb2(
+					# 如果插入空值，默认是2
+					nid int not null default 2,
+					num int not null
+				);
+				insert into tb1(nid) values(3);
+			- unique
+				不同的唯一的，
+				单列唯一
+					只有一列是唯一
+					
+					create table department(
+						id int,
+						name char(10) unique
+					);
+					insert into department values(1,'it'),(2,'it2');
+					
+
+				多列唯一
+					每个字段都设置unique
+					create table department2(
+						id int unique,
+						name char(10) unique
+					);
+					或
+					create table department2(
+						id int,
+						name char(10),
+						unique(id),
+						unique(name)
+					);
+					# 每个字段插入的值都是不同的才能插入
+					
+					
+					insert into department2 values(1,'it'),(2,'it2');
+				组合唯一
+					create table department3(
+						id int,
+						name char(10),
+						unique(id,name)
+						
+					);
+					insert into department3 values(1,'it'),(2,'it');
+					
+					只要有一个字段不一样，都可以插入
+				
+			primary key
+			主键 在现在sql版本中 只允许 表中有一个主键，通常主键是id
+			
+			
+			not null + unique
+			
+			create table t2(
+			
+				id int primary key,
+				name char(10) not null
+			);
+			create table t3(
+			
+				id int not null unique,
+				name char(10) not null
+			);
+			
+			auto_increment 自增长
+			
+			create table student(
+				id int primary key auto_increment,
+				name char(20) not null
+			);
+			insert into student(name) values('nazha');
+			
+			
+			
+			
+			
+			
+			
+		

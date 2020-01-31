@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>6666666</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link rel="stylesheet" type="text/css" href="css/mui.css"/>
+</head>
+<body>
+<header class="mui-bar mui-bar-nav">
+    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+    <h1 class="mui-title">注册</h1>
+</header>
+		<div class="mui-content">
+			<form class="mui-input-group" >
+				<div class="mui-input-row">
+					<label>用户名</label>
+					<input id="username" type="text" class="mui-input-clear" placeholder="请输入用户名">
+				</div>
+				<div class="mui-input-row">
+					<label>密码</label>
+					<input id="pwd" type="password" class="mui-input-password" placeholder="请输入密码">
+				</div>
+				<div class="mui-input-row">
+					<label>重复密码</label>
+					<input id="repwd" type="password" class="mui-input-password" placeholder="请再次输入密码">
+				</div>
+				<div class="mui-input-row">
+					<label>昵称</label>
+					<input id="nickname" type="text" class="mui-input-clear" placeholder="请输入您的昵称">
+				</div>
+				
+				<div class="mui-input-row mui-radio mui-left">
+				    <label>我是妈妈</label>
+				    <input name="gender" type="radio" checked value="1">
+				</div>
+				<div class="mui-input-row mui-radio mui-left">
+				    <label>我是爸爸</label>
+				    <input name="gender" type="radio" value="2">
+				</div>
+				
+				<div class="mui-input-row">
+					<label>电话</label>
+					<input id="phone" type="text" class="mui-input-clear" placeholder="请输入您的电话号码">
+				</div>
+				
+				<div class="mui-button-row">
+					<button type="button" class="mui-btn mui-btn-primary" id="reg_btn">注册</button>
+					<button type="button" class="mui-btn mui-btn-red mui-action-back" >取消</button>
+				</div>
+			</form>
+		</div>
+
+</body>
+    <script src="js/mui.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/md5.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+    mui.init();
+    document.getElementById('reg_btn').addEventListener('tap',function () {
+         var username = document.getElementById("username").value;
+         var pwd = document.getElementById("pwd").value;
+         var repwd = document.getElementById("repwd").value;
+         if(pwd != repwd){
+         	mui.toast("两次密码不一致");
+         	return
+         }
+         var nickname = document.getElementById("nickname").value;
+         var phone = document.getElementById("phone").value;
+         var gender = null;
+         var gender_list = document.getElementsByName("gender");
+         for (var i = 0; i < gender_list.length; i++) {
+         	if(gender_list[i].checked){
+         		gender = gender_list[i].value;
+         	}
+         }
+         
+         mui.post(window.serv + '/reg',{
+         		username:username,
+         		pwd:hex_md5(pwd),
+         		nickname:nickname,
+         		gender:gender,
+         		phone:phone
+         	},function(data){
+         		console.log(JSON.stringify(data));
+         		mui.toast(data.msg);
+         		if(data.code!=0){
+         			return
+         		}
+         			        		
+	        	mui.back();
+         	},'json'
+         );
+         
+    })
+    </script>
+</html>

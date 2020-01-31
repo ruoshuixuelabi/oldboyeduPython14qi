@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta http-equiv="content-Type" charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <script src="./static/vue.min.js"></script>
+    <style>
+        .active {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="app">
+        <h1 :class="{ active: isActive }">闷骚哥</h1>
+
+        <!--<button v-on:click="changeColor">点击让闷骚哥变绿</button>-->
+        <button @click="changeColor">点击让闷骚哥变绿</button>
+    </div>
+
+    <script>
+        // 数据模板引擎
+        // v-开头的指令是帮助我们渲染数据用的
+        let vm = new Vue({
+            el: "#app",
+            data: {
+                isActive: false
+            },
+            methods: {
+                changeColor: function () {
+                    this.isActive = !this.isActive;
+                },
+
+            }
+        })
+    </script>
+
+</body>
+</html>

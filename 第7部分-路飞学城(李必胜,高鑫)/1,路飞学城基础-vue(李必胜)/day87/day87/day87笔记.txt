@@ -1,0 +1,293 @@
+昨日回顾
+	1. ES6常用语法
+		1.1 变量的定义
+			1.1.1 let定义变量
+				- 不能重复定义
+				- 块级作用，全局作用域和函数作用域
+				- 没有变量提升，var
+			1.1.2 const定义常量
+				- 定义时必须赋值
+				- 定义之后不能修改
+				- 与let相同
+		
+		1.2 模板字符串
+			1.2.1 ``
+			1.2.2 ${}
+		
+		1.3 函数的扩展
+			1.3.1 默认值参数
+			1.3.2 箭头函数
+					- this的指向在定义时就已经确定
+		
+		1.4 单体函数
+			1.4.1 解决了箭头函数的this的指向问题
+			
+		1.5 类
+			1.5.1 必须有一个constructor的构造方法
+				  必须用new实例化对象，否则报错
+				  
+			1.5.2 类的继承
+					class xxxx extends 父类
+					必须要有super()
+		
+		1.6 数据的解构和赋值
+		
+	2. Vue常用指令
+		2.1 {{ greeting }}
+		2.2 v-text  
+				- <div v-text="greeting"></div>
+		2.3 v-html
+				- <div v-html="greeting"></div>
+		2.4 v-for="aihao in aihaos"
+		2.5 v-if v-else-if v-else    document.append()
+		2.6 v-show   style="display: none"
+			页面加载性能：
+				v-if 加载速度快
+			切换性能
+				v-show 切换性能块
+		2.7 v-bind  v-bind:href="luffy" :class="active" :class="[,,,]" :class="{ active: isActive, , ,}"
+		2.8 v-on  <button v-on:click="changeSize"></button>
+			<div id="app"></div>
+			new Vue({
+				el: "#app",
+				data: {
+					
+				},
+				methods: {
+					changeSize: function() {},
+					changeColor: function() {},
+					changeName: function() {},
+				}
+			})
+		2.9 v-model 双向数据绑定
+			<input v-model="userInput"/>
+			data: {
+				userInput: "alex is a big sb"
+			}
+		2.10 计算属性
+				{{ sumScore }}
+				new Vue({
+					el: "#app",
+					data: {
+						python: 88,
+						vue: 78,
+						go: 67
+					},
+					computed: {
+						sumScore: function() {
+							return this.python + this.vue + this.go;
+						},
+					},
+					
+		2.11 侦听属性
+					watch: {
+						python: function() {
+							alert("python 被修改");
+						}
+					}
+				})
+				
+		2.12 指令修饰符
+			 .number
+			 .lazy
+			 .trim
+		
+		2.13 <div ref="myRef">Hello World</div>
+			 <button v-on:click="changecolor"></button>
+			 
+			 new Vue({
+				el: "#app",
+				methods: {
+					changeColor: function() {
+						this.$refs.myRef.style.color = 'red';
+					}
+				}
+			 })
+			 
+		2.14 自定义指令
+			 <div v-pos="isShow"></div>
+			 Vue.directive("pos", function(el, bindding) {
+				bindding.value;
+				....
+			 })
+			 
+		2.15 element-ui
+			 
+今日内容
+	1. 全局组件
+	
+		1.1 <div id="app"><global-component></global-component></div>
+		1.2 <div id="app"><app-header></app-header></div>
+		
+			Vue.component("global-component", {
+				template: `
+					<div>
+						<h1>{{ greeting }}</h1>
+					</div>
+				`,
+				data() {
+					return {
+						greeting: "hello world",
+					}
+				}
+			})
+			
+			let Header = {
+				template: `
+					<div>
+						<h1>{{ greeting }}</h1>
+					</div>
+				`
+			}
+			
+			let App = {
+				template: `
+					<div>
+						<my-header></my-header>
+					</div>
+				`,
+				components: {
+					"my-header": Header,
+				},
+				// 组件的私有数据
+				data(){}
+			}
+			
+			new Vue({
+				el: "#app",
+				template: `<app-header></app-header>`,
+				components: {
+					"app-header": Header,
+				}
+			})
+			
+			- data必须是函数
+			- 没有el属性
+			
+	2. 局部组件
+		2.1 创建局部组件，起始就是创建一个JavaScript object
+			let Header = {
+				template: `
+					<div>
+						
+					</div>
+				`
+			}
+		
+		2.2 注册
+			2.2.1 new Vue({
+					el: "#app",
+					template: `<app-header></app-header>`,
+					components: {
+						"app-header": Header,
+					}
+				  })
+				  
+			2.2.2 let App = {
+					template: `
+						<div>
+							<app-header></app-header>
+						</div>
+						`,
+					  components: {
+						"app-header": Header,
+					  }
+	3. 父子组件之间的通信
+		<script>
+			let Header = {
+				template: `
+					<div>
+						<h1>{{ fatherData }}</h1>
+					</div>
+				`,
+				props: ["fatherData"]
+			};
+			
+			let App = {
+				template: `
+					<div>
+						<app-header :fatherData="count"></app-header>
+					</div>
+				`,
+
+				components: {
+					"app-header": Header,
+				},
+				data(){
+					return {
+						count: 100,
+					}
+				}
+			};
+			
+			new Vue({
+				el: "#app",
+				template: `<App></App>`,
+				components: {
+					App,
+				}
+			})
+		</script>
+	4. 子父组件之间的注册
+		let Header = {
+			template: `
+				<div>
+					<button @click="sendData">点击给父亲传递数据</button>
+				</div>
+			`,
+			methods: {
+				sendData: function() {
+					this.$emit("change-size", 0.1);
+				}
+			}
+		};
+		
+		let App = {
+			template: `
+				<div>
+					<app-header v-on:change-size="changeSize"></app-header>
+				</div>
+			`,
+			components: {
+				'app-header': Header
+				},
+			methods: {
+				changeSize: function(value) {
+					count += value;
+				}
+			}
+		};
+		
+		new Vue({
+			el: "#app",
+			template: `<App></App>`,
+			components: {
+				App,
+			}
+		})
+	5. 混入
+		let mixs = {
+			methods: {
+				show: function(){},
+				hide: function(){},
+			}
+		}
+		
+		mixins: [mixs]
+		
+	6. 插槽
+		template: `
+			<div>
+				<slot><slot>
+			</div>
+			`
+	
+	7. 具名插槽
+		<app-header><div slot="header"></div></app-header>
+		template: `
+			<div>
+				<slot name="header"><slot>
+			</div>
+			`
+	
+	8. 导航栏

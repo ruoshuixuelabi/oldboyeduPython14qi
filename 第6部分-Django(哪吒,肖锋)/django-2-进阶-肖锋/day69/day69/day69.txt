@@ -1,0 +1,222 @@
+day69
+1.内容回顾
+	1. cookie
+		1. cookie是什么？
+			保存在浏览器上一组组键值对
+		2. 为什么要有cookie？
+			http协议是无状态，每次请求都是无关联的，没有办法保存状态。
+			使用cookie保存状态。
+		3. django的操作cookie
+			1. 设置cookie
+				ret = HttpResponse('xxx')
+				ret.set_cookie(key,value,max_age=5)
+				ret.set_signed_cookie(key,value,max_age=5,salt='xxx')
+				
+			2. 获取cookie
+				request.COOKIES['is_login']
+				request.COOKIES.get('is_login')
+				request.get_signed_cookie(key,salt='xxx',default='')
+			
+			3. 删除cookie
+				
+				ret.delete_cookie(key)
+				
+				
+	2. session
+		1. session是什么？
+			保存在服务器上一组组键值对，依赖cookie  
+			
+		2. 为什么要用session？
+			1. cookie保存在浏览器上  不安全
+			2. cookie的长度受到限制 
+		
+		3. django中操作session
+			1. 设置session
+				request.session[key] =  value
+				request.session.setdefault(key,value)
+				
+				
+			2. 获取session
+				request.session[key]
+				request.session.get(key)
+				
+			3. 删除session
+				del request.session[key]   ——》删除某一个键值对
+				
+				request.session.delete()   ——》 删除该用户的所有的session数据，不删除cookie
+				request.session.flush()    ——》 删除该用户的所有的session数据，删除cookie
+				
+				
+			4. 设置超时时间
+				request.session.set_expiry()
+				
+			5. 清除所有过期的session
+				request.session.clear_expired()
+		4. 配置
+			# Cookie name. This can be whatever you want.
+			SESSION_COOKIE_NAME = 'sessionid'
+			# Age of cookie, in seconds (default: 2 weeks).
+			SESSION_COOKIE_AGE = 60 * 60 * 24 * 7 * 2
+			
+			# Whether to save the session data on every request.
+			SESSION_SAVE_EVERY_REQUEST = False
+			# Whether a user's session cookie expires when the Web browser is closed.
+			SESSION_EXPIRE_AT_BROWSER_CLOSE = False
+			
+			SESSION_ENGINE = 'django.contrib.sessions.backends.db'
+				
+				
+	3. orm操作
+		1. 必知必会13条
+			1. 返回对象列表的
+				all()  
+				filter()
+				exclude() 
+				oder_by()  
+				reverse()
+				values()   ——》 {}  
+				values_list()   ——》 ()
+				distinct()  
+				
+			2. 返回对象的
+				get()
+				first()
+				last()
+				
+			3. 返回布尔值
+				exists()
+			
+			4. 返回数字的 
+				count()
+				
+		2. 单边中双下划线
+			__gt
+			__lt
+			__lte
+			__gte
+			__in = []
+			__range = [1,4]
+			
+			__contains='' 
+			__icontains='' 
+			
+			__startswith = ''
+			__istartswith = ''
+			__isnull = True
+
+	
+			
+	4. 高级操作
+		aggregate  聚合  终止子句
+		annotate  分组
+		F  
+		Q  Q()  & |  ~
+		
+		事务 
+			from django.db import transaction
+
+			try:
+				with transaction.atomic():
+					models.Author.objects.create(name='egon', age='xxxx', phone='111111')
+					models.Author.objects.create(name='egon1', age=180)
+
+			except Exception as e:
+
+				print(str(e))
+		
+				
+				
+				
+1. 今日内容
+	中间件
+		1. django中的中间件是什么？
+			是一个python类，用来在全局范围内处理请求和响应的一个钩子。
+			
+		2. 五个方法
+			process_request(self,request)
+			process_view(self, request, view_func, view_args, view_kwargs)
+			process_template_response(self,request,response)
+			process_exception(self, request, exception)
+			process_response(self, request, response)
+			
+			参数 执行时间 执行顺序 返回值 
+			
+			
+			1. process_request
+				1. 执行时间	
+					在视图函数执行之前
+					
+				2. 参数
+					request  ——》 视图函数中用到的request
+				3. 执行顺序
+					按照注册顺序顺序执行
+					
+				4. 返回值
+					None   正常流程走
+					HttpResponse对象  
+						当前中间件后面的中间件的process_request和process_response方法、视图函数都不执行
+						执行当前中间的process_response方法以及之前的中间的process_response方法
+						
+			2. process_response
+				1. 执行时间
+					在视图函数执行之后
+				2. 参数
+					request  ——》 视图函数中用到的request
+					response  —— 》视图函数中返回的response
+					
+					
+				3. 返回值
+					必须是response对象
+					
+				4. 执行顺序
+					按照注册顺序倒叙执行
+			3. process_view
+				1. 执行时间
+					在process_request之后，以及路由匹配之后，在视图函数执行之前
+					
+				2. 参数
+					view_func     ——》 要执行的视图函数
+					view_args     ——》 视图函数的位置参数
+					view_kwargs   ——》 视图函数的关键字参数
+					
+				3. 返回值
+					None  正常走
+					
+				4. 执行顺序
+					按照注册顺序顺序执行
+					
+					
+			4. process_exception(self, request, exception)
+				1. 执行时间（触发条件：有异常才执行）
+					在视图函数之后，在process_response之前
+				2. 参数
+					exception ——》 错误信息对象
+				
+				3. 返回值
+					None  正常走
+					HttpResponse对象  
+						注册顺序之前的中间件的process_exception方法不走了。
+						执行所有中间件的process_response方法
+					
+				4. 执行顺序
+					按照注册顺序倒叙执行
+			
+				
+			5. process_template_response
+				1. 执行时间（触发条件：response对象要求有一个render方法）
+				
+					在视图函数之后，在process_response之前
+					
+				2. 参数
+				
+				3. 返回值
+					返回response
+				4. 执行顺序
+					按照注册顺序倒叙执行
+					
+				
+				
+				
+				
+				
+			

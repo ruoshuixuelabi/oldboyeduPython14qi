@@ -1,0 +1,236 @@
+day91
+内容回顾：
+	ES6的常用语法
+		-- 变量
+		-- 模板字符串
+		-- 函数 箭头函数 注意this
+		-- 类  class  extends 
+		-- 函数的单体模式
+		-- 数据解构
+		-- import  export   export default
+	Vue的常用指令
+		-- v-text  innerText
+		-- v-html  innerHtml
+		-- v-for
+		-- v-if    appendChild
+		-- v-show  display
+		-- v-bind  绑定属性
+		-- v-on    绑定事件
+		-- v-model  双向绑定
+		-- 指令修饰符
+		-- 计算属性
+		-- 数据监听
+		-- 自定义指令
+		-- 获取DOM
+	Vue的组件
+		-- 注册
+			-- 全局注册
+			-- 局部注册
+			-- 子组件的注册
+		-- 通信
+			-- 父子通信
+			-- 子父通信
+			-- 非父子通信
+		-- 混合
+			-- 代码复用
+			-- Mixins
+		-- 插槽
+			-- slot
+			-- 命名插槽
+	生命周期
+		-- beforeCreate
+		-- created
+		-- beforeMount
+		-- mounted
+		-- beforeUpdate
+		-- updated
+		-- beforeDestroy
+		-- destroyed
+	Vue路由
+		-- 注册
+			-- let url = [
+				{
+					path: "/",
+					name: xxx,
+					meta: {},
+					component: {
+						template: ``
+					}
+				}
+			]
+			-- let router = new VueRouter({
+					routes: url
+			})
+			-- const app = new Vue({
+					el: "#app",
+					router: router
+			})
+		-- 子路由的注册
+			-- children: [{},]
+		-- 路由的参数
+			-- path: "/course/:id?age=1"
+			-- "/course/xxxx" id: xxxx
+			-- this.$route.params.id
+			-- this.$route.query.age
+			-- this.$route  存放路由所有信息的对象
+			-- this.$router  VueRouter的实例化对象
+		-- 路由的重定向
+			-- redirect：{name: 'xx', params: {key: value}}
+		-- 手动路由
+			-- this.$router.push("/")
+		-- 路由的钩子
+			-- router.beforeEach(function(to, from, next){
+					to 你去哪
+					from 你从哪里来 
+					next 你接下来要做什么
+					to, from $route对象 路由的所有的信息
+			})
+	npm webpack vue-cli
+		-- npm
+			-- npm init -y  管理工作目录
+			-- npm i xxx@0.0.0  下载依赖包
+			-- npm uninstall xxxx 卸载
+			-- npm update xxx 更新
+		-- webpack 4
+			-- npm i webpack webpack-cli
+			-- webpack --mode development/production
+			-- 默认的入口文件
+				-- src目录下的index.js
+			-- 默认的出口文件
+				-- dist目录下的main.js
+		-- vue-cli 脚手架工具
+			-- npm i vue-cli
+			-- vue init webpack xxxx
+			-- cd xxxxx
+			-- npm run dev
+			-- npm run build
+	-- element-ui
+		-- 按照文档去安装
+今日内容：
+	vuex
+		-- 安装
+			npm i vuex
+		-- 配置
+			-- 导入vuex
+			   import vuex from "vuex"
+			-- vue使用vuex
+				vue.use(vuex)
+			-- 实例化仓库
+				new vuex.Store({
+					state: {},
+					getters: {},
+					mutations: {}
+				})
+			-- new Vue({
+				el: "#app",
+				store,
+			})
+		-- 获取仓库数据
+			this.$store.state.xxx
+			this.$store.getters.xxx
+		-- 改变仓库中的数据
+			-- 组件向仓库提交修改事件
+				this.$store.commit("事件名称", data)
+			--在仓库的mutations中
+				mutations: {
+					"事件名称"： function(state, data){
+							修改state中的数据
+					}
+				}
+		-- 注意计算属性
+			仓库中的数据建议都放在计算属性中
+	axios
+		-- 实现ajax技术的工具
+		-- 配置
+			-- 下载
+				npm i axios
+			-- 导入
+				import axios from "axios"
+			-- 在vue的原型链中加入方法
+				Vue.prototype.$axios = axios
+		-- 发送请求
+			this.$axios.request({url，method}).then(function(){}).catch(function(){})
+	前后端的接通
+		-- 后端设计一个接口
+		-- 前端通过axios发送请求拿到数据
+		-- 跨域问题
+RESTful规范
+	REST风格
+		-- 资源 网页中能看到的都是资源
+		-- URI  统一资源标识符
+		   URL  统一资源定位符
+		-- 统一资源接口
+			对资源的操作根据HTTP请求方式的不同来进行不同操作
+			遵循HTTP请求方式的语义
+		-- 前后端传输的是资源的表述
+		-- 展现的是资源的状态
+	凡是遵循REST风格实现的前后端交互都叫RESTful架构
+		-- 核心思想
+			-- 面向资源去编程  url中尽量名词不要用动词
+			-- 根据HTTP请求方式的不同对资源进行不同的操作
+		-- 在url中体现的
+			-- 体现版本
+				https://v2.bootcss.com/
+				https://bootcss.com/v2
+			-- 体现是否是API
+				https://v2.bootcss.com/api
+			-- 有过滤条件
+				https://v2.bootcss.com/course?page=1
+			-- 尽量用https
+		-- 在返回值中
+			-- 携带状态码
+			-- 返回值
+				-- get  返回查看的所有或者单条数据
+				-- post  返回新增的这条数据
+				-- put/patch  返回更新的这条数据
+				-- delete   返回值空
+			-- 携带错误信息
+			-- 携带超链接
+FBV和CBV区别				
+	    def dispatch(self, request, *args, **kwargs):
+        # 做分发的
+        if request.method.lower() in self.http_method_names:
+            handler = getattr(self, request.method.lower(), self.http_method_not_allowed)
+        else:
+            handler = self.http_method_not_allowed
+        return handler(request, *args, **kwargs)	
+APIView和View的区别
+	-- APIView继承了View
+	-- APIView 重写了as_view以及 dispatch方法
+	-- 在dispatch里重新封装了request
+		-- request = Request()
+		-- 旧的request变成了_request
+	-- get请求数据
+		-- request.query_params
+	-- post请求的数据
+		-- request.data
+安装rest_framework
+	-- pip install djangorestframework
+	-- 注册rest_framework
+序列化
+	-- Python--json
+	-- 第一版 用values以及JsonResponse实现序列化
+	-- 第二版 用Django的serialize实现的序列化
+		-- 缺点  不能序列化外键关系
+	-- 第三版用DRF实现序列化
+		-- 第一步声明序列化器
+		-- 第二步 使用我们的序列化器序列化queryset
+			-- 把模型对象放入序列化器进行字段匹配
+				匹配上的字段进行序列化 匹配不上丢弃
+		-- 序列化好的数据在ser_obj.data中
+	
+	-- 外键关系的序列化是嵌套的序列化器对象 
+		注意many=True
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		

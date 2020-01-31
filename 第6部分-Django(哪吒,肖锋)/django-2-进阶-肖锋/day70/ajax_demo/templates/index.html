@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta http-equiv="content-Type" charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+</head>
+<body>
+{#<form action="" method="post">#}
+{#    <input type="text" name="i1" value="{{ i1|default:'' }}">+#}
+{#    <input type="text" name="i2" value="{{ i2|default:'' }}">=#}
+{#    <input type="text" name="i3" value="{{ i3|default:'' }}">#}
+{##}
+{#    <button>计算</button>#}
+{#</form>#}
+
+{% csrf_token %}
+<input type="text" name="i1">+
+<input type="text" name="i2">=
+<input type="text" name="i3">
+
+<button id="b1">计算</button>
+
+<hr>
+<input type="text" name="ii1">+
+<input type="text" name="ii2">=
+<input type="text" name="ii3">
+
+<button id="b2">计算</button>
+<button id="b3">测试参数</button>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+
+    $('#b1').click(function () {
+        $.ajax({
+            url: '/calc/',
+            type: 'post',
+            data: {
+                i1: $('[name="i1"]').val(),
+                i2: $('[name="i2"]').val()
+            },
+            success: function (res) {
+                console.log(res);
+                $('[name="i3"]').val(res)
+
+            }
+        })
+    });
+
+    $('#b2').click(function () {
+        $.ajax({
+            url: '/calcs/',
+            type: 'post',
+            data: {
+                i1: $('[name="ii1"]').val(),
+                i2: $('[name="ii2"]').val()
+            },
+            success: function (res) {
+                console.log(res);
+                $('[name="ii3"]').val(res)
+
+            }
+        })
+    })
+
+    $('#b3').click(function () {
+        $.ajax({
+            url: '/ajax_test/',
+            type: 'post',
+            data: {
+                name: 'alex',
+                age: '73',
+                hobby: JSON.stringify(['讲鸡汤', '特斯拉', 'dabaojian'])
+
+            },
+            success: function (res) {
+                console.log(res);
+                $('[name="ii3"]').val(res)
+
+            }, error: function (res) {
+
+
+                console.log('这是错误的');
+                console.log(res)
+            }
+        })
+    })
+</script>
+
+</body>
+</html>

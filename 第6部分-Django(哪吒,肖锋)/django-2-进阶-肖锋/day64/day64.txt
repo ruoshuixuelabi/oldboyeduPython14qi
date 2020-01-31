@@ -1,0 +1,159 @@
+day64
+1. 内容回顾
+	1. django有关的所有命令
+		1. django的安装
+			pip install django==1.11.11
+			pip install -i yuan django==1.11.11
+		2. 创建项目
+			django-admin startproject 项目名
+		通过manage.py执行
+		CD 项目目录下
+		3. 创建APP
+			python manage.py startapp app01
+		4. 启动项目
+			python manage.py runserver  # 127.0.0.1:8000
+			python manage.py runserver  80 # 127.0.0.1:80
+			python manage.py runserver  0.0.0.0:80 # 0.0.0.0:80
+		5. 数据库相关
+			python manage.py makemigrations   # 记录modeles的变化，将变更记录记录到 对应APP下的migrations
+			python manage.py migrate          # 翻译成SQL语句，去数据库执行
+			
+	2. 配置settings.py
+		1. 数据库相关
+			EGNIGE:    引擎  mysql sqllite3
+			NAME:      数据库名字
+			HOST:      IP  
+			PORT:      端口号  3306
+			USER:      用户名
+			PASSWORD   密码   ‘’ 
+		2. 静态文件相关
+			STATIC_URL = 'static'    # 别名
+			STATICFILES_DIRS = [
+				os.path.join(BASE_DIR,'static'),
+			]
+		3. APP
+			INSTALLED_APPS = [
+				'app01.apps.App01Config',  # 告诉Django我自己新建了一个名叫app01的应用
+				# 'app01'
+			]
+			
+		4. CSRF 
+			注释掉CSRF中间件   form表单可以提交POST请求
+		5. TEMPLATES
+			'DIRS': [os.path.join(BASE_DIR, 'templates')]
+	3. ORM的对应关系
+		类    —— 》  数据表
+		对象  —— 》  数据行
+		属性  —— 》  字段
+	4. django使用mysql数据库的步骤：
+		1. 手动创建mysql数据库
+		2. 在settings.py 中配置：
+			DATABASES = {
+				'default': {
+					'ENGINE': 'django.db.backends.mysql',  # 连接数据库的类型
+					'NAME': 'mysite',  # 数据库名
+					'HOST': '127.0.0.1',  # 数据库主机地址
+					'PORT': 3306,  # 数据库的端口
+					'USER': 'root',
+					'PASSWORD': '',
+				},
+
+			}
+		3. 告诉django使用pymysql连接数据库
+			在与settings.py文件同级的目录下的__init__.py写代码：
+				import pymysql 
+				pymysql.install_as_MySQLdb()
+		4. 在models.py中写类（继承models.Model）
+			class Press(models.Model):
+				id = models.AutoField(primary_key=True)  # id主键
+				name = models.CharField(max_length=32)  # 出版社名称
+
+				def __str__(self):
+					return '<这是一个出版社对象，它的名字是:{}>'.format(self.name)
+
+
+			# 书
+			class Book(models.Model):
+				id = models.AutoField(primary_key=True)  # 自增id主键
+				title = models.CharField(max_length=30)  # 书名
+				price = models.IntegerField()  # 价格
+				# Django 1.11 默认就是级联删除， Django 2.0之后必须指定on_delete
+				# to=关联的表名
+				press = models.ForeignKey('Press', on_delete=models.CASCADE)
+
+
+			# 作者
+			class Author(models.Model):
+				id = models.AutoField(primary_key=True)  # 自增id主键
+				name = models.CharField(max_length=32)  # 作者名字
+				books = models.ManyToManyField(to='Book')  # 只是ORM层面建立的一个多对多关系，不是作者表的一个字段
+
+				def __str__(self):
+					return self.name
+		
+		5. 执行命名：
+			python manage.py makemigrations   # 记录models的变化，将变更记录记录到 对应APP下的migrations
+			python manage.py migrate          # 翻译成SQL语句，去数据库执行
+			
+	5. ORM操作：
+		1. 查：
+			from app01.models import User, Press, Book, Author
+			
+			Press.objects.all()   # 查询所有出版社对象   ——》 对象列表   queryset
+			Press.objects.filter(条件)  # 查询所有满足条件的出版社对象   ——》 对象列表   queryset
+			Press.objects.get(条件)     # 查询有且只能有一个对象   没有或者多个都报错  ——》 对象
+			
+			属性：
+				press_obj.id 
+				press_obj.name 
+			
+			
+			外键：
+				book_obj.id
+				book_obj.title
+				book_obj.press        ——》 关联的对象 
+				book_obj.press_id     ——》 数据库中的关联对象的ID 
+				book_obj.press.id  
+				
+			多对多：
+				author_obj.books     ——》 管理对象
+				author_obj.books.all（）     ——》作者关联的所有书籍对象 
+				
+				
+		2. 增加：
+			new_obj = Press.objects.create(name='新的出版社')   
+			
+			Book.objects.create(title='书名',price=15,press=press_obj)
+			Book.objects.create(title='书名',price=15,press_id=press_obj.id)
+			
+			new_obj= Author.objects.create(name='作者名')
+			new_obj.books.set([1,2,3])
+			new_obj.books.set([book1,book2])
+			
+			new_obj.books.add(1,2,3)
+			
+		3. 删除
+			
+			book_obj.delete()		—— 》 删除单个对象
+			
+			Press.objects.filter(条件).delete()   ——》 删多个对象
+		
+		4. 编辑
+			
+			press_obj.name = '新的出版社名字'
+			press_obj.save()
+			
+			book_obj.press = press_obj
+			# book_obj.press_id = press_obj.id
+			book_obj.save()
+			
+			
+			
+			author_obj.name = '作者名'
+			author_obj.save()
+			
+			author_obj.books.set([1,2,3])
+				
+			
+		
+			

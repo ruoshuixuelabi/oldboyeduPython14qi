@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta http-equiv="content-Type" charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <script src="./static/vue.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+        }
+        .box {
+            width: 50px;
+            height: 50px;
+            background-color: cornflowerblue;
+            float: left;
+            margin-left: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <global-component>
+            <div slot="home">首页</div>
+            <div slot="lightcourses">轻课</div>
+            <div slot="degreecourses">学位课程</div>
+        </global-component>
+
+    </div>
+<script>
+    Vue.component("global-component", {
+        template: `
+            <div class="box">
+                <slot name="lightcourses"></slot>
+                <slot name="degreecourses"></slot>
+                <slot name="home"></slot>
+            </div>
+        `
+    });
+
+    new Vue({
+        el: "#app",
+    })
+</script>
+</body>
+</html>

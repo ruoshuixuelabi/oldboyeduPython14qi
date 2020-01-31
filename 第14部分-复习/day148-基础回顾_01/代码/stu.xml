@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<root>
+    <stu>
+        <name>马卫华</name>
+        <age>25</age>
+        <address>沙河</address>
+    </stu>
+    <stu>
+        <name>马卫华</name>
+        <age>25</age>
+        <address>沙河</address>
+    </stu>
+    <stu>
+        <name>马卫华</name>
+        <age>25</age>
+        <address>沙河</address>
+    </stu>
+    <stu>
+        <name>马卫华</name>
+        <age>25</age>
+        <address>沙河</address>
+    </stu>
+    <script>
+        document.getElementsByTagName("stu").innerText
+
+        var st = {
+            name:"马卫华",
+            age:18,
+            address:"沙河"
+        }
+        st.name
+
+
+    </script>
+</root>

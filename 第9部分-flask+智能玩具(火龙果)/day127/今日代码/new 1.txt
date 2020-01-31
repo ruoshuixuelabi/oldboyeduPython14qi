@@ -1,0 +1,133 @@
+2019年1月2日:
+	1.数据采集工具 - 喜马拉雅 
+	2.内容的图文列表 dom mlist
+	3.内容播放 plus.audio.createPlayer(path)
+	4.模拟web玩具
+	
+	5.通过Websocket将音频发送至玩具端:
+		app发送 {msg:"filename"} 
+		web端接收 "http://127.0.0.1/get_audio/filename" send_file(path)
+	
+	6.用户的数据校验 - 注册登录
+		window.localstorage.setItem("user","string");
+		window.localstorage.getItem("user")
+		window.localstorage.removeItem("user")
+		md5.js 
+		user_dict = request.form.to_dict()
+		
+	7.扫码 plus.barcode.Barcode("tag_id") tag_id一定要指定大小
+		barcode.start()
+		barcode.onmarked = function(type(0),result)
+		
+	8.二维码:
+		联图二维码 - device_key 
+	
+	9.扫码绑定:
+		1.别乱扫 - 扫码的数据不是 device_key
+			请联系经销商
+			
+		2.有效的device_key 没有被绑定
+			开启绑定流程
+			
+		3.有效的device_key 但是已经被用户绑定
+			开启添加好友流程 app+玩具 玩具+玩具
+		
+	10.开启绑定流程:
+		1.创建玩具
+			{玩具的属性,玩具_id}
+		
+		2.绑定 指向用户 {bind_user : 用户appid}
+		
+		3.双方加好友
+			chat_window = mongodb.chats.insert_one({user_list:[],chat_list:[]})
+			
+			添加好友
+			    t2u_friend = {
+					"friend_id":user_id,
+					"friend_name":user_info.get("nickname"),
+					"friend_avatar":user_info.get("avatar"),
+					"friend_remark":bind_form.pop("remark"),
+					"friend_chat":str(chat.inserted_id)
+				}
+				
+			    u2t_friend={
+					"friend_id":toy_id,
+					"friend_name":bind_form.get("babyname"),
+					"friend_avatar":bind_form.get("avatar"),
+					"friend_remark":bind_form.get("toyname"),
+					"friend_chat":str(chat.inserted_id)
+				}
+					
+			mongodb.chats.update_one({},{$set:{user_list:[t_id,u_id]}})
+		
+		
+	11.玩具开机:
+		发送device_key 
+		1.device_key非法
+			语音文件 : 提示请联系经销商
+			
+		2.有效的device_key 没有被绑定
+			语音文件 : 提示打开手机app扫码绑定
+			
+		3.有效的device_key 但是已经被用户绑定
+			语音文件 : 提示开机,欢迎来到
+			
+		得到toy_id
+	
+	12.多玩具遥控 mpop 弹出菜单
+
+
+今日内容:
+	1.chat 聊天 - 语音消息
+		app:
+		√ chat_window - 微信对话框 - 跟谁聊Friend_list
+		√ plus.audio.getRecorder()
+		√ 录音 reco.record({filename:"_doc/audio/",format:"amr"}) 
+		√ 录音在哪 {filename:"_doc/audio/"} + 时间戳.amr	
+		录音怎么给玩具?
+		√ 1.将录音上传至服务器 并转换成 MP3
+		√ 2.ws.send() 到玩具 == 遥控器-音乐 - 语音消息
+		√ 3.玩具的语音提醒
+		
+		web玩具:
+		怎么收录音 语音提醒 ws.onmessage
+		收到消息做什么 - 播放
+		
+		
+2019年1月3日:
+1.
+√只能收取最后一条消息 - 离线消息/未读消息 - 深渊:穿插发送
+	{to_user:Dragonfire,from_user:xiaowei,chat:"xxtx.mp3"}
+	{Dragonfire:{xiaowei:6,xiaokangkang:0}}
+	+1
+	=0
+	
+
+	
+	
+√2.如果最后一条是自己发的,不要收取自己的消息
+
+√4.app 消息数字提醒 未读消息提醒 - 小问题
+
+
+
+
+2019年1月4日
+添加好友
+深渊:穿插发送
+
+
+3.app chat 没有实时刷新数据 - window.location.reload();
+
+5.玩具如何主动发起消息 深渊
+6.玩具点播内容 + 图灵 深渊
+
+
+
+			
+	
+	
+	
+	
+		
+	

@@ -1,0 +1,209 @@
+day65
+1. 内容回顾
+	1. 装饰器
+		1. 
+			def wrapper(fn):
+				def inner(*args,**kwargs):
+					执行被装饰函数之前的操作
+					ret = fn(*args,**kwargs)
+					执行被装饰函数之后的操作
+					
+					return ret 
+				return inner
+				
+			
+			def yue(tools):
+				pass
+				
+			yue = wrapper(yue)
+			
+			print(yue(tools))
+			
+	2. tags 
+		1. for 
+			{% for i in list %}
+				{{ i }}
+			{% endfor %}
+			
+			{% for i in list %}
+				{{ i }}
+				
+			{% empty %}
+			
+				空的
+			{% endfor %}
+		
+			forloop  {}
+			forloop.counter      当前循环的索引值   索引值从1开始
+			forloop.counter0     当前循环的索引值   索引值从0开始
+			forloop.revcounter   当前循环的索引值(倒序)   索引值到1结束
+			forloop.revcounter0   当前循环的索引值(倒序)   索引值到0结束
+			forloop.first		 当前循环是否是第一次  True 
+			forloop.last		 当前循环是否是最后一次   
+			
+			forloop.parentloop   {}
+		2. if 
+			{%  if  条件%}
+				操作
+			{% endif %}
+			
+			{%  if  条件%}
+				操作
+				
+			{% elif 条件 %}
+			
+			{% else %}
+				
+			{% endif %}
+			
+			注意：
+				1. 不支持连续判断  a>b>c  a>b and b>c  
+				2. 不支持算数运算  + - * /    add 
+				
+		3. with  
+			{% with 变量 as 别名%}
+			
+				{{ 别名 }}
+			{% endwith %}
+			
+		4. csrf_token 
+			1. 放在form表单中
+			2. 在表单中添加了一个隐藏的input标签
+				name csrfmiddlewaretoken 
+				valve  askjdaskdhashdkasd  64 
+		5. 母版继承
+			1. 定义一个母版  普通的HTML代码  base.html
+			2. 在母版中定义block块
+			3. 子页面中继承的母版 {% extends  'base.html' %}
+			4. 重写block块 
+			
+			注意事项：
+				1. {% extends  'base.html' %}写在第一行
+				2. {% extends name %}   name写继承的母版的名字字符串
+				3. 自定义的内容写在block中
+				4. 定义多个block块  一般要有js css 
+		
+			
+2. 今日内容
+	1. 模板
+		1. 组件
+			1. 写一段的代码  nav.html
+			2. {% include 'nav.html' %}
+			
+		2. 静态文件相关
+			1. {% load static %}
+			
+			2. {% static  '相对路径' %}   ——》 去settings中获取STATIC_URL  '/static/' 和相对路径进行拼接
+			
+			3. {% get_static_prefix %}    ——》 去settings中获取STATIC_URL  '/static/'
+				
+				"{% get_static_prefix %}相对路径"
+			
+			
+		3. 自定义inclusion_tag
+			1. 在app下创建一个templatetags的python包   templatetags名字不能错
+			2. 在包下写py文件 mytags
+			3. 编辑文件
+				from django import template
+				register = template.Library()
+				
+			4. 定义函数
+				可以接受参数
+				返回一个字典 
+			5. 函数上加装饰器
+				@register.inclusion_tag('pagination.html')
+			6. 函数返回的字典 交给 pagination.html 渲染
+			
+			
+		
+	
+	2. 视图
+	
+		1。 CBV 和 FBV
+			FBV function based view 
+			CBV class based view
+			
+		2. CBV的流程
+		
+			1. 定义CBV
+				from django.views import View
+				class AddPress(View):
+				
+
+					def get(self, request):
+						print('get')
+						print(self.request)
+						return render(self.request, 'add_press2.html')
+
+					def post(self, request):
+						print('post')
+						press_name = request.POST.get('name')
+						Press.objects.create(name=press_name)
+						return redirect('/press_list/')
+						
+			2. 使用
+				url(r'^add_press/$', views.AddPress.as_view()),  # 添加出版社
+				
+			3. 流程
+				1. AddPress.as_view()  —— 》 view函数
+				
+				
+				2. 当请求到来的时候执行view函数：
+					1. 实例化自己写的类   —— 》self
+						self = cls(**initkwargs)
+
+					2. self.request = request
+					
+					3. 执行 self.dispatch(request, *args, **kwargs)
+					
+						1. 执行父类中的dispatch方法
+							1. 判断请求方式是否被允许
+								1. 允许的情况
+									handler = 通过反射获取 get  post 方法 
+									
+								2. 不允许的情况
+									handler = 不允许的方法
+									
+								3. handler(request, *args, **kwargs)
+								
+						2. 返回HttpResponse对象
+					4. 返回HttpResponse对象 给django
+					
+		3. request
+			  print(request.method)
+				print(request.GET)
+				print(request.POST)
+				print(request.FILES)
+
+				print(request.path_info)
+				print(request.body)
+				print(request.scheme)
+				print(request.path)
+				print(request.encoding)
+				print(request.META)
+
+
+				print(request.get_host())
+				print(request.get_full_path())
+				print(request.is_secure())
+				print(request.is_ajax())
+		4. response
+		
+			from django.shortcuts import render, HttpResponse, redirect
+			1. HttpResponse    HttpResponse('字符串')   
+			2. render(request,'html文件名',{})    —— 》 HTML代码
+			3. redirect(跳转的地址)
+			
+			4. 
+			    HttpResponse(json.dumps(ret))  # Content-Type: text/html; charset=utf-8
+
+				JsonResponse(ret)      # Content-Type: application/json
+				
+	
+	3. 路由 
+	
+	
+			
+		
+		
+		

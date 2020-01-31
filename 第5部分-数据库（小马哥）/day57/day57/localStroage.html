@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta http-equiv="content-Type" charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+</head>
+<body>
+    <div>
+        <input type="text" id="user">
+        <input type="password" id="pwd">
+        <input type="button" value="登录">
+        <input type="button" value="退出" id="clear">
+    </div>
+    <p class="username"></p>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+    <script>
+
+
+        $(function () {
+
+            if (localStorage.getItem('user')){
+                //用户已登录
+                var user = localStorage.getItem('user');
+                console.log( user);
+                 $('.username').text(user);
+            }
+
+
+
+            $('input[type="button"]').click(function () {
+                var user = $('#user').val();
+                var pwd = $('#pwd').val();
+
+            //   保存到本地存储对象中
+                localStorage.setItem('user',user);
+                //清空
+                $('#user').val('');
+                $('#pwd').val('');
+                //是指用户名
+                $('.username').text(user);
+
+            });
+
+            $('#clear').click(function () {
+                // localStorage.removeItem('user');
+                localStorage.clear();
+            });
+
+        });
+    </script>
+
+</body>
+</html>

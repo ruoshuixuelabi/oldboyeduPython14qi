@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta http-equiv="content-Type" charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+</head>
+<body>
+
+    <div id="app"></div>
+
+    <script>
+        // 默认值参数
+        /*
+        function foo(x, y=10) {
+            let number = y;
+            return number;
+        }
+
+        ret = foo(1, 2);
+        ret1 = foo(1);
+        ret2 = foo(1, 0);
+        console.log(ret);
+        console.log(ret1);
+        console.log(ret2);
+
+
+        // 箭头函数
+        // 一个参数
+        let foo = v => v;
+        ret1 = foo(10);
+        console.log(ret1);
+
+        // 0个或者多个参数
+        let bar = (x, y) => {return x+y;};
+        ret2 = bar(1, 2);
+        console.log(ret2);
+
+        */
+
+        function foo() {
+            console.log(this);
+        }
+
+        let bar = () => console.log(this);
+
+        let obj = {
+            foo: foo,
+            bar: bar,
+        };
+
+        foo();
+        obj.foo();
+        obj.bar();
+
+    </script>
+
+</body>
+</html>

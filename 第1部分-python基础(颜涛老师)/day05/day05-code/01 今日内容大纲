@@ -1,0 +1,44 @@
+一. 昨日内容回顾
+    1. list 列表. 用[]表示. 有索引下标. 切片
+    2. 增删改查
+        1.增加: append(), insert(), extend()
+        2.删除: pop(), remove(), del list[], clear()
+        3.修改: 索引切片修改
+        4.查询: for循环
+    3. 常用操作:
+        1. count()计数
+        2. len() 求长度  __len__()
+        3. sort() 排序 reverse = True 倒序
+        4. reverse() 顺序翻转  [::-1]
+    4. 嵌套
+        降维操作
+    5. 元组
+        tuple, 只读列表. 不能修改. 不能修改的是元组内部第一层元素
+    6. range(5, 10, 2)
+二. 作业讲解
+三. 今日主要内容
+    1. dict
+        用大括号{} 括起来. 内部使用key:value的形式来保存数据
+        {'jay':'周杰伦', "jj":'林俊杰'}
+        注意:字典的key必须是可哈希的. 不可变的, value 没有限制
+        不是按照我们保存的顺序保存的, 无序的
+    2. 增删改查
+        1. dict[不存在的key] = value, setdefault()
+        2. pop(key). del dict[key]. popitem(), clear()
+        3. dict[存在的key] = 新值, d1.update(d2) 把d2的k-v更新到d1中
+        4. get(key, 默认值), setdefault(), dict[key]
+    3. 字典的常用方法
+        1. keys() 返回所有字典的key的集合(高仿列表)
+        2. values() 返回所有的value的集合
+        3. items()  返回键值对. 元组
+        解构:
+            a, b = (1, 2)
+
+    4. 字典的嵌套
+
+
+
+    预习:
+        is 和 == 的区别
+        encode和decode 编码
+

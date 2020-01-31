@@ -1,0 +1,54 @@
+安装配置ubuntu
+安装ubuntu详细博客
+https://www.cnblogs.com/pyyu/p/9900100.html
+
+
+
+1.通过vmware安装ubuntu系统
+2.安装完成后，登录ubuntu，通过普通用户 s14登录，密码redhat
+3.下载pycharm到ubuntu系统中
+	-可以通过python -m http.server形式下载
+	-可以scp
+	-可以配置ssh服务
+4.解压缩pycharm的linux软件包
+tar -zxvf ...
+5.在桌面添加一个普通文本名为Pycharm.desktop，写入如下信息
+	[Desktop Entry]
+
+	Version=1.0
+
+	Type=Application
+
+	Name=Pycharm
+	#找到pycharm的图标
+	Icon=/opt/pycharm-community-2018.2.4/bin/pycharm.png   
+	#找到pycharm的应用程序
+	Exec=/opt/pycharm-community-2018.2.4/bin/pycharm.sh
+
+	MimeType=application/x-py;
+
+	Name[en_US]=pycharm
+
+
+6.右击这个文件，设置属性，为可执行
+
+
+
+
+
+
+[Desktop Entry]
+
+Version=1.0
+
+Type=Application
+
+Name=Pycharm
+
+Icon=/opt/pycharm-community-2018.2.4/bin/pycharm.png
+
+Exec=/opt/pycharm-community-2018.2.4/bin/pycharm.sh
+
+MimeType=application/x-py;
+
+Name[en_US]=pycharm

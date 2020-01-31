@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<title>6666666</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="css/mui.css" />
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title"><span id="title"></span>的详情</h1>
+		</header>
+		<div class="mui-content">
+			<div class="mui-row mui-text-center" style="margin-top: 15px;">
+				<img src="avatar/toy.jpg" style="border-radius: 50%;width: 200px;height: 200px;" />
+			</div>
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell">
+					<span class="mui-navigate-right">
+                        玩具名称 : 
+                    </span>
+					<span id="toyname" style="color: #6641E2;">
+                        Item 1
+                    </span>
+				</li>
+				<li class="mui-table-view-cell">
+					<span class="mui-navigate-right">
+                        主人名称 : 
+                    </span>
+					<span id="babyname" style="color: #6641E2;">
+                        Item 1
+                    </span>
+				</li>
+				<li class="mui-table-view-cell">
+					<span class="mui-navigate-right">
+                        设备编号 : 
+                    </span>
+					<span id="device_key" style="color: #6641E2;">
+                        Item 1
+                    </span>
+				</li>
+			</ul>
+			
+			<ul class="mui-table-view">
+		        <li class="mui-table-view-cell mui-text-center">
+		        	玩具通讯录
+		        </li>
+			</ul>
+			
+			<ul class="mui-table-view mui-grid-view" id="friend_list">
+				<li class="mui-table-view-cell mui-media mui-col-xs-3">
+			        <a href="#">
+			            <img class="mui-media-object" src="images/add.jpg" style="border-radius: 50%;width: 50px;height: 50px;">
+			            <div class="mui-media-body">添加好友</div>
+			        </a>
+			    </li>
+			</ul>
+			
+		</div>
+		<script src="js/mui.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			mui.init()
+			var Sdata = null;
+			mui.plusReady(function () {
+			    Sdata = plus.webview.currentWebview();
+			    document.getElementById("title").innerText = Sdata.toyname;
+			    document.getElementById("toyname").innerText = Sdata.toyname;
+			    document.getElementById("babyname").innerText = Sdata.babyname;
+			    document.getElementById("device_key").innerText = Sdata.device_key;
+			    
+			    for (var i = 0; i < Sdata.friend_list.length; i++) {
+			    	create_friend(Sdata.friend_list[i]);
+			    }
+			    
+			})
+			
+			function create_friend(friend_info){
+			 	var litag = document.createElement("li");
+			 	litag.className="mui-table-view-cell mui-media mui-col-xs-3";
+			 	var atag = document.createElement("a");
+			 	var imgtag = document.createElement("img");
+			 	imgtag.className="mui-media-object";
+			 	imgtag.src = "avatar/" + friend_info.friend_avatar;
+			 	imgtag.style.cssText = "border-radius: 50%;width: 50px;height: 50px;";
+			 	var divtag = document.createElement("div");
+			 	divtag.className="mui-media-body";
+			 	divtag.innerText = friend_info.friend_remark;
+			 	litag.appendChild(atag);
+			 	atag.appendChild(imgtag);
+			 	atag.appendChild(divtag);
+			 	document.getElementById("friend_list").appendChild(litag);
+			}
+		</script>
+	</body>
+
+</html>

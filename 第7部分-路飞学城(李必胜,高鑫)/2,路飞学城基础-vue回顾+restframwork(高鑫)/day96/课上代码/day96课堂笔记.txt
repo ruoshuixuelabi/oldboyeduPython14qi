@@ -1,0 +1,133 @@
+day96
+内容回顾：
+	分页组件
+		流程：
+			-- 实例化分页器对象
+			-- 调用分页器的分页方法进行分页
+			-- 把分页好的数据用序列化器进行序列化
+			-- 调用响应方法返回带超链接的响应
+		用DRF给我们提供的分页器：
+			-- 写一个类继承给我们提供的分页类
+			-- 在自己的类里写配置信息 去源码里看人家提供分页类要求什么
+			-- 调用上面的分页流程
+		源码内部调用分页器：
+			-- get--list方法
+			-- 在list方法里
+				page = self.paginate_queryset(queryset)
+				# 我们自己配置的分页类的实例化对象.paginate_queryset()
+				# 拿到分页数据 []
+				if page is not None:
+					serializer = self.get_serializer(page, many=True)
+					return self.get_paginated_response(serializer.data)
+	解析器
+		原理：
+			-- 拿到前端传过来的Content-Type
+			-- 获取所有的配置的解析器
+			-- 拿到Content-Type跟解析器里的media-type(标识我能解析什么数据类型)进行匹配
+			-- 匹配成功返回解析器
+			-- 调用解析器里的parse方法
+		Django的解析器
+			-- request.POST
+			-- request.FILES
+			-- request.body
+		DRF的解析器
+			-- request.data
+			-- pass
+		DRF默认的解析器
+			-- Json
+			-- FormData
+			-- 多类型的
+			'DEFAULT_PARSER_CLASSES': (
+				'rest_framework.parsers.JSONParser',
+				'rest_framework.parsers.FormParser',
+				'rest_framework.parsers.MultiPartParser'
+			),
+	渲染器
+		json
+		浏览器的
+		'DEFAULT_RENDERER_CLASSES': (
+			'rest_framework.renderers.JSONRenderer',
+			'rest_framework.renderers.BrowsableAPIRenderer',
+		),
+今日内容：
+	跨域
+		浏览器的同源策略
+			-- 阻止ajax请求不阻止src请求
+		JsonP 解决跨域的方式
+		添加响应头
+			-- 简单请求和复杂请求
+				简单请求满足：
+					HTTP方法是下列方法之一
+
+				　　HEAD， GET，POST
+
+				HTTP头信息不超出以下几种字段
+
+				　　Accept， Accept-Language， Content-Language， Last-Event-ID
+
+				　　Content-Type只能是下列类型中的一个
+
+				　　　　application/x-www-from-urlencoded
+
+				　　　　multipart/form-data
+
+				　　　　text/plain
+			-- 复杂请求
+				-- 先发送预检请求 OPTIONS
+			-- 写一个中间件
+				class MyCors(MiddlewareMixin):
+					def process_response(self, request, response):
+						response["Access-Control-Allow-Origin"] = "*"
+						if request.method == "OPTIONS":
+							# 复杂请求会先发预检
+							response["Access-Control-Allow-Headers"] = "Content-Type"
+							response["Access-Control-Allow-Methods"] = "PUT,PATCH,DELETE"
+						return response
+						
+	ContentType组件
+		-- 一张表跟多张表创建外键关系的时候
+		--  content_type = models.ForeignKey(to=ContentType)
+			到ContentType 定位到表
+			object_id = models.IntegerField()
+			# 定位到对象id
+			content_object = GenericForeignKey("content_type", "object_id")
+			# 不会生成字段 只用于关联到对象的
+		
+	课程模块：
+		数据接口： 通过orm查询数据 序列化返回 
+	登录认证：
+	购物模块：
+	课程模块的表结构：
+		-- 课程分类表
+		-- 课程表
+		-- 课程详情表
+			-- 跟课程表一对一的关系
+		-- 学位课程表
+		-- 评论表 ContentType实现
+		-- 用户表
+		-- 价格策略表 ContentType实现
+		-- 课程大纲表
+		-- 讲师表
+		-- 章节表
+		-- 课时表
+		-- 常见问题表 Content-Type
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

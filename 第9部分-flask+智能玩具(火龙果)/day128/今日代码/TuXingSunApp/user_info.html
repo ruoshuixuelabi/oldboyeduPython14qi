@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>6666666</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link rel="stylesheet" type="text/css" href="css/mui.css"/>
+</head>
+<body>
+    <header class="mui-bar mui-bar-nav">
+        <h1 class="mui-title"><span id="title"></span>的详情</h1>
+    </header>
+    <div class="mui-content">
+        <ul class="mui-table-view">
+            <li class="mui-table-view-cell mui-media">
+                <a href="javascript:;">
+                    <img class="mui-media-object mui-pull-left" id="avatar" style="border-radius: 50%;">
+                    <div class="mui-media-body">
+	                    <span id="nickname"></span>  
+                        <p class="mui-ellipsis" id="username"></p>
+                    </div>
+                </a>
+            </li>
+        </ul>
+        
+        <ul class="mui-table-view">
+                <li class="mui-table-view-cell">
+                    <a class="mui-navigate-right" id="toy_manager"><i class="mui-icon mui-icon-qq"></i>
+                        管理我的玩具
+                    </a>
+                </li>
+            </ul>
+        
+        <button type="button" class="mui-btn mui-btn-red mui-btn-block" id="logout_btn">退出登录</button>
+    </div>
+    <script src="js/mui.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+    mui.init();
+    var Sdata = null;
+    mui.plusReady(function () {
+        Sdata = plus.webview.currentWebview();
+        console.log(JSON.stringify(Sdata));
+        document.getElementById("title").innerText=Sdata.nickname;
+        document.getElementById("nickname").innerText=Sdata.nickname;
+        document.getElementById("username").innerText=Sdata.username;
+        document.getElementById("avatar").src= "avatar/" + Sdata.avatar;
+    })
+    
+    document.getElementById('logout_btn').addEventListener('tap',function () {
+            window.localStorage.removeItem("user");
+            mui.openWindow({
+		        	url:"login.html",	
+		        	id:"login.html",
+		        	styles:{
+		        		top:"0px",
+		        		bottom:"50px"
+		        	}
+		        })
+    })
+    
+    document.getElementById('toy_manager').addEventListener('tap',function () {
+		        mui.openWindow({
+		        	url:"toy_manager.html",	
+		        	id:"toy_manager.html",
+		        	createNew:true
+		        })
+			
+    })
+    </script>
+</body>
+</html>

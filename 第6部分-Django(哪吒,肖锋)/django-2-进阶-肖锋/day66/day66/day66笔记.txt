@@ -1,0 +1,150 @@
+day66
+1. 内容回顾
+	1. 组件
+		1. 一小段HTML代码段   nav.html
+		2. {% include 'nav.html' %}
+		
+	2. 静态文件相关
+		1. {% load static %}
+		2. {% static '相对路径' %}
+		3. {% get_static_prefix %} 
+		
+	3. 自定义simple_tag 和 inclusion_tag 
+		
+		见图
+		
+	4. CBV
+		from django.views import View 
+		
+		class AddPress(View):
+		
+			def dispatch(self,request,*args,**kwargs):
+				
+				ret = super().dispatch(request, *args, **kwargs)
+				
+				return ret
+
+		
+			def get(self,request,*args,**kwargs):
+				pass
+				
+			def post(self,request,*args,**kwargs):
+				pass
+				
+		使用：
+		url(r'^add_press/$', views.AddPress.as_view()),  # 添加出版社
+		
+	5. CBV流程：
+		1. views.AddPress.as_view()  ——》view 函数 
+		2. 请求到来的时候才执行view
+			1. 实例化AddPress  ——》 self
+				self.request = request
+			2. 执行self.dispatch    如果AddPress定义 执行自己的 ，没有定义 执行View的dispatch
+				1. 请求方式的判断   http_method_names=[] 
+					1. 允许请求 
+						通过反射获取到对应的请求的方法  ——》handler
+					2. 不允许  
+						http_method_not_allowed   ——》handler
+					3. handler(request, *args, **kwargs)   ——》返回HTTPresponse对象
+					
+							
+	6. 加装饰器
+		FBV 普通加法
+			@wrapper
+			def test()
+			
+		CBV 
+			from django.utils.decorators import method_decorator
+			1. 加在方法上
+				@method_decorator(timer)
+				def get(self, request):
+				
+			2. 加在dispatch上
+				@method_decorator(timer)
+				def dispatch(self, request, *args, **kwargs)
+			3. 加在类上
+				
+				@method_decorator(timer,name='post')
+				@method_decorator(timer,name='get')
+				class AddPress(View):
+			
+	(<app01.views.AddPress object at 0x0000000004618EB8>, <WSGIRequest: GET '/add_press/'>)
+	<function AddPress.get at 0x00000000042AB950>
+	
+	(<WSGIRequest: GET '/add_press/'>,)
+	<function method_decorator.<locals>._dec.<locals>._wrapper.<locals>.bound_func at 0x000000000439AF28>
+				
+	7. request
+		request.method   POST GET PUT DELTE OPTION 
+		request.GET      ?id=11&name=sss    {}
+		request.POST
+		request.body  
+		b'csrfmiddlewaretoken=qaJFPogK4A6G75wiQlzzngROthlVJtepG3jEkDlfWF5odlnfvzPYXoweKOXA98Mm
+		&
+		name=%E5%8C%97%E4%BA%AC%E5%87%BA%E7%89%88%E7%A4%BE'
+		request.FILES enctype = 'mutlipart/form-data'
+		request.path_info   url   不包括域名端口和参数
+		
+		
+		request.get_host()   域名端口
+		request.get_full_path()   包括参数
+	8. response
+		HttpResponse('ok')     Content-Type: text/html; charset=utf-8
+		render(request,'html文件名'，{} )   ——》完整的页面
+		redirect('/press_list/')    ——》  Location ：/press_list/
+		JsonResponse({})       Content-Type: application/json
+			
+		
+2. 今日内容
+	1. url命名和反向解析
+		1. 命名
+			# url(r'^press_list/$', views.press_list,name='press_list'),  
+			url(r'^pre/$', views.press_list,name='press_list'),  
+			
+			分组：
+			url(r'^home/([0-9]{4})/([0-9]{2})/$', views.home,name='home'),
+			
+			
+			命名分组：
+			 url(r'^home/(?P<year>[0-9]{4})/(?P<month>[0-9]{2})/$', views.home,name='home'),
+		
+		2. 反向解析
+			1. 在视图中应用
+				from django.urls import  reverse
+				
+				reverse('press_list')   ——》 '/press_list/'   '/pre/'
+				
+				
+				分组：
+				reverse('home',args=('2008','09'))    ——》'/app01/home/2008/09/'
+				
+				命名分组：
+				reverse('home',args=('2008','09'))    ——》'/app01/home/2008/09/'
+				reverse('home',kwargs={'year':'2018','month':'10'})
+				
+			2. 在模板中的应用
+			
+				{% url 'press_list' %}  ——》  '/press_list/'  '/pre/'
+				
+				分组：
+				{% url 'home' '2009' '10' %}   ——》'/app01/home/2008/10/'
+				
+				命名分组：
+				{% url 'home' '2008' '10' %}   ——》'/app01/home/2008/10/' 
+				{% url 'home' month='10'  year='2018' %}   ——》'/app01/home/2018/10/' 
+				
+	2. namespace
+		url(r'app02/', include('app02.urls',namespace='app02')),
+		url(r'app01/',include('app01.urls',namespace='app01')),
+		
+		reverse('app01:home',kwargs={'year':'2018','month':'10'})
+		reverse('app02:home',kwargs={'year':'2018','month':'10'})
+				
+				
+		{% url 'app02:home' '2018' '10'  %}
+		
+		
+	
+
+				
+		

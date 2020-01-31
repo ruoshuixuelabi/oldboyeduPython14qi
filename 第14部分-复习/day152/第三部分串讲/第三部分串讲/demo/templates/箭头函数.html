@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="x-ua-compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>箭头函数</title>
+  <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+  <script>
+      /*
+      $("#b1").click(function () {
+          console.log(this);
+          console.log('-----');
+          var that = this;
+          $.ajax({
+              url: "http://127.0.0.1:8000/index/",
+              method: "GET",
+              success:function (data) {
+                  console.log(that);
+                  console.log('======');
+                  console.log(data);
+                  $(that).prev().text(data);
+              }
+          })
+      })
+      */
+
+      /*
+    window.onload = function () {
+        $("#b1").click(function () {
+            console.log(this);
+            console.log('-----');
+            $.ajax({
+                url: "http://127.0.0.1:8000/index/",
+                method: "GET",
+                success: (data) => {
+                    console.log(this);
+                    console.log("========");
+                    console.log(data);
+                    $(this).prev().text(data);
+                }
+            })
+        })
+    }
+    */
+
+      function getKangChen(){
+          $.ajax({
+                  url: "http://127.0.0.1:8000/index/",
+                  method: "GET",
+                  success: (data) => {
+                      // 将后续操作放到回调函数中
+                      console.log(data);
+                      $(this).prev().text(ret);
+
+                  },
+                  error:function (err) {
+                      console.log(err);
+                  }
+              })
+      }
+      window.onload = function () {
+          $("#b1").click(function () {
+              console.log(this);
+              console.log('-----');
+              var ret = getKangChen();
+              console.log(this);
+              console.log(ret);
+              $(this).prev().text(ret);
+          })
+      }
+  </script>
+</head>
+<body>
+<div id="app">
+  <p></p>
+  <button id="b1">点我</button>
+</div>
+
+</body>
+</html>

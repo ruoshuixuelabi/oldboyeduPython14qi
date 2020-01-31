@@ -1,0 +1,1304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="94ef89ba-c274-4d3f-8190-78a1318f5b15" name="Default" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="db" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="db" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="db" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="main: schema" type="90513b60:SqliteImplModel$Schema" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
+    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/SerDemo/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="40">
+              <caret line="164" column="27" selection-start-line="164" selection-start-column="27" selection-end-line="164" selection-end-column="27" />
+              <folding>
+                <element signature="e#536#561#0" />
+                <element signature="e#647#864#0" />
+                <element signature="e#732#758#0" />
+                <element signature="e#819#864#0" />
+                <element signature="e#901#1061#0" />
+                <element signature="e#934#1061#0" />
+                <element signature="e#1104#1337#0" />
+                <element signature="e#1139#1337#0" />
+                <element signature="e#1231#1297#0" />
+                <element signature="e#1382#1556#0" />
+                <element signature="e#1423#1556#0" />
+                <element signature="e#1599#1930#0" />
+                <element signature="e#1638#1930#0" />
+                <element signature="e#1824#1890#0" />
+                <element signature="e#1978#2189#0" />
+                <element signature="e#2018#2189#0" />
+                <element signature="e#2275#2279#0" />
+                <element signature="e#2399#2403#0" />
+                <element signature="e#2493#2497#0" />
+                <element signature="e#2544#3565#0" />
+                <element signature="e#2626#2651#0" />
+                <element signature="e#3059#3084#0" />
+                <element signature="e#3090#3116#0" />
+                <element signature="e#3538#3565#0" />
+                <element signature="e#3630#4555#0" />
+                <element signature="e#3743#3917#0" />
+                <element signature="e#3743#3790#0" />
+                <element signature="e#3963#4295#0" />
+                <element signature="e#3963#4010#0" />
+                <element signature="e#4340#4555#0" />
+                <element signature="e#4340#4387#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DRFDemo/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="15" column="31" lean-forward="true" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="31" />
+              <folding>
+                <element signature="e#0#29#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="permissions.py" pinned="false" current-in-tab="false">
+        <entry file="file://E:/Python 环境/Python36/Lib/site-packages/rest_framework/permissions.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="310">
+              <caret line="81" column="22" selection-start-line="81" selection-start-column="8" selection-end-line="81" selection-end-column="22" />
+              <folding>
+                <element signature="e#0#56#1" />
+                <element signature="e#268#619#0" />
+                <element signature="e#334#440#0" />
+                <element signature="e#491#619#0" />
+                <element signature="e#637#1102#0" />
+                <element signature="e#675#712#0" />
+                <element signature="e#767#889#0" />
+                <element signature="e#956#1102#0" />
+                <element signature="e#1119#1584#0" />
+                <element signature="e#1157#1194#0" />
+                <element signature="e#1249#1371#0" />
+                <element signature="e#1438#1584#0" />
+                <element signature="e#1628#1924#0" />
+                <element signature="e#1661#1698#0" />
+                <element signature="e#1736#1772#0" />
+                <element signature="e#1812#1849#0" />
+                <element signature="e#1888#1924#0" />
+                <element signature="e#2005#2083#1" />
+                <element signature="e#2138#2240#0" />
+                <element signature="e#2138#2220#1" />
+                <element signature="e#2307#2409#0" />
+                <element signature="e#2307#2389#1" />
+                <element signature="e#2448#2705#0" />
+                <element signature="e#2448#2639#1" />
+                <element signature="e#2694#2705#0" />
+                <element signature="e#2751#2917#0" />
+                <element signature="e#2751#2809#1" />
+                <element signature="e#2864#2917#0" />
+                <element signature="e#2959#3109#0" />
+                <element signature="e#2959#3009#1" />
+                <element signature="e#3064#3109#0" />
+                <element signature="e#3165#3437#0" />
+                <element signature="e#3165#3247#1" />
+                <element signature="e#3302#3437#0" />
+                <element signature="e#3490#6051#0" />
+                <element signature="e#3490#3877#1" />
+                <element signature="e#3883#3928#0" />
+                <element signature="e#4070#4366#0" />
+                <element signature="e#4472#4905#0" />
+                <element signature="e#4472#4608#1" />
+                <element signature="e#4626#4742#0" />
+                <element signature="e#4946#5491#0" />
+                <element signature="e#5059#5167#0" />
+                <element signature="e#5265#5462#0" />
+                <element signature="e#5546#6051#0" />
+                <element signature="e#5546#5607#0" />
+                <element signature="e#6126#6275#0" />
+                <element signature="e#6126#6238#1" />
+                <element signature="e#6337#8405#0" />
+                <element signature="e#6337#6750#1" />
+                <element signature="e#6767#7063#0" />
+                <element signature="e#7139#7427#0" />
+                <element signature="e#7148#7264#0" />
+                <element signature="e#7494#8405#0" />
+                <element signature="e#7799#8384#0" />
+                <element signature="e#7799#7862#0" />
+                <element signature="e#8033#8159#0" />
+                <element signature="e#8033#8087#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="parsers.py" pinned="false" current-in-tab="false">
+        <entry file="file://E:/Python 环境/Python36/Lib/site-packages/rest_framework/parsers.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="278">
+              <caret line="93" column="37" selection-start-line="93" selection-start-column="18" selection-end-line="93" selection-end-column="37" />
+              <folding>
+                <element signature="e#0#203#1" />
+                <element signature="e#944#1028#0" />
+                <element signature="e#985#1028#0" />
+                <element signature="e#1061#1195#1" />
+                <element signature="e#1294#1557#0" />
+                <element signature="e#1294#1491#1" />
+                <element signature="e#1594#2387#0" />
+                <element signature="e#1594#1638#1" />
+                <element signature="e#1833#1927#1" />
+                <element signature="e#2424#2461#1" />
+                <element signature="e#2591#2914#0" />
+                <element signature="e#2591#2713#1" />
+                <element signature="e#2956#3032#1" />
+                <element signature="e#3148#4025#0" />
+                <element signature="e#3148#3419#1" />
+                <element signature="e#3739#3896#0" />
+                <element signature="e#4068#8511#0" />
+                <element signature="e#4068#4112#1" />
+                <element signature="e#4149#4374#0" />
+                <element signature="e#4451#7230#0" />
+                <element signature="e#4451#4718#1" />
+                <element signature="e#5128#5188#0" />
+                <element signature="e#5372#5498#0" />
+                <element signature="e#5694#6053#0" />
+                <element signature="e#6394#6643#0" />
+                <element signature="e#6415#6520#0" />
+                <element signature="e#6576#6643#0" />
+                <element signature="e#6686#6960#0" />
+                <element signature="e#6752#6960#0" />
+                <element signature="e#7032#7178#0" />
+                <element signature="e#7304#7999#0" />
+                <element signature="e#7304#7454#1" />
+                <element signature="e#7592#7927#0" />
+                <element signature="e#8060#8511#0" />
+                <element signature="e#8060#8185#1" />
+                <element signature="e#8277#8384#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="negotiation.py" pinned="false" current-in-tab="false">
+        <entry file="file://E:/Python 环境/Python36/Lib/site-packages/rest_framework/negotiation.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="336">
+              <caret line="36" column="16" selection-start-line="36" selection-start-column="16" selection-end-line="36" selection-end-column="29" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+        <entry file="file://E:/Python 环境/Python36/Lib/site-packages/rest_framework/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="245">
+              <caret line="108" column="28" lean-forward="true" selection-start-line="108" selection-start-column="28" selection-end-line="108" selection-end-column="28" />
+              <folding>
+                <element signature="e#0#82#1" />
+                <element signature="e#852#1585#0" />
+                <element signature="e#852#1077#1" />
+                <element signature="e#1636#2226#0" />
+                <element signature="e#1636#1875#1" />
+                <element signature="e#2253#2419#0" />
+                <element signature="e#2463#3449#0" />
+                <element signature="e#2463#2777#1" />
+                <element signature="e#2993#3432#0" />
+                <element signature="e#4257#5190#0" />
+                <element signature="e#4257#4463#1" />
+                <element signature="e#4554#4912#0" />
+                <element signature="e#4594#4857#0" />
+                <element signature="e#4634#4839#0" />
+                <element signature="e#5040#5106#0" />
+                <element signature="e#5245#5380#0" />
+                <element signature="e#5245#5341#1" />
+                <element signature="e#5444#5624#0" />
+                <element signature="e#5454#5519#0" />
+                <element signature="e#5699#5892#0" />
+                <element signature="e#5699#5834#1" />
+                <element signature="e#5958#6235#0" />
+                <element signature="e#5958#6053#1" />
+                <element signature="e#6285#6417#0" />
+                <element signature="e#6285#6376#1" />
+                <element signature="e#6475#6755#0" />
+                <element signature="e#6475#6611#1" />
+                <element signature="e#6952#7016#0" />
+                <element signature="e#7266#7721#0" />
+                <element signature="e#7266#7401#1" />
+                <element signature="e#7410#7476#0" />
+                <element signature="e#7532#7721#0" />
+                <element signature="e#7776#8099#0" />
+                <element signature="e#7776#7894#1" />
+                <element signature="e#7910#8099#0" />
+                <element signature="e#8138#8320#0" />
+                <element signature="e#8138#8246#1" />
+                <element signature="e#8378#8594#0" />
+                <element signature="e#8378#8507#1" />
+                <element signature="e#8687#8885#0" />
+                <element signature="e#8687#8774#1" />
+                <element signature="e#8924#9084#0" />
+                <element signature="e#8924#9018#1" />
+                <element signature="e#9121#9213#1" />
+                <element signature="e#9317#9416#1" />
+                <element signature="e#9521#9618#1" />
+                <element signature="e#9729#9820#1" />
+                <element signature="e#9934#10018#1" />
+                <element signature="e#10212#10333#0" />
+                <element signature="e#10212#10286#1" />
+                <element signature="e#10449#10852#0" />
+                <element signature="e#10449#10540#1" />
+                <element signature="e#10762#10852#0" />
+                <element signature="e#10909#11177#1" />
+                <element signature="e#11250#11388#1" />
+                <element signature="e#11695#12107#0" />
+                <element signature="e#11695#11852#1" />
+                <element signature="e#11915#12107#0" />
+                <element signature="e#11992#12107#0" />
+                <element signature="e#12157#12287#1" />
+                <element signature="e#12517#12686#1" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="request.py" pinned="false" current-in-tab="false">
+        <entry file="file://E:/Python 环境/Python36/Lib/site-packages/rest_framework/request.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="293">
+              <caret line="355" column="12" selection-start-line="355" selection-start-column="12" selection-end-line="355" selection-end-column="74" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DRFDemo/settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="376">
+              <caret line="130" column="4" lean-forward="true" selection-start-line="130" selection-start-column="4" selection-end-line="130" selection-end-column="4" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
+        <entry file="file://E:/Python 环境/Python36/Lib/site-packages/rest_framework/settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="173">
+              <caret line="80" column="64" lean-forward="true" selection-start-line="80" selection-start-column="64" selection-end-line="80" selection-end-column="64" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>dispatch</find>
+      <find>DEFAULT_CONTENT_NEGOTIATION_CLASS</find>
+    </findStrings>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/djangoDemo/admin.py" />
+        <option value="$PROJECT_DIR$/djangoDemo/urls.py" />
+        <option value="$PROJECT_DIR$/djangoDemo/views.py" />
+        <option value="$PROJECT_DIR$/djangoDemo/models.py" />
+        <option value="$PROJECT_DIR$/SerDemo/serializers.py" />
+        <option value="$PROJECT_DIR$/SerDemo/tests.py" />
+        <option value="E:/Python 环境/Python36/Lib/site-packages/rest_framework/viewsets.py" />
+        <option value="$PROJECT_DIR$/VerisonDemo/urls.py" />
+        <option value="$PROJECT_DIR$/VerisonDemo/views.py" />
+        <option value="$PROJECT_DIR$/utils/version.py" />
+        <option value="E:/Python 环境/Python36/Lib/site-packages/rest_framework/views.py" />
+        <option value="$PROJECT_DIR$/utils/pagination.py" />
+        <option value="E:/Python 环境/Python36/Lib/site-packages/rest_framework/mixins.py" />
+        <option value="$PROJECT_DIR$/SerDemo/urls.py" />
+        <option value="$PROJECT_DIR$/DRFDemo/urls.py" />
+        <option value="$USER_HOME$/.PyCharm2018.1/system/python_stubs/-1632547457/builtins.py" />
+        <option value="E:/Python 环境/Python36/Lib/site-packages/rest_framework/request.py" />
+        <option value="E:/Python 环境/Python36/Lib/site-packages/rest_framework/negotiation.py" />
+        <option value="$PROJECT_DIR$/DRFDemo/settings.py" />
+        <option value="$PROJECT_DIR$/DRFDemo/views.py" />
+        <option value="$PROJECT_DIR$/SerDemo/views.py" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths />
+  </component>
+  <component name="ProjectFrameBounds" extendedState="1">
+    <option name="x" value="-4" />
+    <option name="width" value="1380" />
+    <option name="height" value="728" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="DRFDemo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DRFDemo" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DRFDemo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DRFDemo" type="462c0819:PsiDirectoryNode" />
+              <item name="DRFDemo" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DRFDemo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DRFDemo" type="462c0819:PsiDirectoryNode" />
+              <item name="SerDemo" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="database.console.LAST_STATE" value="true" />
+    <property name="last_opened_file_path" value="D:/24期周末班" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="DRFDemo" type="Python.DjangoServer" factoryName="Django server">
+      <module name="DRFDemo" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="DJANGO_SETTINGS_MODULE" value="DRFDemo.settings" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="port" value="8000" />
+      <option name="host" value="" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="false" />
+      <option name="customRunCommand" value="" />
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="94ef89ba-c274-4d3f-8190-78a1318f5b15" name="Default" comment="" />
+      <created>1542176355491</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1542176355491</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-4" y="0" width="1380" height="728" extended-state="1" />
+    <editor active="true" />
+    <layout>
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.6265271" />
+      <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Python Console" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.3293718" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="right" id="Database" order="3" weight="0.32978722" />
+      <window_info anchor="right" id="SciView" order="3" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="manage.py@DRFDemo" order="7" weight="0.39049235" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Database Console" order="8" weight="0.3293718" />
+      <window_info anchor="bottom" id="Find" order="1" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="3" />
+    </breakpoint-manager>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/DRFDemo/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3024">
+          <caret line="126" column="56" selection-start-line="126" selection-start-column="33" selection-end-line="126" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SerDemo/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="18" selection-start-line="18" selection-end-line="18" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/djangoDemo/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="840">
+          <caret line="40" column="30" selection-start-line="40" selection-start-column="30" selection-end-line="40" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SerDemo/serializers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1824">
+          <caret line="77" column="74" lean-forward="true" selection-start-line="77" selection-start-column="74" selection-end-line="77" selection-end-column="74" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SerDemo/tests.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="9" column="5" lean-forward="true" selection-start-line="3" selection-start-column="12" selection-end-line="9" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/Python 环境/Python36/Lib/site-packages/django/core/serializers/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2856">
+          <caret line="124" column="37" lean-forward="true" selection-start-line="124" selection-start-column="37" selection-end-line="124" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SerDemo/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="14" column="28" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SerDemo/models.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SerDemo/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="5" column="16" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="16" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/djangoDemo/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="9" column="51" lean-forward="true" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/djangoDemo/admin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="6" column="38" selection-start-line="6" selection-start-column="32" selection-end-line="6" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/Python 环境/Python36/Lib/json/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="109" column="27" selection-start-line="109" selection-start-column="27" selection-end-line="109" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/Python 环境/Python36/Lib/json/encoder.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="690">
+          <caret line="103" column="8" selection-start-line="103" selection-start-column="8" selection-end-line="103" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/Python 环境/Python36/Lib/site-packages/django/core/serializers/json.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="546">
+          <caret line="105" column="38" selection-start-line="105" selection-start-column="38" selection-end-line="105" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/Python 环境/Python36/Lib/site-packages/django/http/response.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="529" column="64" selection-start-line="529" selection-start-column="47" selection-end-line="529" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/djangoDemo/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="24">
+          <caret line="1" column="9" selection-start-line="1" selection-start-column="9" selection-end-line="1" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/day91课堂笔记.txt" />
+    <entry file="file://E:/Python 环境/Python36/Lib/site-packages/django/core/serializers/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2856">
+          <caret line="124" column="37" selection-start-line="124" selection-start-column="37" selection-end-line="124" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/djangoDemo/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="840">
+          <caret line="40" column="30" selection-start-line="40" selection-start-column="30" selection-end-line="40" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SerDemo/models.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SerDemo/serializers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1824">
+          <caret line="77" column="74" selection-start-line="77" selection-start-column="74" selection-end-line="77" selection-end-column="74" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/djangoDemo/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="104">
+          <caret line="9" column="51" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SerDemo/tests.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="9" column="5" lean-forward="true" selection-start-line="3" selection-start-column="12" selection-end-line="9" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/Python 环境/Python36/Lib/site-packages/django/views/generic/base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-182">
+          <caret line="54" column="30" selection-start-line="54" selection-start-column="30" selection-end-line="54" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://65da6a02-3a65-431e-b25a-13c1eca9a236/schema/main/table/djangodemo_author">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/Python 环境/Python36/Lib/site-packages/rest_framework/routers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="778">
+          <caret line="308" column="33" selection-start-line="308" selection-start-column="33" selection-end-line="308" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/VerisonDemo/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="13" column="25" selection-start-line="13" selection-start-column="25" selection-end-line="13" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/Python 环境/Python36/Lib/site-packages/rest_framework/versioning.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="472">
+          <caret line="163" column="47" selection-start-line="163" selection-start-column="47" selection-end-line="163" selection-end-column="47" />
+          <folding>
+            <element signature="e#691#842#0" />
+            <element signature="e#945#1010#0" />
+            <element signature="e#1063#1245#0" />
+            <element signature="e#1298#1994#0" />
+            <element signature="e#1874#1940#0" />
+            <element signature="e#2042#3317#0" />
+            <element signature="e#2042#2608#1" />
+            <element signature="e#2741#2943#0" />
+            <element signature="e#3046#3317#0" />
+            <element signature="e#3090#3190#0" />
+            <element signature="e#3367#5132#0" />
+            <element signature="e#4231#4694#0" />
+            <element signature="e#4563#4630#0" />
+            <element signature="e#4797#5026#0" />
+            <element signature="e#5093#5132#0" />
+            <element signature="e#5489#5837#0" />
+            <element signature="e#5843#5914#0" />
+            <element signature="e#6603#6866#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/version.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="32" lean-forward="true" selection-start-column="32" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/Python 环境/Python36/Lib/site-packages/rest_framework/throttling.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="317">
+          <caret line="107" column="34" selection-start-line="107" selection-start-column="34" selection-end-line="107" selection-end-column="34" />
+          <folding>
+            <element signature="e#0#45#1" />
+            <element signature="e#293#1472#0" />
+            <element signature="e#293#337#1" />
+            <element signature="e#391#554#0" />
+            <element signature="e#391#481#1" />
+            <element signature="e#598#1307#0" />
+            <element signature="e#598#833#1" />
+            <element signature="e#1039#1246#0" />
+            <element signature="e#1337#1472#0" />
+            <element signature="e#1337#1452#1" />
+            <element signature="e#1519#1938#1" />
+            <element signature="e#2343#2528#1" />
+            <element signature="e#2635#2723#1" />
+            <element signature="e#3040#3148#0" />
+            <element signature="e#3190#3333#1" />
+            <element signature="e#3625#3802#1" />
+            <element signature="e#4058#4120#0" />
+            <element signature="e#4431#4660#0" />
+            <element signature="e#4431#4537#1" />
+            <element signature="e#4702#4809#0" />
+            <element signature="e#4702#4788#1" />
+            <element signature="e#4839#5276#0" />
+            <element signature="e#4839#4916#1" />
+            <element signature="e#5327#5782#0" />
+            <element signature="e#5327#5483#1" />
+            <element signature="e#5556#5782#0" />
+            <element signature="e#5693#5782#0" />
+            <element signature="e#5833#6378#0" />
+            <element signature="e#5833#6070#1" />
+            <element signature="e#6143#6378#0" />
+            <element signature="e#6307#6378#0" />
+            <element signature="e#6431#8084#0" />
+            <element signature="e#6431#6737#1" />
+            <element signature="e#6805#6930#0" />
+            <element signature="e#6805#6872#0" />
+            <element signature="e#6984#7564#0" />
+            <element signature="e#7246#7310#0" />
+            <element signature="e#7618#8084#0" />
+            <element signature="e#7618#7840#1" />
+            <element signature="e#8013#8084#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/VerisonDemo/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="4" column="16" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="16" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/pagination.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5">
+          <caret line="3" column="36" lean-forward="true" selection-start-line="3" selection-start-column="36" selection-end-line="3" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/Python 环境/Python36/Lib/site-packages/rest_framework/pagination.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="461">
+          <caret line="200" column="45" lean-forward="true" selection-start-line="188" selection-start-column="8" selection-end-line="200" selection-end-column="45" />
+          <folding>
+            <element signature="e#16#129#1" />
+            <element signature="e#936#1157#0" />
+            <element signature="e#936#997#1" />
+            <element signature="e#1193#1328#0" />
+            <element signature="e#1193#1267#1" />
+            <element signature="e#1384#2982#0" />
+            <element signature="e#1384#2042#1" />
+            <element signature="e#2161#2221#0" />
+            <element signature="e#2337#2399#0" />
+            <element signature="e#2493#2532#0" />
+            <element signature="e#2570#2625#0" />
+            <element signature="e#2712#2793#0" />
+            <element signature="e#3043#3559#0" />
+            <element signature="e#3043#3152#1" />
+            <element signature="e#3218#3537#0" />
+            <element signature="e#3303#3500#0" />
+            <element signature="e#3605#3887#0" />
+            <element signature="e#3605#3752#1" />
+            <element signature="e#3780#3826#0" />
+            <element signature="e#4737#4839#0" />
+            <element signature="e#5111#5135#0" />
+            <element signature="e#5458#5520#0" />
+            <element signature="e#5700#5774#0" />
+            <element signature="e#6077#6230#1" />
+            <element signature="e#6681#6834#0" />
+            <element signature="e#6914#7015#0" />
+            <element signature="e#7397#7744#0" />
+            <element signature="e#7440#7713#0" />
+            <element signature="e#7461#7649#0" />
+            <element signature="e#7783#8010#0" />
+            <element signature="e#8053#8383#0" />
+            <element signature="e#8425#9124#0" />
+            <element signature="e#8528#8730#0" />
+            <element signature="e#8976#9124#0" />
+            <element signature="e#9157#9284#0" />
+            <element signature="e#9333#10346#0" />
+            <element signature="e#9534#9863#0" />
+            <element signature="e#9927#10324#0" />
+            <element signature="e#10398#10560#1" />
+            <element signature="e#11755#12094#0" />
+            <element signature="e#11794#12059#0" />
+            <element signature="e#11815#11995#0" />
+            <element signature="e#12139#12314#0" />
+            <element signature="e#12156#12254#0" />
+            <element signature="e#12353#12659#0" />
+            <element signature="e#12702#13097#0" />
+            <element signature="e#13139#14611#0" />
+            <element signature="e#13220#13843#0" />
+            <element signature="e#13290#13335#0" />
+            <element signature="e#13870#13903#0" />
+            <element signature="e#14019#14298#0" />
+            <element signature="e#14151#14298#0" />
+            <element signature="e#14463#14611#0" />
+            <element signature="e#14644#14771#0" />
+            <element signature="e#14820#15676#0" />
+            <element signature="e#15019#15676#0" />
+            <element signature="e#15721#15943#0" />
+            <element signature="e#15721#15817#1" />
+            <element signature="e#16489#16551#0" />
+            <element signature="e#16731#16805#0" />
+            <element signature="e#16902#16966#0" />
+            <element signature="e#17296#20464#0" />
+            <element signature="e#18095#18526#0" />
+            <element signature="e#18536#18609#0" />
+            <element signature="e#18980#19103#0" />
+            <element signature="e#19130#19198#0" />
+            <element signature="e#19232#19822#0" />
+            <element signature="e#19232#19303#0" />
+            <element signature="e#19849#20217#0" />
+            <element signature="e#20227#20288#0" />
+            <element signature="e#20512#20859#0" />
+            <element signature="e#20555#20828#0" />
+            <element signature="e#20576#20764#0" />
+            <element signature="e#20898#22931#0" />
+            <element signature="e#21033#21250#0" />
+            <element signature="e#21033#21092#0" />
+            <element signature="e#21379#21946#0" />
+            <element signature="e#21496#21673#0" />
+            <element signature="e#21496#21549#0" />
+            <element signature="e#21687#21748#0" />
+            <element signature="e#21974#22815#0" />
+            <element signature="e#22074#22303#0" />
+            <element signature="e#22074#22101#0" />
+            <element signature="e#22358#22564#0" />
+            <element signature="e#22358#22417#0" />
+            <element signature="e#22599#22815#0" />
+            <element signature="e#22599#22656#0" />
+            <element signature="e#22974#24992#0" />
+            <element signature="e#23117#23333#0" />
+            <element signature="e#23117#23176#0" />
+            <element signature="e#23456#24023#0" />
+            <element signature="e#23573#23750#0" />
+            <element signature="e#23573#23626#0" />
+            <element signature="e#23764#23825#0" />
+            <element signature="e#24051#24877#0" />
+            <element signature="e#24147#24376#0" />
+            <element signature="e#24147#24174#0" />
+            <element signature="e#24431#24643#0" />
+            <element signature="e#24431#24488#0" />
+            <element signature="e#24678#24877#0" />
+            <element signature="e#24678#24737#0" />
+            <element signature="e#25055#26891#0" />
+            <element signature="e#25055#25147#1" />
+            <element signature="e#25175#25315#0" />
+            <element signature="e#25358#25910#0" />
+            <element signature="e#25358#25421#0" />
+            <element signature="e#25716#25819#0" />
+            <element signature="e#25937#26554#0" />
+            <element signature="e#25937#25995#0" />
+            <element signature="e#26135#26244#0" />
+            <element signature="e#26318#26540#0" />
+            <element signature="e#26939#27804#0" />
+            <element signature="e#26939#27021#1" />
+            <element signature="e#27235#27634#0" />
+            <element signature="e#27851#28388#0" />
+            <element signature="e#27851#27934#1" />
+            <element signature="e#28461#28674#0" />
+            <element signature="e#28728#28895#0" />
+            <element signature="e#28756#28893#0" />
+            <element signature="e#28937#29054#0" />
+            <element signature="e#28944#29054#0" />
+            <element signature="e#29087#29214#0" />
+            <element signature="e#29263#30281#0" />
+            <element signature="e#29464#29798#0" />
+            <element signature="e#29862#30259#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/Python 环境/Python36/Lib/site-packages/rest_framework/viewsets.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="461">
+          <caret line="227" column="33" selection-start-line="227" selection-start-column="33" selection-end-line="227" selection-end-column="33" />
+          <folding>
+            <element signature="e#0#675#1" />
+            <element signature="e#1095#1126#0" />
+            <element signature="e#1161#1523#1" />
+            <element signature="e#1604#5098#0" />
+            <element signature="e#1604#1838#1" />
+            <element signature="e#1847#1917#0" />
+            <element signature="e#2051#2118#0" />
+            <element signature="e#2368#2435#0" />
+            <element signature="e#2603#2803#0" />
+            <element signature="e#2619#2802#0" />
+            <element signature="e#2885#3279#0" />
+            <element signature="e#2934#3127#0" />
+            <element signature="e#2950#3072#0" />
+            <element signature="e#3182#3279#0" />
+            <element signature="e#3402#3548#0" />
+            <element signature="e#3418#3530#0" />
+            <element signature="e#3606#4568#0" />
+            <element signature="e#3643#3701#0" />
+            <element signature="e#3883#3908#0" />
+            <element signature="e#4042#4247#0" />
+            <element signature="e#4042#4055#0" />
+            <element signature="e#4670#4713#0" />
+            <element signature="e#4820#4883#0" />
+            <element signature="e#5168#5767#0" />
+            <element signature="e#5168#5265#1" />
+            <element signature="e#5439#5676#0" />
+            <element signature="e#5439#5501#0" />
+            <element signature="e#5834#6059#0" />
+            <element signature="e#5834#5902#1" />
+            <element signature="e#6118#6279#0" />
+            <element signature="e#6118#6204#1" />
+            <element signature="e#6329#7266#0" />
+            <element signature="e#6329#6485#1" />
+            <element signature="e#6708#6821#0" />
+            <element signature="e#6866#7238#0" />
+            <element signature="e#6887#7137#0" />
+            <element signature="e#7317#7405#0" />
+            <element signature="e#7317#7396#1" />
+            <element signature="e#7473#7680#0" />
+            <element signature="e#7473#7671#1" />
+            <element signature="e#7835#7926#0" />
+            <element signature="e#7835#7917#1" />
+            <element signature="e#8190#8342#0" />
+            <element signature="e#8190#8333#1" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/Python 环境/Python36/Lib/site-packages/rest_framework/generics.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="163" column="55" selection-start-line="163" selection-start-column="39" selection-end-line="163" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/Python 环境/Python36/Lib/site-packages/rest_framework/mixins.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="365">
+          <caret line="45" column="9" lean-forward="true" selection-start-line="45" selection-start-column="9" selection-end-line="46" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SerDemo/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="15" column="47" selection-start-line="15" selection-start-column="47" selection-end-line="15" selection-end-column="47" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DRFDemo/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="298">
+          <caret line="17" column="8" lean-forward="true" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharm2018.1/system/python_stubs/-1632547457/builtins.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="365">
+          <caret line="4078" column="24" lean-forward="true" selection-start-line="4078" selection-start-column="24" selection-end-line="4078" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/Python 环境/Python36/Lib/site-packages/django/http/request.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="291" column="33" lean-forward="true" selection-start-line="291" selection-start-column="33" selection-end-line="291" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/Python 环境/Python36/Lib/site-packages/django/core/handlers/wsgi.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="397">
+          <caret line="139" column="29" lean-forward="true" selection-start-line="139" selection-start-column="29" selection-end-line="139" selection-end-column="29" />
+          <folding>
+            <element signature="e#2361#4045#0" />
+            <element signature="e#4082#4124#0" />
+            <element signature="e#4174#4378#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/Python 环境/Python36/Lib/site-packages/rest_framework/utils/mediatypes.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="37">
+          <caret line="13" column="32" selection-start-line="13" selection-start-column="28" selection-end-line="13" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/Python 环境/Python36/Lib/site-packages/rest_framework/negotiation.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="36" column="16" selection-start-line="36" selection-start-column="16" selection-end-line="36" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/Python 环境/Python36/Lib/site-packages/rest_framework/request.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="293">
+          <caret line="355" column="12" selection-start-line="355" selection-start-column="12" selection-end-line="355" selection-end-column="74" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/Python 环境/Python36/Lib/site-packages/rest_framework/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="245">
+          <caret line="108" column="28" lean-forward="true" selection-start-line="108" selection-start-column="28" selection-end-line="108" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#82#1" />
+            <element signature="e#852#1585#0" />
+            <element signature="e#852#1077#1" />
+            <element signature="e#1636#2226#0" />
+            <element signature="e#1636#1875#1" />
+            <element signature="e#2253#2419#0" />
+            <element signature="e#2463#3449#0" />
+            <element signature="e#2463#2777#1" />
+            <element signature="e#2993#3432#0" />
+            <element signature="e#4257#5190#0" />
+            <element signature="e#4257#4463#1" />
+            <element signature="e#4554#4912#0" />
+            <element signature="e#4594#4857#0" />
+            <element signature="e#4634#4839#0" />
+            <element signature="e#5040#5106#0" />
+            <element signature="e#5245#5380#0" />
+            <element signature="e#5245#5341#1" />
+            <element signature="e#5444#5624#0" />
+            <element signature="e#5454#5519#0" />
+            <element signature="e#5699#5892#0" />
+            <element signature="e#5699#5834#1" />
+            <element signature="e#5958#6235#0" />
+            <element signature="e#5958#6053#1" />
+            <element signature="e#6285#6417#0" />
+            <element signature="e#6285#6376#1" />
+            <element signature="e#6475#6755#0" />
+            <element signature="e#6475#6611#1" />
+            <element signature="e#6952#7016#0" />
+            <element signature="e#7266#7721#0" />
+            <element signature="e#7266#7401#1" />
+            <element signature="e#7410#7476#0" />
+            <element signature="e#7532#7721#0" />
+            <element signature="e#7776#8099#0" />
+            <element signature="e#7776#7894#1" />
+            <element signature="e#7910#8099#0" />
+            <element signature="e#8138#8320#0" />
+            <element signature="e#8138#8246#1" />
+            <element signature="e#8378#8594#0" />
+            <element signature="e#8378#8507#1" />
+            <element signature="e#8687#8885#0" />
+            <element signature="e#8687#8774#1" />
+            <element signature="e#8924#9084#0" />
+            <element signature="e#8924#9018#1" />
+            <element signature="e#9121#9213#1" />
+            <element signature="e#9317#9416#1" />
+            <element signature="e#9521#9618#1" />
+            <element signature="e#9729#9820#1" />
+            <element signature="e#9934#10018#1" />
+            <element signature="e#10212#10333#0" />
+            <element signature="e#10212#10286#1" />
+            <element signature="e#10449#10852#0" />
+            <element signature="e#10449#10540#1" />
+            <element signature="e#10762#10852#0" />
+            <element signature="e#10909#11177#1" />
+            <element signature="e#11250#11388#1" />
+            <element signature="e#11695#12107#0" />
+            <element signature="e#11695#11852#1" />
+            <element signature="e#11915#12107#0" />
+            <element signature="e#11992#12107#0" />
+            <element signature="e#12157#12287#1" />
+            <element signature="e#12517#12686#1" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DRFDemo/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="376">
+          <caret line="130" column="4" lean-forward="true" selection-start-line="130" selection-start-column="4" selection-end-line="130" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/Python 环境/Python36/Lib/site-packages/rest_framework/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="80" column="64" lean-forward="true" selection-start-line="80" selection-start-column="64" selection-end-line="80" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/Python 环境/Python36/Lib/site-packages/rest_framework/parsers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="278">
+          <caret line="93" column="37" selection-start-line="93" selection-start-column="18" selection-end-line="93" selection-end-column="37" />
+          <folding>
+            <element signature="e#0#203#1" />
+            <element signature="e#944#1028#0" />
+            <element signature="e#985#1028#0" />
+            <element signature="e#1061#1195#1" />
+            <element signature="e#1294#1557#0" />
+            <element signature="e#1294#1491#1" />
+            <element signature="e#1594#2387#0" />
+            <element signature="e#1594#1638#1" />
+            <element signature="e#1833#1927#1" />
+            <element signature="e#2424#2461#1" />
+            <element signature="e#2591#2914#0" />
+            <element signature="e#2591#2713#1" />
+            <element signature="e#2956#3032#1" />
+            <element signature="e#3148#4025#0" />
+            <element signature="e#3148#3419#1" />
+            <element signature="e#3739#3896#0" />
+            <element signature="e#4068#8511#0" />
+            <element signature="e#4068#4112#1" />
+            <element signature="e#4149#4374#0" />
+            <element signature="e#4451#7230#0" />
+            <element signature="e#4451#4718#1" />
+            <element signature="e#5128#5188#0" />
+            <element signature="e#5372#5498#0" />
+            <element signature="e#5694#6053#0" />
+            <element signature="e#6394#6643#0" />
+            <element signature="e#6415#6520#0" />
+            <element signature="e#6576#6643#0" />
+            <element signature="e#6686#6960#0" />
+            <element signature="e#6752#6960#0" />
+            <element signature="e#7032#7178#0" />
+            <element signature="e#7304#7999#0" />
+            <element signature="e#7304#7454#1" />
+            <element signature="e#7592#7927#0" />
+            <element signature="e#8060#8511#0" />
+            <element signature="e#8060#8185#1" />
+            <element signature="e#8277#8384#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DRFDemo/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="15" column="31" lean-forward="true" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="31" />
+          <folding>
+            <element signature="e#0#29#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/Python 环境/Python36/Lib/site-packages/rest_framework/permissions.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="310">
+          <caret line="81" column="22" selection-start-line="81" selection-start-column="8" selection-end-line="81" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#56#1" />
+            <element signature="e#268#619#0" />
+            <element signature="e#334#440#0" />
+            <element signature="e#491#619#0" />
+            <element signature="e#637#1102#0" />
+            <element signature="e#675#712#0" />
+            <element signature="e#767#889#0" />
+            <element signature="e#956#1102#0" />
+            <element signature="e#1119#1584#0" />
+            <element signature="e#1157#1194#0" />
+            <element signature="e#1249#1371#0" />
+            <element signature="e#1438#1584#0" />
+            <element signature="e#1628#1924#0" />
+            <element signature="e#1661#1698#0" />
+            <element signature="e#1736#1772#0" />
+            <element signature="e#1812#1849#0" />
+            <element signature="e#1888#1924#0" />
+            <element signature="e#2005#2083#1" />
+            <element signature="e#2138#2240#0" />
+            <element signature="e#2138#2220#1" />
+            <element signature="e#2307#2409#0" />
+            <element signature="e#2307#2389#1" />
+            <element signature="e#2448#2705#0" />
+            <element signature="e#2448#2639#1" />
+            <element signature="e#2694#2705#0" />
+            <element signature="e#2751#2917#0" />
+            <element signature="e#2751#2809#1" />
+            <element signature="e#2864#2917#0" />
+            <element signature="e#2959#3109#0" />
+            <element signature="e#2959#3009#1" />
+            <element signature="e#3064#3109#0" />
+            <element signature="e#3165#3437#0" />
+            <element signature="e#3165#3247#1" />
+            <element signature="e#3302#3437#0" />
+            <element signature="e#3490#6051#0" />
+            <element signature="e#3490#3877#1" />
+            <element signature="e#3883#3928#0" />
+            <element signature="e#4070#4366#0" />
+            <element signature="e#4472#4905#0" />
+            <element signature="e#4472#4608#1" />
+            <element signature="e#4626#4742#0" />
+            <element signature="e#4946#5491#0" />
+            <element signature="e#5059#5167#0" />
+            <element signature="e#5265#5462#0" />
+            <element signature="e#5546#6051#0" />
+            <element signature="e#5546#5607#0" />
+            <element signature="e#6126#6275#0" />
+            <element signature="e#6126#6238#1" />
+            <element signature="e#6337#8405#0" />
+            <element signature="e#6337#6750#1" />
+            <element signature="e#6767#7063#0" />
+            <element signature="e#7139#7427#0" />
+            <element signature="e#7148#7264#0" />
+            <element signature="e#7494#8405#0" />
+            <element signature="e#7799#8384#0" />
+            <element signature="e#7799#7862#0" />
+            <element signature="e#8033#8159#0" />
+            <element signature="e#8033#8087#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SerDemo/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="40">
+          <caret line="164" column="27" selection-start-line="164" selection-start-column="27" selection-end-line="164" selection-end-column="27" />
+          <folding>
+            <element signature="e#536#561#0" />
+            <element signature="e#647#864#0" />
+            <element signature="e#732#758#0" />
+            <element signature="e#819#864#0" />
+            <element signature="e#901#1061#0" />
+            <element signature="e#934#1061#0" />
+            <element signature="e#1104#1337#0" />
+            <element signature="e#1139#1337#0" />
+            <element signature="e#1231#1297#0" />
+            <element signature="e#1382#1556#0" />
+            <element signature="e#1423#1556#0" />
+            <element signature="e#1599#1930#0" />
+            <element signature="e#1638#1930#0" />
+            <element signature="e#1824#1890#0" />
+            <element signature="e#1978#2189#0" />
+            <element signature="e#2018#2189#0" />
+            <element signature="e#2275#2279#0" />
+            <element signature="e#2399#2403#0" />
+            <element signature="e#2493#2497#0" />
+            <element signature="e#2544#3565#0" />
+            <element signature="e#2626#2651#0" />
+            <element signature="e#3059#3084#0" />
+            <element signature="e#3090#3116#0" />
+            <element signature="e#3538#3565#0" />
+            <element signature="e#3630#4555#0" />
+            <element signature="e#3743#3917#0" />
+            <element signature="e#3743#3790#0" />
+            <element signature="e#3963#4295#0" />
+            <element signature="e#3963#4010#0" />
+            <element signature="e#4340#4555#0" />
+            <element signature="e#4340#4387#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

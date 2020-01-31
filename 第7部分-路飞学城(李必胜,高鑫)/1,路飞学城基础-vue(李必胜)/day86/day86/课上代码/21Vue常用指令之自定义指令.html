@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta http-equiv="content-Type" charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <script src="./static/vue.min.js"></script>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="app">
+        <div v-bind:class="{ box: isShow}" v-pos.right.bottom="leftBottom">Hello Vue!</div>
+    </div>
+
+    <script>
+        // 数据模板引擎
+        // v-开头的指令是帮助我们渲染数据用的
+
+        Vue.directive("pos", function (el, bindding) {
+            console.log("el: ", el);
+            console.log("bindding: ", bindding);
+            if (bindding.value) {
+                el.style['position'] = 'fixed';
+                for (let key in bindding.modifiers) {
+                    el.style[key] = 0;
+                }
+                // el.style['right'] = 0;
+                // el.style['bottom'] = 0;
+            }
+        });
+
+        let vm = new Vue({
+            el: "#app",
+            data: {
+                leftBottom: true,
+                isShow: true,
+            },
+        })
+    </script>
+
+</body>
+</html>

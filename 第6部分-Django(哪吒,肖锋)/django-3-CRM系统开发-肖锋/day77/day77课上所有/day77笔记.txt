@@ -1,0 +1,59 @@
+day77
+1. 内容回顾
+	1. 新增编辑客户
+		modelform
+	2. 公户私户转换
+	
+		公户变私户
+			self.request.user.customers.add(*models.Customer.objects.filter(id__in=ids))
+		私户变公户
+			# 注意 外键 null=True 一对多的管理对象才有remove和clear方法
+			self.request.user.customers.remove(*models.Customer.objects.filter(id__in=ids))
+	3. 模糊查询
+		q = Q()
+        q.connector = 'OR'
+        for i in fields_list:
+            q.children.append(Q(('{}__contains'.format(i), query)))
+		
+	4. 分页保留搜索条件
+		QueryDict对象
+		QueryDict对象._mutable = True   # 对字典进行修改
+		
+		QueryDict对象['page'] = 页码数  # 多个值
+		QueryDict对象.urlencode()       # query=alex&page=1     ?query=alex&page=1
+		
+2. 今日内容
+	1. 添加和编辑后跳转回源页面
+		qd =QueryDict()
+		qd._mutable = True
+		
+		qd['next'] = request.get_full_path() 
+		qd.urlencode()
+		
+		
+	2. 展示客户的跟进记录、增加和编辑
+		obj = models.ConsultRecord.objects.filter(id=edit_id).first() or models.ConsultRecord(consultant=request.user)
+		form_obj = ConsultRecordForm(instance=obj)
+	
+		# 限制客户是当前销售的私户
+        self.fields['customer'].widget.choices = customer_choice
+        # 限制跟进人是当前的用户（销售）
+        self.fields['consultant'].widget.choices = [(self.instance.consultant_id, self.instance.consultant), ]
+	
+	
+	3. 报名记录
+		 # 限制当前的客户只能是传的id对应的客户
+        self.fields['customer'].widget.choices = [(self.instance.customer_id, self.instance.customer), ]
+        # 限制当前可报名的班级是当前客户的意向班级
+        self.fields['enrolment_class'].widget.choices = [(i.id, i) for i in self.instance.customer.class_list.all()]
+		
+		# 在客户列表中显示不同a标签
+		def enroll_link(self):
+			if not self.enrollment_set.exists():
+				return mark_safe('<a href="{}">添加报名表</a>'.format(reverse('add_enrollment',args=(self.id,))))
+			else:
+				return mark_safe('<a href="{}">添加</a> | <a href="{}">查看</a>'.format(reverse('add_enrollment',
+		
+	
+	
+	

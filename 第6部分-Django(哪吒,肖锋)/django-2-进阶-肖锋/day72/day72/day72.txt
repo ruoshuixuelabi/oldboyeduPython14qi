@@ -1,0 +1,143 @@
+day72
+1. 内容回顾
+	1. form组件
+		1. 能做什么事？
+			1. 能生成HTML代码  input框
+			2. 可以校验数据
+			3. 保留输入的数据
+			4. 有错误的提示
+		2. 定义form
+			form django import forms
+			
+			class RegForm(forms.Form):
+				
+				username = forms.CharField()
+				pwd = forms.CharField()
+				
+		3. 使用form
+			1. 视图函数
+				from app01.forms import *
+				
+				form_obj = RegForm()
+				
+				return render(request,'reg.html',{'form_obj':form_obj})
+				
+				form_obj = RegForm(request.POST)
+				
+				form_obj.is_valid()     —— 》布尔值
+				
+				form_obj.cleaned_data   ——》 {}    所有通过校验的字段的名字和值
+				
+			2. 模板
+			
+				{{ form_obj.as_p  }}            ——》生成所有的字段  p  label input框
+				
+				
+				{{ form_obj.username }}         ——》 生成某个字段的对应的input标签
+				{{ form_obj.username.label }}   ——》 生成某个字段的标签名  
+				{{ form_obj.username.id_for_label }}    ——》 生成某个字段id
+				{{ form_obj.username.errors }}  ——》 生成某个字段的所有的错误信息  
+				{{ form_obj.username.errors.0 }}  ——》 生成某个字段的第一个的错误信息  
+				
+				{{ form_obj.errors }}           ——》 生成某form表单的所有的错误信息
+				
+			3. 字段类型和参数
+				1. 字段类型
+					CharField()
+					ChoiceField()  
+					
+				2. 参数
+					label        中文的提示 
+					initial      初始值
+					min_length   最小长度
+					max_length   最大长度
+					required     是否是必填的  
+					disabled     是否不可修改
+					error_messages = {
+						'min_length' : '太短了'，
+						'max_length' : '够长了'
+						'required':   '不能为空'
+					}
+					validators = [ 校验器1，校验器2 ]
+					 
+				3. 校验
+					1. 内置的校验
+						min_length   最小长度
+						max_length   最大长度
+						required     是否是必填的
+						
+					2. 自定义校验器
+						from django.core.validators import RegexValidator
+						
+						RegexValidator(正则，错误提示)
+						
+						函数
+						from django.core.exceptions import ValidationError
+						
+						def check_name(value):
+							if 'alex' in value:
+								raise ValidationError('不符合社会主义核心价值观')
+								
+					3. 钩子
+						局部钩子 
+							def clean_字段名(self):
+								通过校验：返回当前的字段的值
+								不通过：  raise ValidationError()
+								
+						全局钩子
+							def clean(self):
+								通过校验: 返回self.cleaned_data
+								不通过:
+									self.add_error('字段名'，’错误提示‘)
+									raise ValidationError()
+									
+								
+				
+				
+2. 今日内容 
+
+	1. 创建超级用户
+	
+		python manage.py createsuperuser
+		
+	2. 认证  校验用户名和密码
+		obj = auth.authenticate(request,username,password)
+		认证成功返回 对象
+				失败  None
+				
+	3. 保存登录状态   记录到session
+		login(request, user)
+		
+	4. 注销		删除session
+		logout(request)
+		
+	5. 判断登录状态
+		request.user.is_authenticated()
+		
+	6. 创建用户
+		from django.contrib.auth.models import User
+		# 密码是明文的
+		User.objects.create(username=username,password=password)
+		
+		# 密码是密文的 普通用户
+		User.objects.create_user(**form_obj.cleaned_data)
+		
+		 # 创建超级用户
+        User.objects.create_superuser(email='',**form_obj.cleaned_data)
+		
+	7. 密码相关
+		# 检验密码
+		request.user.check_password('root1234')
+		# 设置密码
+        request.user.set_password('admin1234')
+        request.user.save()
+		
+		
+				
+				
+				
+				
+				
+				
+				
+		

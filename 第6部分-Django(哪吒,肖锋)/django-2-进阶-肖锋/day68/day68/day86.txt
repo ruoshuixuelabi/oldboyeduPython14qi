@@ -1,0 +1,143 @@
+day68
+1.内容回顾
+	1. 什么是ORM？
+		对象和关系型数据库的映射
+	2. 13条
+		1. 返回对象列表的
+			all()
+			filter()   
+			exclude()
+			order_by()   
+			reverse()    
+			distinct()
+			values()      {} 
+			values_list()  ()
+			
+		2. 获取对象的
+			get()   
+			first() 
+			last() 
+			
+		3. 返回数字
+			count() 
+			
+		4. 返回布尔值
+			exists()   
+			
+			
+	3. 单表中双下划綫
+		id__gt
+		id__lt
+		id__lte
+		id__gte
+		
+		id__in=[]
+		id__range=[1,4]
+		
+		contains= ''
+		icontains= ''
+		
+		startswith = ''
+		istartswith = ''
+		endswith = ''
+		iendswith = ''
+		
+		isnull = True
+		
+		__year
+
+	4. 外键的查询
+		正向查询
+			book_obj.publisher   —— 》出版社对象
+			book_obj.publisher.id
+			book_obj.publisher_id
+			
+		反向查询
+			publisher_obj.book_set   ——》 管理对象
+			publisher_obj.book_set.all()  
+			
+			
+		Book.objects.filter(publisher__name='沙河出版社')
+		
+		Publisher.objects.filter(book__title='跟太白学理发')
+		
+			related_name='books'
+			
+			publisher_obj.books   ——》 管理对象
+			
+		
+		Publisher.objects.filter(books__title='跟太白学理发')
+		
+			
+			指定related_query_name=''
+			
+		Publisher.objects.filter(xxxx__title='跟太白学理发')
+		
+	5. 多对多
+		author_obj.books   ——》管理对象
+		author_obj.books.add()
+		author_obj.books.remove()
+		author_obj.books.clear()
+		author_obj.books.set()   []
+		author_obj.books.create()
+		
+		book_obj.authors  ——》管理对象
+		
+		
+	
+2. 今日内容
+	https://www.cnblogs.com/maple-shaw/articles/9403501.html
+	
+	1. 聚合和分组
+	
+	2. F 和 Q
+	
+	3. 事务
+	
+	https://www.cnblogs.com/maple-shaw/articles/9502602.html
+	
+	4. cookie
+	
+		1. cookie
+			是一个保存在浏览器本地的一组组键值对
+			
+		2. 特性
+			服务器让浏览器进行保存的cookie
+			
+			浏览器有权利是否进行保存  
+			
+			再次访问服务器的时候会携带着相应的cookie
+			
+		3.
+			获取
+			request.COOKIES
+			
+			设置
+			ret = HttpResponse('xxx')
+			ret.set_cookie(key,value,max-age=5)
+			
+			删除
+			ret = HttpResponse('xxx')
+			ret.delete_cookie(key)
+			
+			
+		4. 用途
+			1. 登录
+			2. 投票 
+			3. 记录浏览习惯  
+			
+		
+	5. session
+		
+	
+			
+			
+			
+		
+	
+		
+		
+		
+		
+		
+		

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>todolist</title>
+
+    <script src="./static/vue.min.js"></script>
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <!-- 引入组件库 -->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+
+    <style>
+        .text {
+            font-size: 14px;
+        }
+
+        .item {
+            margin-bottom: 18px;
+        }
+
+        .clearfix:after {
+            display: table;
+            content: "";
+        }
+
+        .clearfix:after {
+            clear: both
+        }
+
+        .box-card {
+            width: 480px;
+            margin: 20px 400px;
+        }
+
+        .left {
+            float: left;
+            width: 50%;
+        }
+
+        .right {
+            float: right;
+            width: 50%;
+        }
+
+</style>
+</head>
+<body>
+
+    <div id="todolist">
+
+  <el-transfer v-model='value1' :data="todolist"></el-transfer>
+
+
+
+    </div>
+
+    <script>
+        new Vue( {
+            el: "#todolist",
+            data: {
+                todolist: [
+                    {
+                        key: 1,
+                        label: '唱歌',
+                    },
+                    {
+                        key: 2,
+                        label: '抽烟'
+                    },
+                    {
+                        key: 3,
+                        label: '喝酒'
+                    },
+                    {
+                        key: 4,
+                        label: '烫头'
+                    }
+                ],
+                value1: []
+            }
+        }
+
+    )
+</script>
+</body>
+</html>

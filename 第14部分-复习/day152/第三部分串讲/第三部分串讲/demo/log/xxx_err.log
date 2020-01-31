@@ -1,0 +1,22 @@
+[2019-02-28 12:08:33,349][MainThread:5208][task_id:django.request][log.py:228][ERROR][Internal Server Error: /home/]
+Traceback (most recent call last):
+  File "C:\Python35\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Python35\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python35\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PythonS14\第三部分串讲\demo\app02\views.py", line 19, in home
+    ret2 = models.Boy.objects.first().girl_set.all()
+AttributeError: 'NoneType' object has no attribute 'girl_set'
+[2019-02-28 12:09:21,677][MainThread:2632][task_id:django.request][log.py:228][ERROR][Internal Server Error: /home/]
+Traceback (most recent call last):
+  File "C:\Python35\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Python35\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python35\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PythonS14\第三部分串讲\demo\app02\views.py", line 19, in home
+    ret2 = models.Boy.objects.first().girl_set.all()
+AttributeError: 'NoneType' object has no attribute 'girl_set'

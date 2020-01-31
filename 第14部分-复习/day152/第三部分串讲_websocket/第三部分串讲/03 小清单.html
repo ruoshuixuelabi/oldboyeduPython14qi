@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="x-ua-compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>小清单</title>
+</head>
+<body>
+<div id="app">
+  <input type="text" v-model="currentItem">
+  <button @click="addItem">添加</button>
+  <ul>
+    <li v-for="item,index in todoList">{{item}} <span @click="deleteItem(index)">x</span></li>
+  </ul>
+
+  <hr>
+  <p id="p1">{{name}}</p>
+</div>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="https://cdn.bootcss.com/vue/2.6.6/vue.min.js"></script>
+<script>
+    const app = new Vue({
+        el: "#app",
+        data:{
+            todoList: ["吃饭", "睡觉", "打豆豆"],
+            currentItem:'',
+            name: '康琛'
+        },
+        methods: {
+            addItem: function () {
+                this.todoList.push(this.currentItem);
+            },
+            deleteItem(index){
+                this.todoList.splice(index,1);
+            }
+        },
+        beforeCreate(){
+            console.log('beforeCreate');
+            console.log(this.name);
+        },
+        created(){
+            console.log('created');
+            console.log(this.name);
+        },
+        beforeMount(){
+            console.log('beforeMount');
+            let p1Ele = document.getElementById('p1');
+            console.log(p1Ele.innerText);
+        },
+        mounted(){
+            console.log('mounted');
+            let p1Ele = document.getElementById('p1');
+            console.log(p1Ele.innerText);
+        }
+    })
+</script>
+</body>
+</html>

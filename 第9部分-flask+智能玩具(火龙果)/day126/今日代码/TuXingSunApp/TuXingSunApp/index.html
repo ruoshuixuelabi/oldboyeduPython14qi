@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<title>6666666</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="css/mui.css" />
+	</head>
+
+	<body>
+		<nav class="mui-bar mui-bar-tab">
+			<a class="mui-tab-item mui-active" id="index">
+				<span class="mui-icon mui-icon-home"></span>
+				<span class="mui-tab-label">首页</span>
+			</a>
+			<a class="mui-tab-item" id="chat">
+				<span class="mui-icon mui-icon-chat"></span>
+				<span class="mui-tab-label">消息</span>
+			</a>
+			<a class="mui-tab-item">
+				<span class="mui-icon mui-icon-email"></span>
+				<span class="mui-tab-label">邮件</span>
+			</a>
+			<a class="mui-tab-item" id="myself">
+				<span class="mui-icon mui-icon-gear"></span>
+				<span class="mui-tab-label">我的</span>
+			</a>
+		</nav>
+	</body>
+	<script src="js/mui.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		mui.init({
+			subpages: [{
+				url: "main.html",
+				id: "main.html",
+				styles: {
+					top: "0px",
+					bottom: "50px"
+				}
+			}]
+		})
+		var ws = null;
+		if(window.localStorage.getItem("user")){
+			ws = new WebSocket(window.serv_ws + window.localStorage.getItem("user")); 
+			ws.onmessage = function(data){
+				console.log(data.data);
+				var msg = JSON.parse(data.data);
+				
+				var chat = plus.webview.getWebviewById("chat.html");
+				
+				mui.fire(chat,"recv_msg",msg); 
+//				var player = plus.audio.createPlayer(window.serv_chat + msg.chat);
+//				player.play();
+				
+			} 
+		} 
+		
+		document.addEventListener("send_music", function(data) {
+			ws.send(JSON.stringify(data.detail));
+		});  
+		  
+		document.addEventListener("send_msg", function(data) {
+			ws.send(JSON.stringify(data.detail));
+		});
+		
+		document.getElementById('index').addEventListener('tap',function () {
+			mui.openWindow({
+					url: "main.html",
+					id: "main.html",
+					styles: {
+						top: "0px",
+						bottom: "50px"
+					}
+				})
+		        
+		})
+
+		document.getElementById('myself').addEventListener('tap', function() {
+			if(window.localStorage.getItem("user")) {
+				mui.post(window.serv + '/auto_login', {
+					"_id": window.localStorage.getItem("user")
+				}, function(data) {
+
+					mui.openWindow({
+						url: "user_info.html",
+						id: "user_info.html",
+						styles: {
+							top: "0px",
+							bottom: "50px"
+						},
+						extras:data.data
+					})
+
+				}, 'json');
+
+			} else {
+				mui.openWindow({
+					url: "login.html",
+					id: "login.html",
+					styles: {
+						top: "0px",
+						bottom: "50px"
+					}
+				})
+			}
+
+		})
+		
+		document.getElementById('chat').addEventListener('tap',function () {
+		        mui.openWindow({
+					url: "friend_list.html",
+					id: "friend_list.html",
+					styles: {
+						top: "0px",
+						bottom: "50px"
+					}
+				})
+		})
+	</script>
+
+</html> 

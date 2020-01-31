@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta http-equiv="content-Type" charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <style>
+        a{
+            background-color: red;
+            /*float: left;*/
+            width: 100px;
+            position:absolute;
+            height: 100px;
+
+        }
+
+        /*浮动  绝对定位  固定定位  脱离文档标准流
+
+            就不是标准文档流下的标签，它们就不符合行内和块标签的特点，
+            你可以任意设置宽高
+        */
+        /*1 0 0*/
+
+
+
+        /*2 1 1*/
+        /*#box1 #box2 .father3 p{*/
+            /*color: green;*/
+        /*}*/
+        /*!*3 0 1*!*/
+        /*#box1 #box2 #box3 p{*/
+            /*color: yellow;*/
+        /*}*/
+        /*!*1 2 1*!*/
+        /*.father1 .father2 #box3 p{*/
+            /*color: red;*/
+        /*}*/
+        /*!*1 0 0*!*/
+        /*#active{*/
+            /*color: purple;*/
+        /*}*/
+        /*继承来的 它的权重为0*/
+        /*#box1 #box2 #box3{*/
+            /*color: red;*/
+        /*}*/
+         /*#box1 #box2{*/
+            /*color: yellow;*/
+        /*}*/
+        /*#box .father2 p{*/
+            /*color: yellow;*/
+        /*}*/
+
+
+        .box{
+            width: 200px;
+            height: 200px;
+            /*border: 1px solid red;*/
+
+            background-color: yellow;
+            /*overflow: hidden;*/
+            float: left;
+        }
+        
+        /*.box2{*/
+            /*width: 200px;*/
+            /*height: 200px;*/
+            /*border: 1px solid red;*/
+            /*padding: 50px;*/
+            /*margin-top: 50px;*/
+        /*}*/
+        .child{
+            width: 100px;
+            height: 100px;
+            background-color:green;
+            margin-left: 30px;
+            margin-top: 30px;
+
+        }
+
+       .clearfix:after {
+            content: ".";
+            display: block;
+
+            clear: both;
+
+
+            visibility: hidden;
+            height: 0;
+        }
+
+        /*子绝父相*/
+
+    </style>
+</head>
+<body>
+<div class="clearfix">
+    <span>alex</span>
+</div>
+<script>
+
+    // document.querySelector('.clearfix')
+    // document.querySelector('#clearfix')
+</script>
+    <!--<div class="father1" id="box1">-->
+        <!--<div class="father2" id="box2">-->
+             <!--<div class="father3" id="box3">-->
+                <!--<p id="active">猜猜我的颜色</p>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+
+
+        <div class="box">
+
+            <div class="child"></div>
+        </div>
+        <!--<div class="box2">alex</div>-->
+
+<!--<a href="">baidu</a>-->
+<!--<a href="">营营</a>-->
+<!--字围-->
+<!--<div style="width: 300px;height: 100px;background-color:green;">吴思睿</div>-->
+</body>
+</html>

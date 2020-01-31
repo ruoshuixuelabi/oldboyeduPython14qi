@@ -1,0 +1,119 @@
+2018年12月25日
+上节回顾：
+[
+	{
+		key:value
+	},
+	{
+		key:value
+	},
+]
+
+
+
+**使用了不存在的对象，即创建该对象
+
+use db 使用db数据库
+show dbs 查看当前服务器中写在磁盘上的数据库
+show tables 查看数据库中的collection
+db 查看当前使用的数据库
+
+1.增删改查：
+增：
+	db.collection.insert({数据}) 自动生成 _id : ObjectId("")
+	官方推荐:
+	db.collection.insertOne({数据}) 插入一条数据
+	db.collection.insertMany([{数据},{数据}]) 插入多条数据
+查：
+	db.collection.find({条件})
+	db.collection.findOne({条件})
+改：
+	db.collection.update({条件},{$修改器:{数据}})
+	官方推荐:
+	db.collection.updateOne({条件},{$修改器:{数据}}) 更新一条数据
+	db.collection.updateMany({条件},{$修改器:{数据}}) 更新所有数据
+删：
+	db.collection.remove({条件})
+	官方推荐:
+	db.collection.deleteOne({条件}) 删除一条数据
+	db.collection.deleteMany({条件}) 删除所有符合条件的数据
+	
+清除collection：
+	db.collection.drop()
+	
+2.$关键字
+	数学比较符：
+		$lt
+		$lte
+		$gt
+		$gte
+		$eq :
+	
+	查询关键字:
+		$or db.collection.find({$or:[{name:1},{age:73}]})
+		$in db.collection.find({age:{$in:[1,2,3,4]}}) #符合其中一个条件即可
+		$all db.collection.find({hobby:{$all:[1,2,3,4]}}) #子集查询
+	
+
+2018年12月25日：
+1.$修改器 :
+	$set 简单粗暴 {name:value} dict["name"]=value 
+	
+	$unset 简单粗暴的删除字段 {$unset:{name:1}} del dict["name"]
+	db.user_info.updateOne({age:200},{$unset:{age:1}})
+	
+	$inc 引用增加
+	db.user_info.updateMany({},{$inc:{age:1}})
+	
+	array操作
+	$push 在array中追加一个新的元素 [].append(item)
+	db.user_info.updateOne({name:"200wansui"},{$push:{hobby:10}})
+	
+	$pull 在array中删除一个的元素 [].remove(item) [].pop(-1)
+	db.user_info.updateOne({name:"200wansui"},{$pull:{hobby:0}})
+	
+	$pop 不含索引 -1 从前往后  1 从后往前
+	db.user_info.updateOne({name:"200wansui"},{$pop:{hobby:1}})
+	
+2.$ 字符
+	db.user_info.updateOne({hobby:6},{$set:{"hobby.$":"六"}})
+	保存符合索引条件数据的下标
+	
+
+3.Object 字典操作
+	db.user_info.updateOne({name:"200wansui"},{$inc:{"info.tizhong":-5}})
+	db.user_info.updateOne({name:"200wansui"},{$set:{"info.long":12.5}})
+	
+4.array + Object
+	db.user_info.updateOne({"hobby.shengao":150},{$set:{"hobby.$.long":14}})
+	
+5.limit 
+	db.user_info.find({}).limit(5)
+	选取数据从当前位置选择5个
+	
+6.skip 跳过
+	db.user_info.find({}).skip(2) 
+	从0开始跳过2条数据为当前位置
+
+7.sort
+	db.user_info.find({}).sort({ id:-1 })
+	根据ID进行排序 -1倒叙 1正序
+
+8.limit+skip+sort
+	db.user_info.find({}).limit(5).skip(10)
+	db.user_info.find({}).limit(c).skip((p-1)*c)
+	
+	db.user_info.find({}).limit(5).skip(5).sort({ id:-1 })
+	
+	优先级最高的是 sort 
+	其次优先为 skip
+	最低优先级 limit
+	 
+
+9.pymongo
+	
+	
+	
+
+
+

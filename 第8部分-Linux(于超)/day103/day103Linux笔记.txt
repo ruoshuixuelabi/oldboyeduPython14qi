@@ -1,0 +1,91 @@
+day103Linux
+
+day1 熟悉服务器，初识linux
+day2 linux的文件目录结构，基本命令
+day3 linux基本命令 
+day4 安装python3 安装mysql  redis 
+day5 linux底下软件/服务，常用配置
+
+
+#linux的绝对路径，相对路径
+
+
+绝对路径
+/小明/前面的同学/前面的同学/赵岩
+
+相对路径
+小明为相对路径
+../小明/前面的同学/前面的同学/赵岩
+
+
+
+windows的环境变量（PATH）
+#path能做什么？能从path里面定义的路径去寻找，我们输入的命令
+
+
+当我输入python3的时候，通过优先查找顺序，找到自定义的path中是否有python3这个解释器
+
+
+C:\Python27\;
+C:\Python27\Scripts;
+E:\Python 环境\Python36\Scripts\;
+C:\Program Files\Redis;
+
+
+Linux的环境变量（PATH），
+echo $PATH
+
+
+/usr/local/sbin:
+/usr/local/bin:
+/usr/sbin:
+/usr/bin:
+/root/bin:
+/
+
+
+特殊符号
+复制代码
+输入/输出 重定向符号
+1.>>    追加重定向，把文字追加到文件的结尾
+2.>     重定向符号，清空原文件所有内容，然后把文字覆盖到文件末尾
+3.<     输入重定向
+4.<<    将输入结果输入重定向
+echo "oldboy-python666" > /tmp/oldboy.txt
+echo "chaoge666" >> /tmp/oldboy.txt
+cat >>/tmp/oldboy.txt << EOF
+------------------------------------
+我想把命令执行的结果信息，写入到文件中
+ip addr > /tmp/network.txt   #标准输出重定向 把命令执行结果信息，放入到文件中
+3.通配符  
+ls -l /etc/us*
+
+
+#问linux底下有多少查看文本的命令
+cat more  less head tail 
+
+
+settings.py 
+	ALLOW_HOST=['*']
+	
+alias别名功能
+1.当你输入rm -rf / 的时候，提示你，禁止使用rm 
+2.
+
+
+
+df -h  统计磁盘空间大小
+free -m  查看内存大小
+
+
+linux下的时间服务器叫做 ntp 服务 
+
+ntpdate 是用于时间同步的 客户端命令 
+
+ntpdate -u  ntp.aliyun.com
+
+
+# yum install  lrzsz -y   #可以很方便的，在windows和linux之间，拖拽文件
+
+
+	

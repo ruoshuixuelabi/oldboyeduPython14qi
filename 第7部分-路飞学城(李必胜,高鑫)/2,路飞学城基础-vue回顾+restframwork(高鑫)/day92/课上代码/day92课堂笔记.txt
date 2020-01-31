@@ -1,0 +1,178 @@
+day92
+内容回顾：
+	Vuex 集中式状态管理工具
+		-- 配置
+			-- 下载 npm i vuex
+			-- 导入  import Vuex from "vuex"
+			-- Vue.use(Vuex)
+			-- 实例化仓库对象
+				new Vuex.Store({...})
+			-- 在Vue根实例中注册仓库
+				new Vue({
+					el："#app",
+					store,
+				})
+		-- 获取vuex中数据
+			-- this.$store.state.xxxx
+			-- this.$store.getters.xxxx
+		-- 改变vuex中的数据
+			-- 组件向仓库提交事件
+				this.$store.commit("事件名称"，data)
+			-- 仓库要处理提交的事件
+				mutations: {
+					"事件名称": function(state, data){
+						修改state中的数据
+					}
+				}
+	axios  ajax请求
+		-- 配置
+			-- 下载 npm i axios
+			-- 导入 import axios from "axios"
+			-- 加入原型链
+				Vue.prototype.$axios = axios
+		-- 在组件中发送请求
+			-- this.$axios.request({url, method, data,headers})
+				.then(function(data){})
+				.catch(function(data){})
+	前后端连接
+		-- 跨域
+			-- 中间件解决跨域
+	DRF框架
+		-- RESTful规范
+			REST风格   表述性状态转移
+				-- 资源  在web中凡是有被引用的必要都叫资源
+				-- URI  统一资源标识符
+				   URL  统一资源定位符
+				-- 统一资源接口
+					根据HTTP请求方式的不同对资源进行不同的操作
+				-- 前后端传递的资源的表述
+				-- 前端展示的是资源的状态
+				-- 通过超链接的指引来告诉用户接下来有哪些资源状态可以进入
+			RESTful规范
+				-- 核心思想
+					-- 面向资源去编程 url中尽量用名词不要动词
+					-- 根据HTTP请求方式的不同对资源进行不同的操作
+				-- url中体现
+					-- 版本
+					-- API
+					-- 过滤条件
+					-- HTTPS
+				-- 返回的要求
+					-- 携带状态码
+					-- 返回值
+						-- get 获取的所有或者单条数据
+						-- post 返回新增的这条数据
+						-- put/patch  返回更新的数据
+						-- delete 返回空
+					-- 携带错误信息
+					-- 携带超链接
+	FBV和CBV区别
+		def dispatch(self, request, *args, **kwargs):
+			# GET POST
+			# BookView().get
+			# DJango的View只做了CBV的分发
+			if request.method.lower() in self.http_method_names:
+				handler = getattr(self, request.method.lower(), self.http_method_not_allowed)
+			else:
+				handler = self.http_method_not_allowed
+			return handler(request, *args, **kwargs)
+	下载DRF
+		-- pip install djangorestframework
+		-- 在app中注册rest_framework app
+	APIView 和View的区别
+		-- APIView继承了View
+		-- 重写了as_view方法
+			-- 豁免csrf
+		--  def dispatch(self, request, *args, **kwargs):
+				self.args = args
+				self.kwargs = kwargs
+				
+				# 重新封装request
+				# 新的request变成 Request的实例化对象
+				# 旧的request变成了_request
+				request = self.initialize_request(request, *args, **kwargs)
+				self.request = request
+				。。。。。。
+		--  def initialize_request(self, request, *args, **kwargs):
+				parser_context = self.get_parser_context(request)
+
+				return Request(
+					request,
+					parsers=self.get_parsers(),
+					authenticators=self.get_authenticators(),
+					negotiator=self.get_content_negotiator(),
+					parser_context=parser_context
+				)
+		-- Class Request(object):
+				self._request = 旧的request
+				def query_params(self):
+					return self._request.GET
+				def data(self):
+					return post请求的数据
+	序列化
+		-- django实现序列化
+			-- .values  JsonResponse
+			-- serializes.serialize  能够序列化queryset
+			-- 缺点不能解决外键关系的序列化
+		-- DRF的序列化组件
+			-- 第一步  声明序列化器 类比model
+			-- 第二步  在视图中使用序列化器序列化queryset
+			-- 序列化好的数据在 ser_obj.data
+今日内容：
+	序列化组件
+		-- 序列化
+		-- 反序列化 post请求
+			-- 确定新增的数据结构
+			-- 序列化器
+				-- 正序和反序列化字段不统一
+				-- required=False 只序列化不走校验
+				-- read_only=True  只序列化用
+				-- write_only=True  只反序列化用
+				-- 重写create方法
+			-- 验证通过返回ser_obj.validated_data
+			-- 验证不通过返回ser_obj.errors
+			
+		-- 反序列化 put/patch 请求
+			-- 重写update方法
+			-- ser_obj = BookSerializer(instance=obj, data=request.data, partial=True)
+			-- 验证通过返回ser_obj.validated_data
+			-- 验证不通过返回ser_obj.errors 
+				
+		-- 验证
+			-- 单个字段的验证  权重 222
+				def validate_字段名称（self, value）:
+					不通过 raise serializers.ValidationError("错误信息")
+					通过 return value
+			-- 多个字段的验证  权重 333
+				def validate(self, attrs):
+					attrs 是所有字段组成的字典
+					不通过 raise serializers.ValidationError("错误信息")
+					通过 return attrs
+			-- 自定义的验证  权重 111
+				def my_validate(value):
+					不通过 raise serializers.ValidationError("错误信息")
+					通过 return value
+				配置
+					-- 给字段加validators=[my_validate]
+		-- ModelSerializer
+			-- class Meta:
+				 model = 表名
+				 fields = "__all__"
+				 # exclude = [xxxx]
+				 depth = 1
+				 # depth 会让所有的外键关系字段变成read_only=True
+				 extra_kwargs={"默认的字段名称"：{自定义的参数配置信息}}
+			-- SerializerMethodField()  方法字段
+				def get_字段名称（self, obj）:
+					obj  每次序列化的模型对象
+					return 自定义的数据
+				
+			
+			
+	
+
+
+
+
+
+	

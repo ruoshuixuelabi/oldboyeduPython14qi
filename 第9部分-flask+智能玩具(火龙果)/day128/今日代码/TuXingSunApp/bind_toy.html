@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<title>6666666</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="css/mui.css" />
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">填写玩具相关信息</h1>
+		</header>
+		<div class="mui-content">
+			<form class="mui-input-group">
+				<div class="mui-input-row">
+					<label>玩具名称</label>
+					<input id="toyname" type="text" class="mui-input-clear" placeholder="给玩具取个名字">
+				</div>
+				<div class="mui-input-row">
+					<label>主人名称</label>
+					<input id="babyname" type="text" class="mui-input-clear" placeholder="玩具小主人的名字">
+				</div>
+				<div class="mui-input-row">
+					<label>对您称呼</label>
+					<input id="remark" type="text" class="mui-input-clear" placeholder="小主人对您的称呼">
+				</div>
+				
+				<div class="mui-button-row">
+					<button type="button" class="mui-btn mui-btn-primary" id="bind_btn">绑定</button>
+					<button type="button" class="mui-btn mui-btn-red mui-action-back">取消</button>
+				</div>
+			</form>
+		</div>
+		<script src="js/mui.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			mui.init()
+			var Sdata = null;
+			mui.plusReady(function () {
+			    Sdata = plus.webview.currentWebview();
+			    
+			})
+			
+			document.getElementById('bind_btn').addEventListener('tap',function () {
+			        var toyname = document.getElementById("toyname").value;
+			        var babyname = document.getElementById("babyname").value;
+			        var remark = document.getElementById("remark").value;
+			        
+			        mui.post(window.serv+'/bind_toy',{
+							user_id:window.localStorage.getItem("user"),
+			        		toyname:toyname,
+			        		babyname:babyname,
+			        		remark:remark,
+			        		device_key:Sdata.device_key
+			        	},function(data){
+			        		console.log(JSON.stringify(data));
+			        		if(data.code == 0){
+			        			mui.openWindow({
+			    					url:"user_info.html",
+						        	id:"user_info.html",
+						        	
+						        })
+			        		}
+			        	},'json'
+			        );
+			})
+			
+		</script>
+	</body>
+
+</html>

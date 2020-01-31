@@ -1,0 +1,168 @@
+﻿day71
+1.内容回顾
+ 	1. json
+		json  是一种数据结构  跨平台跨语言 
+		1. python中json数据的转换
+			1.数据类型
+				字符串 数字 布尔值 列表 字典 None
+				
+			2. 序列化  python的数据类型  ——》  json字符串 
+				json.dumps(python的数据类型)  
+				json.dump(python的数据类型,f)
+			3. 反序列化  json字符串     ——》  python的数据类型
+				json.loads(json字符串)
+				json.load(json字符串,f)
+				
+		2. js中json数据的转换
+			1.数据类型
+				字符串  数字 布尔值 数组 对象  null
+				
+			2. 序列化  js的数据类型  ——》  json字符串 
+				JSON.stringify(js的数据类型)
+				
+			3. 反序列化  json字符串 ——》 JS的数据类型
+				JSON.parse(json字符串)
+				
+		3. JsonResponse({})
+		   JsonResponse([],safe=False)
+		   
+		   
+	2. Ajax
+		1. 浏览器向服务器发请求的方式
+			1. 在浏览器的地址栏中输入URL  回车            ——》 GET
+			2. form表单发请求							  ——》 GET/POST
+				action     ——》  提交的地址 
+				method     ——》  请求方式    GET/POST
+				input标签要有name属性  
+				一个类型是submit的input标签   或者  button按钮 
+				
+			3. a标签 									  ——》 GET
+			4. Ajax
+				1. Ajax是什么？
+					Ajax是一个与服务器交互的技术，JS技术。
+					特点： 异步   不刷新页面  数据量小
+					
+				2. 如何使用JQ发送ajax请求：
+					导入JQ
+					
+					$.ajax({
+						url: 发送的地址，
+						type: 'post',
+						data:{
+							k1:v1,
+							k2:v2,
+						},
+						success:function(res){   # res  返回的响应的响应体 
+						
+						}，
+						error:function(res){   # res  返回的响应的响应体 
+						
+						}
+					})
+					
+				3. ajax如何通过django的CSRF验证:
+					1. 在data中添加csrfmiddlewaretoken 的值
+						{% csrf_token %}
+						
+						data:{
+							csrfmiddlewaretoken:$('[name="csrfmiddlewaretoken"]').val(),
+							k1:v1,
+							k2:v2,
+						}
+					2. 设置请求头
+						headers: {"X-CSRFToken": $('[name="csrfmiddlewaretoken"]').val()}
+						
+						
+					3. 导入文件
+					
+						
+				4. 上传文件 
+					
+				
+			
+2. 今日内容
+	1. form
+		1. 完成的事情
+			1. 有input标签，让用户可以填数据
+			2. 校验form表单提交的数据
+			3. 提示错误信息
+		
+	2. django的form
+		1. 定义
+			from django import forms
+
+			# 定义form
+			class RegForm(forms.Form):
+				user = forms.CharField(label='用户名')
+				pwd = forms.CharField(label='密码')
+
+				
+		2. 使用
+			视图中
+				form_obj = RegForm()
+				return render(request, 'register2.html', {"form_obj": form_obj})
+				
+			模板中
+			
+				{{ form_obj.as_p }}   ——》自动生成多个p标签  包含label input框
+				
+				{{ form_obj.user }}   ——》 生成某个字段的input框
+				{{ form_obj.user.errors }}     ——》 某个字段的所有错误信息
+				{{ form_obj.user.errors.0 }}   ——》 某个字段的错误信息的第一个
+				 
+				
+				{{ form_obj.errors }}  ——》 所有字段的错误信息
+				
+				
+		3. 字段和参数
+			参数
+				label='用户名',        # 标签的名字
+				min_length=6,		   # 校验的规则 最小长度 
+				initial='alexdsb',	   # 初始值
+				error_messages={	   # 自定义错误提示 	
+					'min_length': '你的长度太短了，还不到6',
+					'required': '不能为空' }
+					
+				widget=widgets.PasswordInput()   # 插件  指定字段的类型 
+					
+		
+		4. 校验
+			1. 每个字段有默认的校验方法
+				min_length=6,
+				max_length=6,
+				required=False,
+			2. 自定义校验规则
+				validators = [ 校验器1，校验器2 ]
+				1. 
+					from django.core.validators import RegexValidator
+					 RegexValidator(r'^1[3-9]\d{9}$', '手机号不正经')
+				2. 自定义函数
+					from django.core.exceptions import ValidationError
+
+					def check_name(value):
+						if 'alex' in value:
+							raise ValidationError('不符合社会主义核心价值观')
+			3. 钩子函数 
+				1. 局部钩子
+					def clean_phone(self):
+						value = self.cleaned_data.get('phone')
+						if re.match(r'^1[3-9]\d{9}$',value):
+							return value
+
+						raise ValidationError('手机号不正经')
+						
+				2. 全局的钩子
+					def clean(self):
+						pwd = self.cleaned_data.get('pwd')
+						re_pwd = self.cleaned_data.get('re_pwd')
+
+						if pwd == re_pwd:
+							return self.cleaned_data
+						self.add_error('re_pwd','两次密码不一致')
+						raise ValidationError('两次密码不一致')
+					
+					
+				
+					
+					
+					

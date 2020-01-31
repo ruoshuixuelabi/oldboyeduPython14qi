@@ -1,0 +1,478 @@
+[2019-02-28 19:10:14,462][Thread-1:4588][task_id:django.security.DisallowedHost][exception.py:80][ERROR][Invalid HTTP_HOST header: '192.168.19.200:8001'. You may need to add '192.168.19.200' to ALLOWED_HOSTS.]
+[2019-02-28 19:10:15,715][Thread-3:1020][task_id:django.security.DisallowedHost][exception.py:80][ERROR][Invalid HTTP_HOST header: '192.168.19.200:8001'. You may need to add '192.168.19.200' to ALLOWED_HOSTS.]
+[2019-02-28 19:10:48,497][Thread-6:6216][task_id:django.security.DisallowedHost][exception.py:80][ERROR][Invalid HTTP_HOST header: '192.168.19.200:8001'. You may need to add '192.168.19.200' to ALLOWED_HOSTS.]
+[2019-02-28 19:10:48,928][Thread-7:1104][task_id:django.security.DisallowedHost][exception.py:80][ERROR][Invalid HTTP_HOST header: '192.168.19.200:8001'. You may need to add '192.168.19.200' to ALLOWED_HOSTS.]
+[2019-02-28 19:11:03,090][Thread-8:1356][task_id:django.security.DisallowedHost][exception.py:80][ERROR][Invalid HTTP_HOST header: '192.168.19.200:8001'. You may need to add '192.168.19.200' to ALLOWED_HOSTS.]
+[2019-02-28 19:11:03,400][Thread-9:5272][task_id:django.security.DisallowedHost][exception.py:80][ERROR][Invalid HTTP_HOST header: '192.168.19.200:8001'. You may need to add '192.168.19.200' to ALLOWED_HOSTS.]
+[2019-02-28 19:12:30,233][Thread-1:1956][task_id:django.request][exception.py:135][ERROR][Internal Server Error: /sentry/]
+Traceback (most recent call last):
+  File "C:\Python35\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Administrator\Desktop\otherDemo\web\views.py", line 29, in sentry_demo
+    raise ValueError("我错了")
+ValueError: 我错了
+[2019-02-28 19:12:56,029][Thread-4:7968][task_id:django.request][exception.py:135][ERROR][Internal Server Error: /sentry/]
+Traceback (most recent call last):
+  File "C:\Python35\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Administrator\Desktop\otherDemo\web\views.py", line 29, in sentry_demo
+    raise ValueError("我错了")
+ValueError: 我错了
+[2019-02-28 19:13:00,909][Thread-5:5412][task_id:django.request][exception.py:135][ERROR][Internal Server Error: /sentry/]
+Traceback (most recent call last):
+  File "C:\Python35\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Administrator\Desktop\otherDemo\web\views.py", line 29, in sentry_demo
+    raise ValueError("我错了")
+ValueError: 我错了
+[2019-02-28 19:13:11,195][Thread-6:6852][task_id:django.request][exception.py:135][ERROR][Internal Server Error: /sentry/]
+Traceback (most recent call last):
+  File "C:\Python35\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Administrator\Desktop\otherDemo\web\views.py", line 29, in sentry_demo
+    raise ValueError("我错了")
+ValueError: 我错了
+[2019-02-28 19:13:18,606][Thread-7:6624][task_id:django.request][exception.py:135][ERROR][Internal Server Error: /sentry/]
+Traceback (most recent call last):
+  File "C:\Python35\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Administrator\Desktop\otherDemo\web\views.py", line 29, in sentry_demo
+    raise ValueError("我错了")
+ValueError: 我错了
+[2019-02-28 19:13:30,062][Thread-8:3756][task_id:django.request][exception.py:135][ERROR][Internal Server Error: /sentry/]
+Traceback (most recent call last):
+  File "C:\Python35\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Administrator\Desktop\otherDemo\web\views.py", line 29, in sentry_demo
+    raise ValueError("我错了")
+ValueError: 我错了
+[2019-02-28 19:13:51,205][Thread-9:7504][task_id:django.request][exception.py:135][ERROR][Internal Server Error: /sentry/]
+Traceback (most recent call last):
+  File "C:\Python35\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Administrator\Desktop\otherDemo\web\views.py", line 29, in sentry_demo
+    raise ValueError("我错了")
+ValueError: 我错了
+[2019-02-28 19:14:01,978][Thread-11:3004][task_id:django.request][exception.py:135][ERROR][Internal Server Error: /sentry/]
+Traceback (most recent call last):
+  File "C:\Python35\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Administrator\Desktop\otherDemo\web\views.py", line 29, in sentry_demo
+    raise ValueError("我错了")
+ValueError: 我错了
+[2019-02-28 19:14:36,879][Thread-1:6612][task_id:django.request][exception.py:135][ERROR][Internal Server Error: /sentry/]
+Traceback (most recent call last):
+  File "C:\Python35\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Administrator\Desktop\otherDemo\web\views.py", line 29, in sentry_demo
+    raise ValueError("我错了")
+ValueError: 我错了
+[2019-02-28 19:17:11,029][Thread-1:1504][task_id:django.request][exception.py:135][ERROR][Internal Server Error: /sentry/]
+Traceback (most recent call last):
+  File "C:\Python35\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Administrator\Desktop\otherDemo\web\views.py", line 29, in sentry_demo
+    raise ValueError("我错了....")
+ValueError: 我错了....
+[2019-02-28 19:17:13,745][Thread-3:3992][task_id:django.request][exception.py:135][ERROR][Internal Server Error: /sentry/]
+Traceback (most recent call last):
+  File "C:\Python35\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Administrator\Desktop\otherDemo\web\views.py", line 29, in sentry_demo
+    raise ValueError("我错了....")
+ValueError: 我错了....
+[2019-02-28 19:17:24,664][Thread-5:7972][task_id:django.request][exception.py:135][ERROR][Internal Server Error: /sentry/]
+Traceback (most recent call last):
+  File "C:\Python35\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Administrator\Desktop\otherDemo\web\views.py", line 29, in sentry_demo
+    raise ValueError("我错了....")
+ValueError: 我错了....
+[2019-02-28 19:17:30,316][Thread-6:1528][task_id:django.request][exception.py:135][ERROR][Internal Server Error: /sentry/]
+Traceback (most recent call last):
+  File "C:\Python35\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Administrator\Desktop\otherDemo\web\views.py", line 29, in sentry_demo
+    raise ValueError("我错了....")
+ValueError: 我错了....
+[2019-02-28 19:17:30,484][Thread-7:3196][task_id:django.request][exception.py:135][ERROR][Internal Server Error: /sentry/]
+Traceback (most recent call last):
+  File "C:\Python35\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Administrator\Desktop\otherDemo\web\views.py", line 29, in sentry_demo
+    raise ValueError("我错了....")
+ValueError: 我错了....
+[2019-02-28 19:17:33,668][Thread-9:8076][task_id:django.request][exception.py:135][ERROR][Internal Server Error: /sentry/]
+Traceback (most recent call last):
+  File "C:\Python35\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Administrator\Desktop\otherDemo\web\views.py", line 29, in sentry_demo
+    raise ValueError("我错了....")
+ValueError: 我错了....
+[2019-02-28 19:17:47,171][Thread-10:8028][task_id:django.request][exception.py:135][ERROR][Internal Server Error: /sentry/]
+Traceback (most recent call last):
+  File "C:\Python35\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Administrator\Desktop\otherDemo\web\views.py", line 29, in sentry_demo
+    raise ValueError("我错了....")
+ValueError: 我错了....
+[2019-02-28 19:17:49,714][Thread-11:6340][task_id:django.request][exception.py:135][ERROR][Internal Server Error: /sentry/]
+Traceback (most recent call last):
+  File "C:\Python35\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Administrator\Desktop\otherDemo\web\views.py", line 29, in sentry_demo
+    raise ValueError("我错了....")
+ValueError: 我错了....
+[2019-02-28 19:17:54,192][Thread-12:1572][task_id:django.request][exception.py:135][ERROR][Internal Server Error: /sentry/]
+Traceback (most recent call last):
+  File "C:\Python35\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Administrator\Desktop\otherDemo\web\views.py", line 29, in sentry_demo
+    raise ValueError("我错了....")
+ValueError: 我错了....
+[2019-02-28 19:21:45,489][Thread-10:8104][task_id:django.request][exception.py:135][ERROR][Internal Server Error: /admin/login/]
+Traceback (most recent call last):
+  File "C:\Python35\lib\site-packages\django\db\backends\utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "C:\Python35\lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.OperationalError: no such table: auth_user
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Python35\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Python35\lib\site-packages\django\views\decorators\cache.py", line 57, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Python35\lib\site-packages\django\contrib\admin\sites.py", line 393, in login
+    return LoginView.as_view(**defaults)(request)
+  File "C:\Python35\lib\site-packages\django\views\generic\base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Python35\lib\site-packages\django\utils\decorators.py", line 67, in _wrapper
+    return bound_func(*args, **kwargs)
+  File "C:\Python35\lib\site-packages\django\views\decorators\debug.py", line 76, in sensitive_post_parameters_wrapper
+    return view(request, *args, **kwargs)
+  File "C:\Python35\lib\site-packages\django\utils\decorators.py", line 63, in bound_func
+    return func.__get__(self, type(self))(*args2, **kwargs2)
+  File "C:\Python35\lib\site-packages\django\utils\decorators.py", line 67, in _wrapper
+    return bound_func(*args, **kwargs)
+  File "C:\Python35\lib\site-packages\django\utils\decorators.py", line 149, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Python35\lib\site-packages\django\utils\decorators.py", line 63, in bound_func
+    return func.__get__(self, type(self))(*args2, **kwargs2)
+  File "C:\Python35\lib\site-packages\django\utils\decorators.py", line 67, in _wrapper
+    return bound_func(*args, **kwargs)
+  File "C:\Python35\lib\site-packages\django\views\decorators\cache.py", line 57, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Python35\lib\site-packages\django\utils\decorators.py", line 63, in bound_func
+    return func.__get__(self, type(self))(*args2, **kwargs2)
+  File "C:\Python35\lib\site-packages\django\contrib\auth\views.py", line 90, in dispatch
+    return super(LoginView, self).dispatch(request, *args, **kwargs)
+  File "C:\Python35\lib\site-packages\django\views\generic\base.py", line 88, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Python35\lib\site-packages\django\views\generic\edit.py", line 182, in post
+    if form.is_valid():
+  File "C:\Python35\lib\site-packages\django\forms\forms.py", line 183, in is_valid
+    return self.is_bound and not self.errors
+  File "C:\Python35\lib\site-packages\django\forms\forms.py", line 175, in errors
+    self.full_clean()
+  File "C:\Python35\lib\site-packages\django\forms\forms.py", line 385, in full_clean
+    self._clean_form()
+  File "C:\Python35\lib\site-packages\django\forms\forms.py", line 412, in _clean_form
+    cleaned_data = self.clean()
+  File "C:\Python35\lib\site-packages\django\contrib\auth\forms.py", line 187, in clean
+    self.user_cache = authenticate(self.request, username=username, password=password)
+  File "C:\Python35\lib\site-packages\django\contrib\auth\__init__.py", line 70, in authenticate
+    user = _authenticate_with_backend(backend, backend_path, request, credentials)
+  File "C:\Python35\lib\site-packages\django\contrib\auth\__init__.py", line 116, in _authenticate_with_backend
+    return backend.authenticate(*args, **credentials)
+  File "C:\Python35\lib\site-packages\django\contrib\auth\backends.py", line 18, in authenticate
+    user = UserModel._default_manager.get_by_natural_key(username)
+  File "C:\Python35\lib\site-packages\django\contrib\auth\base_user.py", line 48, in get_by_natural_key
+    return self.get(**{self.model.USERNAME_FIELD: username})
+  File "C:\Python35\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Python35\lib\site-packages\django\db\models\query.py", line 374, in get
+    num = len(clone)
+  File "C:\Python35\lib\site-packages\django\db\models\query.py", line 232, in __len__
+    self._fetch_all()
+  File "C:\Python35\lib\site-packages\django\db\models\query.py", line 1121, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\Python35\lib\site-packages\django\db\models\query.py", line 53, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch)
+  File "C:\Python35\lib\site-packages\django\db\models\sql\compiler.py", line 899, in execute_sql
+    raise original_exception
+  File "C:\Python35\lib\site-packages\django\db\models\sql\compiler.py", line 889, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Python35\lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "C:\Python35\lib\site-packages\sentry_sdk\integrations\django\__init__.py", line 316, in execute
+    return real_execute(self, sql, params)
+  File "C:\Python35\lib\site-packages\django\db\backends\utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "C:\Python35\lib\site-packages\django\db\utils.py", line 94, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "C:\Python35\lib\site-packages\django\utils\six.py", line 685, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Python35\lib\site-packages\django\db\backends\utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "C:\Python35\lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.OperationalError: no such table: auth_user
+[2019-02-28 19:22:40,448][Thread-4:3756][task_id:django.request][exception.py:135][ERROR][Internal Server Error: /sentry/]
+Traceback (most recent call last):
+  File "C:\Python35\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Administrator\Desktop\otherDemo\web\views.py", line 29, in sentry_demo
+    raise ValueError("我错了....")
+ValueError: 我错了....
+[2019-02-28 19:22:40,448][Thread-1:1144][task_id:django.request][exception.py:135][ERROR][Internal Server Error: /sentry/]
+Traceback (most recent call last):
+  File "C:\Python35\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Administrator\Desktop\otherDemo\web\views.py", line 29, in sentry_demo
+    raise ValueError("我错了....")
+ValueError: 我错了....
+[2019-02-28 19:24:06,389][Thread-1:7732][task_id:django.request][exception.py:135][ERROR][Internal Server Error: /sentry/]
+Traceback (most recent call last):
+  File "C:\Python35\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Administrator\Desktop\otherDemo\web\views.py", line 29, in sentry_demo
+    raise ValueError("我错了....")
+ValueError: 我错了....
+[2019-02-28 19:24:14,252][Thread-6:1504][task_id:django.request][exception.py:135][ERROR][Internal Server Error: /sentry/]
+Traceback (most recent call last):
+  File "C:\Python35\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Administrator\Desktop\otherDemo\web\views.py", line 29, in sentry_demo
+    raise ValueError("我错了....")
+ValueError: 我错了....
+[2019-02-28 19:24:17,429][Thread-7:6956][task_id:django.request][exception.py:135][ERROR][Internal Server Error: /sentry/]
+Traceback (most recent call last):
+  File "C:\Python35\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Administrator\Desktop\otherDemo\web\views.py", line 29, in sentry_demo
+    raise ValueError("我错了....")
+ValueError: 我错了....
+[2019-02-28 19:25:08,667][Thread-8:6952][task_id:django.request][exception.py:135][ERROR][Internal Server Error: /sentry/]
+Traceback (most recent call last):
+  File "C:\Python35\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Administrator\Desktop\otherDemo\web\views.py", line 29, in sentry_demo
+    raise ValueError("我错了....")
+ValueError: 我错了....
+[2019-02-28 19:26:02,070][Thread-7:156][task_id:django.request][exception.py:135][ERROR][Internal Server Error: /sentry/]
+Traceback (most recent call last):
+  File "C:\Python35\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Administrator\Desktop\otherDemo\web\views.py", line 29, in sentry_demo
+    raise ValueError("我错了....")
+ValueError: 我错了....
+[2019-02-28 19:26:54,366][Thread-30:6612][task_id:django.request][exception.py:135][ERROR][Internal Server Error: /sentry/]
+Traceback (most recent call last):
+  File "C:\Python35\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Administrator\Desktop\otherDemo\web\views.py", line 29, in sentry_demo
+    raise ValueError("我错了....")
+ValueError: 我错了....
+[2019-02-28 19:27:29,506][Thread-1:1524][task_id:django.request][exception.py:135][ERROR][Internal Server Error: /sentry/]
+Traceback (most recent call last):
+  File "C:\Python35\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Administrator\Desktop\otherDemo\web\views.py", line 29, in sentry_demo
+    raise ValueError("我错了....")
+ValueError: 我错了....
+[2019-02-28 19:36:50,344][Thread-1:3580][task_id:django.request][exception.py:135][ERROR][Internal Server Error: /ckeditor/write/]
+Traceback (most recent call last):
+  File "C:\Python35\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Administrator\Desktop\otherDemo\web\views.py", line 118, in write
+    form = CommentForm()
+  File "C:\Python35\lib\site-packages\django\forms\models.py", line 295, in __init__
+    raise ValueError('ModelForm has no model class specified.')
+ValueError: ModelForm has no model class specified.
+[2019-02-28 19:37:01,734][Thread-5:1148][task_id:django.request][exception.py:135][ERROR][Internal Server Error: /ckeditor/write/]
+Traceback (most recent call last):
+  File "C:\Python35\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Administrator\Desktop\otherDemo\web\views.py", line 118, in write
+    form = CommentForm()
+  File "C:\Python35\lib\site-packages\django\forms\models.py", line 295, in __init__
+    raise ValueError('ModelForm has no model class specified.')
+ValueError: ModelForm has no model class specified.
+[2019-02-28 19:37:09,443][Thread-6:6168][task_id:django.request][exception.py:135][ERROR][Internal Server Error: /ckeditor/write/]
+Traceback (most recent call last):
+  File "C:\Python35\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Administrator\Desktop\otherDemo\web\views.py", line 118, in write
+    form = CommentForm()
+  File "C:\Python35\lib\site-packages\django\forms\models.py", line 295, in __init__
+    raise ValueError('ModelForm has no model class specified.')
+ValueError: ModelForm has no model class specified.
+[2019-02-28 20:26:35,515][Thread-1:5424][task_id:django.request][exception.py:135][ERROR][Internal Server Error: /email/send_mail/]
+Traceback (most recent call last):
+  File "C:\Python35\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Administrator\Desktop\otherDemo\web\views.py", line 72, in send_mail
+    "404042726@qq.com", "17611061199@163.com", "kangchen112358@aliyun.com"
+  File "C:\Python35\lib\site-packages\django\core\mail\__init__.py", line 62, in send_mail
+    return mail.send()
+  File "C:\Python35\lib\site-packages\django\core\mail\message.py", line 348, in send
+    return self.get_connection(fail_silently).send_messages([self])
+  File "C:\Python35\lib\site-packages\django\core\mail\backends\smtp.py", line 111, in send_messages
+    sent = self._send(message)
+  File "C:\Python35\lib\site-packages\django\core\mail\backends\smtp.py", line 127, in _send
+    self.connection.sendmail(from_email, recipients, message.as_bytes(linesep='\r\n'))
+  File "C:\Python35\lib\smtplib.py", line 862, in sendmail
+    raise SMTPSenderRefused(code, resp, from_addr)
+smtplib.SMTPSenderRefused: (553, b'Mail from must equal authorized user', 'admin@luffycity.com')
+[2019-02-28 20:26:41,441][Thread-5:4172][task_id:django.request][exception.py:135][ERROR][Internal Server Error: /email/send_mail/]
+Traceback (most recent call last):
+  File "C:\Python35\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Administrator\Desktop\otherDemo\web\views.py", line 72, in send_mail
+    "404042726@qq.com", "17611061199@163.com", "kangchen112358@aliyun.com"
+  File "C:\Python35\lib\site-packages\django\core\mail\__init__.py", line 62, in send_mail
+    return mail.send()
+  File "C:\Python35\lib\site-packages\django\core\mail\message.py", line 348, in send
+    return self.get_connection(fail_silently).send_messages([self])
+  File "C:\Python35\lib\site-packages\django\core\mail\backends\smtp.py", line 111, in send_messages
+    sent = self._send(message)
+  File "C:\Python35\lib\site-packages\django\core\mail\backends\smtp.py", line 127, in _send
+    self.connection.sendmail(from_email, recipients, message.as_bytes(linesep='\r\n'))
+  File "C:\Python35\lib\smtplib.py", line 862, in sendmail
+    raise SMTPSenderRefused(code, resp, from_addr)
+smtplib.SMTPSenderRefused: (553, b'Mail from must equal authorized user', 'admin@luffycity.com')

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta http-equiv="content-Type" charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+
+</head>
+<body>
+    <button id="my_button">点我发送请求</button>
+    <script>
+        $("#my_button").click(function () {
+            $.ajax({
+                url: "http://127.0.0.1:8008/cors_demo/",
+                type: "put",
+                contentType: "application/json",
+                success: function (data) {
+                    console.log(data)
+                }
+            })
+        })
+
+        // function handlerResponse(data) {
+            // do something....
+            // alert(data)
+        // }
+
+
+
+    </script>
+
+</body>
+</html>

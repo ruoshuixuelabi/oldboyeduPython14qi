@@ -1,0 +1,177 @@
+day70
+1. 内容回顾
+	1. 中间件
+		django中的中间是一个python的类。用来在全局范围内处理请求和响应的钩子。
+		
+	2. 五种方法：
+		1. process_request(self,request):
+			执行的时间 ： 在视图函数执行之前，在路由匹配之前
+			执行顺序： 按照注册的顺序 顺序执行
+			返回值：
+				None  正常往后走
+				HttpResponse对象  执行当前中间件的process_response的方法。它之后的中间件的process_request、视图都不执行
+				
+		2. process_response(self,request,response)
+			执行时间： 在视图函数执行之后
+			执行顺序： 按照注册的顺序 倒叙执行
+			返回值：
+				HttpResponse对象    浏览器要显示的内容
+				
+		3. process_view(self,request,view_func,view_args,view_kwargs)
+			执行的时间 ：在路由匹配之后，在视图函数执行之前
+			执行顺序： 按照注册的顺序 顺序执行
+			返回值：
+				None   正常走
+				HttpResponse对象  它之后的中间件的process_view方法、视图函数不执行，执行所有中间的process_response方法
+				
+		4. process_exception(self,request,exception)
+			执行时间：触发条件 出现异常的时候才执行，视图函数之后 
+			执行顺序： 按照注册的顺序 倒叙执行
+			返回值：
+				None   正常走
+				HttpResponse对象 它之后的中间件的process_exception方法不执行，执行所有中间的process_response方法
+				
+		5. process_template_response(self,request,response)
+			执行时间：触发条件 视图返回的HttpResponse对象有一个render的方法。 视图函数之后
+			执行顺序： 按照注册的顺序 倒叙执行
+			返回值：
+				HttpResponse对象
+				
+				
+	3. django请求生命周期
+	
+		
+	4. 限制访问频率（1分钟只能访问3次）
+		
+		1. 获取IP
+		2. 有访问记录
+		3. 根据访问记录做判断
+		
+		
+
+		
+		
+2. 今日内容
+	1. CSRF中间件 
+		CSRF跨站请求伪造
+	2. 补充两个装饰器
+		from django.views.decorators.csrf import csrf_exempt, csrf_protect
+		csrf_exempt   给单个视图排除校验
+		csrf_protect  给单个视图必须校验
+		
+		
+	
+	3. 
+		process_request
+			从请求的cookie中获取csrftoken的值   ——》csrf_token   ——》request.META['CSRF_COOKIE']
+			
+			
+		process_view：
+			1. 如果视图函数加上了csrf_exempt的装饰器  不做校验
+			2. 如果请求方式是'GET', 'HEAD', 'OPTIONS', 'TRACE' 也不做校验
+			3. 其他的请求方式做校验
+				request.META.get('CSRF_COOKIE') —— 》 csrf_token 
+				
+				request_csrf_token = "" 
+				# 从request.POST中获取csrfmiddlewaretoken对应的值
+				request_csrf_token = request.POST.get('csrfmiddlewaretoken', '')
+				# 从请求头中获取X-csrftoken 的值 
+				request_csrf_token = request.META.get(settings.CSRF_HEADER_NAME, '')
+				
+				request_csrf_token 和 csrf_token 做对比  
+				如果校验成功 正常走
+				如果校验不成功 拒绝 
+				
+				
+	4. 浏览器向服务器发请求的形式：
+		1. 地址栏上输入地址  回车 GET
+		2. form表单  点击 submit 
+		3. a标签 
+			
+			
+	5. ajax
+		ajax是一个与服务器进行交互的技术。
+		特点：异步  不刷新页面  数据量小 
+		
+		
+		参数：
+		 $('#b1').click(function () {
+			$.ajax({
+				url: '/calc/',             # url地址
+				type: 'post',			   # 请求方式 
+				data: {                    # 发送的数据  
+					i1: $('[name="i1"]').val(),
+					i2: $('[name="i2"]').val()
+					hobby:JSON.stringify(['讲鸡汤','特斯拉','dabaojian'])   # 传个列表  进行序列化
+					
+				},
+				success: function (res) {         # 回调函数   成功时调用  res 返回的内容
+					console.log(res);
+					$('[name="i3"]').val(res)
+ 
+				}, error: function (res) {        # 回调函数  失败时调用
+
+
+                console.log('这是错误的')
+                console.log(res)
+            }
+				
+			})
+		});
+	
+		
+		
+	6. ajax发post请求 通过CSRF验证的方法
+	
+		1. 页面中使用{% csrf_token %}
+		
+			$('#b1').click(function () {
+				$.ajax({
+					url: '/csrf_test/',
+					type: 'post',
+					data: {
+						csrfmiddlewaretoken: $('[name="csrfmiddlewaretoken"]').val(),  # **********
+						name: 'alex',
+						age: '73',
+					},
+					success: function (res) {
+						console.log(res);
+
+
+					}
+				})
+			});
+			
+			
+		2. 
+			$('#b1').click(function () {
+				$.ajax({
+					url: '/csrf_test/',
+					type: 'post',
+					headers: {"X-CSRFToken": $('[name="csrfmiddlewaretoken"]').val()},
+					data: {
+						name: 'alex',
+						age: '73',
+
+					},
+					success: function (res) {
+						console.log(res);
+					}
+				})
+			});
+			
+		3. 全局的设置
+			从cookie中取值 必要有cookie
+			有cookie的方式
+				1. 使用{% csrf_token %}
+				2. 不使用{% csrf_token %}
+					from django.views.decorators.csrf import ensure_csrf_cookie
+					将ensure_csrf_cookie加在视图上  保证返回的响应有cookie
+					
+			
+			
+			
+			
+			
+				
+			

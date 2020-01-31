@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta http-equiv="content-Type" charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <script src="./static/vue.min.js"></script>
+    <script src="./static/vue-router.js"></script>
+</head>
+<body>
+    <div id="app">
+
+    </div>
+
+    <script>
+        Vue.use(VueRouter);
+
+        let Home = {
+            template: `
+                <div>
+                    <h1>这是首页页面</h1>
+                </div>
+            `
+        };
+
+        let Courses = {
+            template: `
+                <div>
+                    <h1>这是课程页面</h1>
+                    <router-link :to="{ name: 'lightcourses' }" append>轻课</router-link>
+                    <router-link :to="{ name: 'degreecourses' }">学位课</router-link>
+
+                    <router-view></router-view>
+                </div>
+            `
+        };
+
+        let LightCourses = {
+            template: `
+                <div>
+                    <h1>这是轻课页面</h1>
+                </div>
+            `
+        };
+
+        let DegreeCourses = {
+            template: `
+                <div>
+                    <h1>这是学位课程页面</h1>
+                </div>
+            `
+        };
+
+        let App = {
+            template: `
+                <div>
+                    <router-link :to="{ name: 'home' }">首页</router-link>
+                    <router-link :to="{ name: 'courses' }">课程页面</router-link>
+
+                    <router-view></router-view>
+                </div>
+            `
+        };
+
+        let router = new VueRouter({
+            routes: [
+                {
+                    name: 'home',
+                    path: '/',
+                    component: Home,
+                },
+                {
+                    name: 'courses',
+                    path: '/courses',
+                    component: Courses,
+                    children: [
+                        {
+                            name: 'lightcourses',
+                            path: 'lightcourses',
+                            component: LightCourses
+                        },
+                        {
+                            name: 'degreecourses',
+                            path: 'degreecourses',
+                            component: DegreeCourses
+                        },
+                    ]
+                },
+            ]
+        });
+
+        new Vue({
+            el: "#app",
+            template: `<App/>`,
+            components: {
+                App,
+            },
+            router: router,
+        })
+
+    </script>
+
+</body>
+</html>

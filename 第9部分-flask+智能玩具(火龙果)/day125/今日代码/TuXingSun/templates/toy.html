@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta http-equiv="content-Type" charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+</head>
+<body>
+<audio controls autoplay id="player"></audio>
+<p>玩具设备ID<input type="text" id="device_key">
+    <button onclick="open_toy()">开机</button>
+</p>
+
+</body>
+<script type="application/javascript" src="/static/jquery-3.3.1.min.js"></script>
+<script type="application/javascript">
+    var ws = null;
+    var serv = "http://192.168.12.53:9527";
+    var serv_voice = "http://192.168.12.53:9527/get_voice/";
+    function open_toy() {
+        var device_key = document.getElementById("device_key").value;
+        $.post(
+            serv + "/toy_login",
+            {device_key:device_key},
+            function(data){
+                console.log(data); // {"music":".mp3","msg_type":"voices"}
+                if(data.msg_type == "voices"){
+                    document.getElementById("player").src = serv_voice + data.music;
+                }
+                if(data.toy_id){
+                    ws = new WebSocket("ws://192.168.12.53:9528/toy/" + data.toy_id);
+                    ws.onmessage = function (data) {
+                        console.log(data.data);
+                        document.getElementById("player").src = data.data;
+                    };
+                }
+            },"json"
+        )
+
+    }
+
+
+
+</script>
+</html>

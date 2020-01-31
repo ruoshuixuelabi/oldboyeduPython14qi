@@ -1,0 +1,136 @@
+2018年12月19日：
+Flask回顾：
+Flask小而精 三方组件全
+稳定性相对较差，三方组件版本问题，Flask一旦迭代，就有可能造成三方组件的问题
+1.三贱客 + 小儿子：
+	HttpResponse : return "Hello World"
+	form flask import render_template,redirect
+	render : return render_template("index.html")
+	redirect : return redirect("/index")
+	form flask import send_file,jsonify
+	return send_file("static/123.jpg")
+	return jsonify("{id:1}") # Content-Type:application/json
+
+2.request
+	request.form FormData数据,POST
+	request.args URL中的参数
+	request.data Content-Type无法解析的数据，原始数据b""
+	request.json Content-Type:application/json 保存数据
+		
+	request.method 获取请求方式
+	request.path 路由地址 /login
+	
+	request.files 获取文件对象
+
+3.session - Flask-Session
+	from flask import session
+	app.secret_key = "jinwangba"
+	session["user"] = "123"
+	session存放在浏览器的cookie中默认名称是session - 序列化的数据
+	session.get("user")
+	
+	Flask-Session 第一个三方组件
+	from flask_session import Session
+	from flask import session
+	app.config["SESSION_TYPE"] = "redis"
+	app.config["SESSION_REDIS"] = Redis实例
+	Session(app)
+	
+	session["user"] = "123"
+	session存放在浏览器的cookie中默认名称是session - UUID
+	session.get("user")
+	
+4.Flask实例化配置，对象配置：
+	实例化：
+		Flask(__name__,
+		template_folder="模板路径",
+		static_folder="静态文件路径",
+		static_url_path="/静态文件访问路径")
+		
+	对象配置：
+		app.debug = True
+		app.config["DEBUG"]=True
+		
+		class FlaskSetting(object):
+			DEBUG = True
+		
+		app.config.from_object(FlaskSetting)
+
+
+5.蓝图 Blueprint
+	from flask import Blueprint
+	blue = Blueprint("blue",__name__,template_folder="模板路径",
+		static_folder="静态文件路径",
+		static_url_path="/静态文件访问路径",url_prefix="/blue")
+		
+	@blue.route("/blue01")
+	def blue01():
+		return "123"
+	
+	app:
+		app.register_blueprint(blue)
+
+		
+6.特殊装饰器：
+	@app.template_global()
+	def ab(a,b):
+		return a+b
+	{{ ab(1,2) }}
+	
+	@app.template_filter()
+	def abc(a,b,c):
+		return a+b+c
+	{{ 2 | abc(2,2)}}
+	 
+	@app.before_request #请求进入视图函数之前
+	def be1():
+		return None #跳过
+		
+	@app.after_request #视图函数结束之后，返回客户端之前
+	def af1(response):
+		return response
+		
+	正常:请求 - be1 - be2 - be3 - af3 - af2 - af1 - 客户端
+	异常:请求 - be1 - be2 - af3 - af2 - af1 - 客户端
+	
+	@app.errorhandler(404) # 重定义错误信息
+	def error404(args):
+		return render_template("error.html",arg=args)
+		
+	
+7.Flask CBV
+	form flask import views
+	
+	class Login(views.MethodView):
+		# method = ["POST"]
+		
+		def get(self):
+			pass
+			
+		def post(self):
+			pass
+
+
+	app.add_url_rule("/login",endpoint=None,view_func=Login.as_view(name="login"),methods=["POST"])
+
+8.WTForms
+	simple , core
+	
+9.flash
+	from flask import flash,get_flashed_messages
+	flash("66","tag")
+	get_flashed_messages(category_filter=["tag"])
+	
+
+
+
+
+2018年12月19日：
+今日内容：
+werkzeug run_simple
+
+上下文管理+
+request
+session
+app
+g

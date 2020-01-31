@@ -1,0 +1,44 @@
+[2019-02-27 17:52:15,174][Thread-1:5888][task_id:kangchen][views.py:11][WARNING][哈哈哈]
+[2019-02-27 17:52:18,463][Thread-3:6016][task_id:kangchen][views.py:11][WARNING][哈哈哈]
+[2019-02-27 17:52:50,982][Thread-1:600][task_id:kangchen][views.py:11][WARNING][哈哈哈]
+[2019-02-27 18:01:31,178][Thread-3:8320][task_id:django.request][log.py:228][WARNING][Not Found: /]
+[2019-02-27 18:01:31,798][Thread-1:8316][task_id:django.request][log.py:228][WARNING][Not Found: /]
+[2019-02-27 18:01:42,703][Thread-4:8600][task_id:kangchen][views.py:12][WARNING][哈哈哈]
+[2019-02-27 18:01:58,922][Thread-6:8664][task_id:kangchen][views.py:12][WARNING][哈哈哈]
+[2019-02-27 18:02:06,909][Thread-7:8668][task_id:django.request][log.py:228][WARNING][Not Found: /]
+[2019-02-27 18:02:21,444][Thread-9:8716][task_id:django.request][log.py:228][WARNING][Not Found: /__debug__]
+[2019-02-27 18:02:24,404][Thread-10:8720][task_id:django.request][log.py:228][WARNING][Not Found: /__debug__/]
+[2019-02-27 18:02:31,531][Thread-11:8728][task_id:kangchen][views.py:12][WARNING][哈哈哈]
+[2019-02-27 18:03:42,884][Thread-1:8416][task_id:kangchen][views.py:12][WARNING][哈哈哈]
+[2019-02-27 18:03:47,984][Thread-3:7424][task_id:kangchen][views.py:12][WARNING][哈哈哈]
+[2019-02-27 18:04:44,284][Thread-1:1652][task_id:kangchen][views.py:12][WARNING][哈哈哈]
+[2019-02-27 18:05:33,012][Thread-14:8864][task_id:kangchen][views.py:12][WARNING][哈哈哈]
+[2019-02-27 18:06:36,306][Thread-1:9204][task_id:kangchen][views.py:12][WARNING][哈哈哈]
+[2019-02-27 18:06:53,180][Thread-11:8432][task_id:kangchen][views.py:12][WARNING][哈哈哈]
+[2019-02-27 18:07:20,415][Thread-1:8132][task_id:kangchen][views.py:12][WARNING][哈哈哈]
+[2019-02-28 12:08:33,338][MainThread:5208][task_id:kangchen][views.py:12][WARNING][哈哈哈]
+[2019-02-28 12:08:33,349][MainThread:5208][task_id:django.request][log.py:228][ERROR][Internal Server Error: /home/]
+Traceback (most recent call last):
+  File "C:\Python35\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Python35\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python35\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PythonS14\第三部分串讲\demo\app02\views.py", line 19, in home
+    ret2 = models.Boy.objects.first().girl_set.all()
+AttributeError: 'NoneType' object has no attribute 'girl_set'
+[2019-02-28 12:09:21,670][MainThread:2632][task_id:kangchen][views.py:12][WARNING][哈哈哈]
+[2019-02-28 12:09:21,677][MainThread:2632][task_id:django.request][log.py:228][ERROR][Internal Server Error: /home/]
+Traceback (most recent call last):
+  File "C:\Python35\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Python35\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python35\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PythonS14\第三部分串讲\demo\app02\views.py", line 19, in home
+    ret2 = models.Boy.objects.first().girl_set.all()
+AttributeError: 'NoneType' object has no attribute 'girl_set'
+[2019-02-28 12:10:01,239][MainThread:2508][task_id:kangchen][views.py:12][WARNING][哈哈哈]
+[2019-02-28 12:10:36,152][MainThread:6700][task_id:kangchen][views.py:12][WARNING][哈哈哈]

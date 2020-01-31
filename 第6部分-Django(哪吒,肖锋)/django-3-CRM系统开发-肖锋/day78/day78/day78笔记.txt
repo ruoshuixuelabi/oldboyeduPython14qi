@@ -1,0 +1,107 @@
+day78
+1. 内容回顾
+	1. CRM
+		客户管理系统
+	2. 干什么用的？
+		管理客户以及与客户相关人员的对客户的管理
+	3. 功能：
+		1. 登录 注册 注销  
+			auth 
+				from django.contrib.auth.models import AbstractBaseUser，AbstractUser
+				只想扩展  继承AbstractUser
+				改写      继承AbstractBaseUser, PermissionsMixin
+				
+				settings AUTH_USER_MODEL = 'app名字.表名'
+				
+		2. 客户相关
+			- 客户列表
+			- 新增客户
+			- 编辑客户
+			- 模糊搜索
+				Q对象  Q(('条件',内容))
+			- 分页
+				QueryDict  request.GET  urlencode()   ——》 query=alex&page=1
+			- 批量操作
+				- 公户变私户
+				- 私户变公户
+					反射
+					ORM操作  
+			- 保留原路径
+			
+		3. 跟进记录
+			- 展示跟进记录
+				- 展示销售所有的跟进记录
+				- 展示某个客户的所有跟进记录
+			- 新增跟进记录
+			- 编辑跟进记录
+				- 限制客户是当前销售的私户
+				- 跟进人是当前的用户
+					obj = models.ConsultRecord(consultant=request.user)   —— 在内存中
+					obj.save()
+					
+		4. 报名记录
+			- 客户列表中展示报名相关的地址
+				- 没有报名记录  显示添加报名记录
+				- 有报名记录    显示添加、查看报名记录
+					- 客户model   enroll_link
+					
+			- 展示报名记录
+				- 展示所有记录
+				- 展示某个客户的记录
+			- 新增报名记录
+				- 报名成功后修改客户状态
+			- 编辑报名记录
+			
+		5. 缴费记录
+			- 展示缴费记录
+			- 添加、编辑缴费记录
+				
+2. 今日内容
+	1. 公户变私户的问题解决
+		- 多个销售同时申请一个客户
+			谁先申请就是谁的
+		mysql数据中加行级锁
+			开始事务：begin；
+			加锁  for update ：  select * from student where id=1 for update;
+			结束事务：commit；
+			
+	2. 班主任的功能
+		- 班级的管理
+			- 班级的展示
+			- 添加班级
+			- 编辑班级
+		- 课程的管理
+			- 
+		- 学习记录的管理
+			- 批量添加
+				student_list = []
+				
+				for student in all_students:
+				
+					student_list.append(models.StudyRecord(course_record=course_obj, student=student))
+				
+				models.StudyRecord.objects.bulk_create(student_list)
+			- 展示编辑学习记录
+			
+				FormSet = modelformset_factory(models.StudyRecord, StudyRecordForm, extra=0)
+				queryset = models.StudyRecord.objects.filter(course_record_id=course_id)
+				form_set = FormSet(queryset=queryset)
+				
+				{% for form in form_set %}
+				
+					{{ form.instance.student.name }}    form.instance ——》 学习记录 
+					{{ form.attendance }}          ————》对应的input 
+					{{ form.score }}
+					{{ form.homework_note }}
+			
+			
+				提交编辑
+				{{ form_set.management_form }}
+				{{ form.id }}
+				{{ form.student }}
+				
+				form_set = FormSet(request.POST)
+				if form_set.is_valid():
+					form_set.save()
+				
+				

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta http-equiv="content-Type" charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+</head>
+<body>
+<audio controls autoplay id="player"></audio>
+<p>玩具设备ID<input type="text" id="toy_id">
+    <button onclick="open_toy()">开机</button>
+</p>
+
+</body>
+<script type="application/javascript">
+    var ws = null;
+
+    function open_toy() {
+        var toy_id = document.getElementById("toy_id").value;
+        ws = new WebSocket("ws://192.168.12.53:9528/toy/" + toy_id);
+        ws.onmessage = function (data) {
+            console.log(data.data);
+            document.getElementById("player").src = data.data;
+        };
+    }
+
+</script>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta http-equiv="content-Type" charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <script src="./static/vue.min.js"></script>
+    <style>
+        .active {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="app">
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>学科</th>
+                    <th>成绩</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Python</td>
+                    <td><input type="text" v-model.number.lazy="python"/></td>
+                </tr>
+                <tr>
+                    <td>Vue</td>
+                    <td><input type="text" v-model.lazy="vue"/></td>
+                </tr>
+                <tr>
+                    <td>Go</td>
+                    <td><input type="text" v-model.trim="go"/></td>
+                </tr>
+                <tr>
+                    <td>总成绩</td>
+                    <td>{{ sumScore }}</td>
+                </tr>
+            </tbody>
+        </table>
+        <hr>
+        {{ python }}
+        {{ vue }}
+        {{ go }}
+        {{ sumScore }}
+    </div>
+
+    <script>
+        // 数据模板引擎
+        // v-开头的指令是帮助我们渲染数据用的
+        let vm = new Vue({
+            el: "#app",
+            data: {
+                python: 88,
+                vue: 100,
+                go: 65
+            },
+            computed: {
+                sumScore: function () {
+                    console.log(1);
+                    return this.python + this.vue + this.go;
+                },
+            },
+            watch: {
+                python: function () {
+                    return this.python + 1;
+                }
+            }
+        })
+    </script>
+
+</body>
+</html>

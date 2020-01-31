@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta http-equiv="content-Type" charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <script src="./static/vue.min.js"></script>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="app">
+        <div v-pos="position">Hello Vue!</div>
+    </div>
+
+    <script>
+        // 数据模板引擎
+        // v-开头的指令是帮助我们渲染数据用的
+
+        Vue.directive("pos", function (el, bindding) {
+            console.log("el: ", el);
+            console.log("bindding: ", bindding);
+
+        });
+
+        let vm = new Vue({
+            el: "#app",
+            data: {
+                position: true
+            },
+        })
+    </script>
+
+</body>
+</html>

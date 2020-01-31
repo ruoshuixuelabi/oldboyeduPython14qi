@@ -1,0 +1,255 @@
+uwsgi.ini
+
+[uwsgi]
+listen = 100
+master = true
+socket-timeout = 30
+stats =  127.0.0.1:1721
+post-buffering =  100M
+cpu-affinity = true
+############
+socket = 127.0.0.1:9090
+socket = /tmp/uwsgi.sock
+# 缓存体系
+cache = true
+cache2 = name=mycache,items=100
+lazy-apps = true
+wsgi-disable-file-wrapper = true
+memory-report = true
+uid = www
+master = true
+vhost = true
+no-stie = true
+workers = 10
+reload-mercy = 10
+vacuum = true
+max-requests = 3500
+limit-as = 1024
+buffer-size = 65535
+pidfile = /var/run/uwsgi.pid
+master-fifo = /tmp/uwsgififo
+daemonize = /var/log/logs/uwsgi.log
+log-maxsize = 10000000000
+enable-threads=true
+die-on-term=true
+wsgi-disable-file-wrapper=true
+env= LUFFY_ENV=Production
+
+#########################
+#########################
+指定解析静态文件
+[uwsgi]
+
+socket = 127.0.0.1:9090
+wsgi-file = /usr/local/nginx/html/luffy_backend/web_backend/luffy/wsgi.py
+# 项目目录
+chdir=/usr/local/nginx/html/luffy_backend/web_backend
+# 指定静态文件
+static-map=/static=/usr/local/nginx/html/luffy_backend/web_backend/static
+
+
+nginx
+
+worker_processes  auto;
+worker_rlimit_nofile 65535;
+events {
+    worker_connections  10240;
+}
+http {
+    log_format  main  '$http_x_forwarded_for - $remote_user [$time_local] "$request" ' '$status $body_bytes_sent "$http_referer" ' '"$http_user_agent" ';
+    # 压缩
+    gzip                     on;
+    gzip_min_length          1k;
+    gzip_buffers      4      16k;
+    gzip_http_version        1.0;
+    gzip_comp_level          2;
+    gzip_types               text/css application/javascript application/json;
+    gzip_vary                on;
+
+    # transfor    
+    tcp_nopush               on;
+    tcp_nodelay              on;
+    # 打开文件的缓存
+    open_file_cache          max=1000 inactive=20s;
+    open_file_cache_valid    30s;
+    open_file_cache_min_uses 2;
+    open_file_cache_errors   on;
+
+
+
+    server_tokens off;
+    include       mime.types;
+    default_type  application/octet-stream;
+    sendfile        on;
+    keepalive_timeout  65;
+    include extra/dev.conf;
+    include extra/dev1.conf;
+    include extra/xiaobai.conf;
+    include extra/zentao.conf;
+}
+
+
+extra/dev.conf
+
+server {
+    access_log   logs/backend_access.log main;
+    uwsgi_cache_valid 1m;
+    uwsgi_temp_file_write_size 64k;
+    uwsgi_busy_buffers_size 64k;
+    uwsgi_buffers 8 64k;
+    uwsgi_buffer_size 64k;
+    uwsgi_read_timeout 300;
+    uwsgi_send_timeout 300;
+    uwsgi_connect_timeout 300;
+    listen       80;
+    server_name  localhost;
+    if ($host = "luffy.oldboyedu.com"){
+        rewrite ^/(.*) http://www.luffycity.com/$1 permanent;
+    }
+    if ($host = "luffycity.com"){
+        rewrite ^/(.*) http://www.luffycity.com/$1 permanent;
+    }
+
+    location / {
+        include  uwsgi_params;
+        uwsgi_pass  127.0.0.1:9090;         
+        # uwsgi_pass uwsgicluster;         
+        uwsgi_param UWSGI_SCRIPT luffy.wsgi;
+        uwsgi_param UWSGI_CHDIR  /usr/local/nginx/html/luffy_dev;
+        index  index.html index.htm;
+        client_max_body_size 35m;
+    }
+
+    error_page   500 502 503 504  /50x.html;
+    location = /50x.html {
+        root   html;
+    }
+    location ~ \.(png|jpg|jpeg|css|img|js|flv|swf|download|eot|svg|ttf|woff|woff2|otf)$ {
+         root html/luffy_dev;
+    }
+    location /manage {
+        root html/backend_manage;
+        include  uwsgi_params;
+        uwsgi_pass  127.0.0.1:9091;
+        # uwsgi_pass uwsgicluster;
+        uwsgi_param UWSGI_SCRIPT luffy.wsgi;
+        uwsgi_param UWSGI_CHDIR  /usr/local/nginx/html/backend_manage;
+        index  index.html index.htm;
+        client_max_body_size 35m;
+        allow 192.168.0.0/24;
+        allow 100.64.0.0/10;
+        allow 10.158.0.0/16;
+        allow 10.159.0.0/16;
+        allow 10.49.0.0/16;
+        deny  all;
+    }
+    location /mentor {
+        root html/backend_manage;
+        include  uwsgi_params;
+        uwsgi_pass  127.0.0.1:9091;
+        # uwsgi_pass uwsgicluster;
+        uwsgi_param UWSGI_SCRIPT luffy.wsgi;
+        uwsgi_param UWSGI_CHDIR  /usr/local/nginx/html/backend_manage;
+        index  index.html index.htm;
+        client_max_body_size 35m;
+    }
+    location /admin {
+        root html/backend_manage;
+        include  uwsgi_params;
+        uwsgi_pass  127.0.0.1:9091;
+        # uwsgi_pass uwsgicluster;
+        uwsgi_param UWSGI_SCRIPT luffy.wsgi;
+        uwsgi_param UWSGI_CHDIR  /usr/local/nginx/html/backend_manage;
+        index  index.html index.htm;
+        client_max_body_size 35m;
+        allow 192.168.0.0/24;
+        allow 100.64.0.0/10;
+        allow 10.158.0.0/16;
+        allow 10.159.0.0/16;
+        allow 10.49.0.0/16;
+        deny  all;
+    }
+    location /kingadmin {
+        root html/backend_manage;
+        include  uwsgi_params;
+        uwsgi_pass  127.0.0.1:9091;
+        # uwsgi_pass uwsgicluster;
+        uwsgi_param UWSGI_SCRIPT luffy.wsgi;
+        uwsgi_param UWSGI_CHDIR  /usr/local/nginx/html/backend_manage;
+        index  index.html index.htm;
+        client_max_body_size 35m;
+    }
+
+
+}
+
+extra/front.conf
+server {
+    access_log   logs/front_access.log main;
+    listen       443;
+    server_name  www.luffycity.com luffycity.com luffy.oldboyedu.com;
+    if ($host = "luffy.oldboyedu.com"){
+        rewrite ^/(.*) https://www.luffycity.com/$1 permanent;
+    }
+    if ($host = "luffycity.com"){
+        rewrite ^/(.*) https://www.luffycity.com/$1 permanent;
+    }
+    if ( $http_user_agent ~* "(Android|iPhone|Windows Phone|UC|Kindle)" ){
+         rewrite  ^/(.*)  https://m.luffycity.com/$1 permanent;
+    }
+    location / {
+        root html/luffy_front;
+        index   index.html index.htm;
+        try_files $uri $uri/ /index.html;
+    }
+    location /python-book {
+        root html;
+        index index.html;
+        auth_basic "luffy-python";  #虚拟主机认证命名 
+        auth_basic_user_file /usr/local/nginx/passwd-python.db; #虚拟主机用户名密码认证数据库
+    }
+    location /qsjh-book {
+        root html;
+        index index.html;
+        # auth_basic "luffy-python";  #虚拟主机认证命名 
+        # auth_basic_user_file /usr/local/nginx/passwd-python.db; #虚拟主机用户名密码认证数据库
+    }
+    location /dsj-book {
+        root html;
+        index index.html;
+        # auth_basic "luffy-python";  #虚拟主机认证命名 
+        # auth_basic_user_file /usr/local/nginx/passwd-python.db; #虚拟主机用户名密码认证数据库
+    }
+    location /sz {
+        root html;
+        index  index.html index.htm;
+    }
+    location /linux-book {
+        root html;
+        index   index.html index.htm;
+    }
+    location /static/ {
+        root html/luffy_front;
+        expires 1d;
+    }
+    location /download/ {
+        root html/luffy_front/download;
+    }
+    location /plugins/ {
+        root html;
+        expires 1d;
+    }
+    location /data/ {
+        root html;
+        expires 1d;
+    }
+    error_page   500 502 503 504  /50x.html;
+    location = /50x.html {
+        root   html;
+    }
+}
+
+
+
+
+

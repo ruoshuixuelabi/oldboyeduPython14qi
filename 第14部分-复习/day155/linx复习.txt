@@ -1,0 +1,514 @@
+19.请问你使用的linux发行版是什么？如何查看linux发行版信息？
+centos
+cat  /etc/os-release 
+
+
+20.请问你公司的服务器环境是物理机还是虚拟化？
+虚拟化：
+我26台dell  power edge  R720 ，实体服务器，通过vmware  vsphere虚拟化的 300+linux服务器
+8台阿里云
+2个nginx负载均衡，2个web服务器，2个前端服务器，2个数据库 
+
+
+
+21.vim有几种工作模式
+1.命令模式
+2.编辑模式
+3.底线命令模式 
+
+
+22.nginx的主配置文件是?如何实现多虚拟主机?nginx反向代理参数是？
+
+nginx.conf  
+
+
+server  {
+	listen 80;
+	server_name  pythonav.cn;
+	
+	location / {
+		proxy_pass  另一台机器的ip;
+	}
+
+}
+
+
+
+
+
+
+
+
+23.如何解压缩后缀是.gz文件?
+
+
+tar -zxf  *.gz 
+
+
+
+24.如何解压缩后缀是.tar文件?
+tar  -xf  *.tar  
+
+
+25.如何解压缩后缀是.xz文件?
+
+xz  -d  .xz  
+
+yum install xz -y 
+
+
+26.www服务在internet最为广泛，采用的结构是?
+
+b/s  
+
+
+
+
+27.如何给linux添加dns服务器记录?
+
+vim /etc/reslov.conf 
+nameserver  114.114.114.114  
+
+
+
+28.每月的5,15,25的晚上5点50重启nginx
+
+分  时  日		 月 	周 
+50  17  5,15,25  *		*	/usr/bin/systemctl restart nginx 
+50  17  5,15,25  *		*	/opt/nginx112/sbin/nginx  restart nginx 
+
+
+
+
+1.yum安装的nignx
+systemctl restart nginx 
+
+
+29.每分钟清空/tmp/
+分  时  日		 月 	周 
+*	*	*		*		*    /usr/bin/rm  -rf /tmp/*
+
+
+
+
+
+30.每天早上6.30清空/tmp/的内容
+分  时  日		 月 	周 
+30	6 	*		*		*   /usr/bin/rm  -rf /tmp/*
+
+
+31.每个星期三的下午6点和8点的第5到15分钟之间备份mysql数据到/opt/
+分  	时 		 日		 月 	周 
+5-15  	18,20	*		*		3		mysqldump -uroot -p  --all-databases >  /opt/mysql.dump 
+
+
+
+32.某文件权限是drw-r—rw-，请解读该权限？
+
+d  文件夹
+rw-  user可读可写
+r--  组内成员 可读
+rw-	其他人 可读可写
+
+
+
+33.centos版本系统服务管理命令是?
+systemctl  restart network
+systemctl  restart mariadb 
+systemctl  restart redis 
+
+
+
+34.如何远程登录阿里云123.206.16.61?
+ssh root@123.206.16.61
+
+
+
+35.备份mariadb的命令是?
+
+mysqldump -uroot -p  --all-databases >  /opt/mysql.dump
+
+
+36.简述特殊符号的含义?
+
+#  
+.  
+..
+$PATH    
+
+
+
+
+
+37.如果你发现在公司无法使用rm，使用提示’禁止你使用rm’,是为什么？
+
+
+
+
+
+
+
+38.如何修改test.py属组为alex?
+
+chgrp  alex  test.py 
+chown  wupeiqi  test.py  
+
+
+
+
+39.如何在windows和linux传输文件？有哪些方法？
+
+1.  scp  可以用于 linux与linux  或者 macos 与linux
+
+scp  你想要的资源      这个资源放到哪   #这是拿别人的资源
+scp  你的资源 		其他人机器的目录  #传输你的资源给别人 
+
+1.远程拷贝其他人的资源
+
+scp  -r  root@192.168.11.111:/opt/mydjango/      /opt/
+	-r  递归远程传输 
+	
+	
+
+2.  lrzsz
+
+3.	xftp
+
+
+
+
+40.如何杀死mariad进程?
+
+ps -ef |grep  mariadb 
+
+kill  mariadb的pid  
+
+
+
+41.简述dns解析流程？访问www.pythonav.cn的解析流程
+浏览器输入域名，做什么事了
+1.在当前机器dns缓存中寻找 记录 
+2.去 本地 hosts文件中寻找对应记录
+3.如果没有就取dns服务器中找
+4.如果服务器解析到了dns地址，会缓存到本地dns缓存中
+
+
+
+42.linux如何安装软件?有几种方式？
+
+1.  yum安装   yum install  xxxxxx
+2.  源码编译安装 
+3.  rpm包方式安装 
+
+
+
+43.出于安全角度，简述如何安装启动redis服务端？
+
+redis-server  
+1.自己写一个redis.conf配置文件，指定redis的启动ip地址，和端口，和密码
+bind  .....
+port  6388
+requirepass  kangchendapangzi 
+
+
+
+redis-cli  
+auth kangchendapangzi 
+
+OK
+ping 
+
+
+
+
+44.如何保证本地测试环境和线上开发环境一致性？思路?
+1.打包压缩本地代码，发送到服务器  xftp 
+2.配置服务器python解释器的环境，并且解决所有模块依赖的问题
+pip3  freeze >  requirements.txt  
+然后把 requirements.txt    发送到linux服务器上
+
+3.服务器直接安装这个文件，
+pip3 install -r  requirements.txt  
+
+4.此时解释器 可以正常运转
+
+
+
+
+
+45.virtualenv是什么?简述如何使用
+对python解释器的一个分身，可以在机器上创建多个解释器环境，并且相互没有关系 
+
+
+46.virtulevnwrapper是什么？简述使用
+对virtualenv的一个升级版，更简单好用 
+
+
+
+47.redis哨兵是什么？作用是
+
+
+
+
+48.redis-cluster是什么?
+
+
+
+
+
+49.什么是静态资源，什么是动态资源？
+
+静态资源，指的是 jpg  css js  gif  html  
+动态资源 ，不同的参数指定，有不同等结果，例如 登录 注册 等等 ，不同的url，对数据库有交互的视图请求 
+
+
+
+
+50.配置linux软连接的命令?
+
+ln -s  目标文件    软连接名字 
+
+
+
+
+
+51.如何永久添加/opt/python36/的环境变量？
+
+echo $PATH
+#注意path是有优先级顺序的，并且path是放一堆文件夹的绝对路径 
+/opt/python37/bin/:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/opt/kafka_2.11-2.1.0/bin:/root/bin 
+
+
+
+52.给如下代码添加注释
+
+
+#虚拟主机 
+server{
+	#监听端口
+	listen 80;
+	#域名
+	server_name 192.168.11.11;
+	#对url的匹配   ，当我请求是 http://192.168.11.11:80/ 
+	location / {
+		#定义虚拟主机的根目录
+		root html;
+		#定义网页首页文件的名字 
+		index index.html;
+	}
+}
+
+
+
+
+server{
+listen 8080;
+server_name 192.168.11.11;
+
+location / {
+	#包含语法，添加反向代理请求头的文件，包含当nginx配置当中
+	include uwsgi_params;
+	#基于uwsgi协议的反向代理，转发请求给后端的uwsgi
+	uwsgi_pass 0.0.0.0:8000;
+	}
+}
+
+
+
+
+
+53.supervisor是什么？如何使用?
+
+任务管理工具 ，可以用supervisor，启动uwsgi  
+
+
+
+
+
+54.简述项目部署流程？如何部署路飞，uwsgi+nginx+supervisor+nginx
+
+1.部署一个前后端分离的项目
+
+2.先部署前端文件
+安装node环境，准备打包vue代码
+
+
+
+
+
+55.docker是什么？简述docker优势
+docker是linux的容器方案
+解决环境依赖，项目打包上线方便简单
+
+
+
+
+
+56.你常用的docker常用命令有哪些？操作镜像、容器、仓库的命令
+
+
+docker run   镜像名   #启动一个docker容器
+docker images  
+docker ps    #查看正在运行的容器
+docker ps -a   #查看所有运行过的容器记录
+docker logs   #查看容器内的日志 
+docker port  #查看容器的端口映射关系
+
+
+docker exec -it 容器id   /bin/bash  #交互式的进入一个容器 
+docker build .  #对一个dockerfile进行打包
+
+
+
+
+
+57.哪个命令无法查看linux文件内容？
+A.tac B.more C.head D.man
+
+
+
+
+
+58.使用rm -i 系统会提示什么信息？
+A.命令所有参数
+B.是否真的删除
+C.是否有写的权限
+D.文件的路径
+
+59.为何说rm -rf 慎用？
+
+rm -r  递归删除文件夹及其子目录
+	-f  强制删除，且不提示 
+
+
+a60.python操作linux的模块是?
+os
+
+
+
+
+
+61.如果端口8080被占用，如何查看是什么进程？
+
+
+netstat -tunlp|grep 8080  
+
+
+
+
+62.redis是如何做持久化的?
+
+rdb 基于数据快照进行持久化，生成一个二进制数据文件，save触发持久化
+aof  基于命令日志追加的方式，持久化，生成一个aof文件，记录所有数据变动的命令
+
+
+
+
+63.简述mysql主从复制原理?
+1.
+
+
+
+64.创建mysql用户alex，并且授予权限select权限，命令是什么？
+grant select on *.*   to alex@’%’;
+
+
+
+65.nginx如何实现负载均衡?
+反向代理，参数是 proxy_pass 
+负载均衡参数 upstream{}  
+
+
+
+#写入这么一个后端应用地址池
+upstream {
+	server 
+	server 
+	server 
+	server 
+}
+
+
+
+
+nx的负载均衡调度算法有几种？是什么?
+
+调度算法 　　 概述
+轮询 　　　　按时间顺序逐一分配到不同的后端服务器(默认)
+weight 　　 加权轮询,weight值越大,分配到的访问几率越高
+ip_hash 　　 每个请求按访问IP的hash结果分配,这样来自同一IP的固定访问一个后端服务器
+url_hash 　 按照访问URL的hash结果来分配请求,是每个URL定向到同一个后端服务器
+least_conn 最少链接数,那个机器链接数少就分发
+
+67.linux下载软件包的方法有?
+wget curl
+68.windows和linux常用远程连接工具有哪些?
+xshell
+putty
+securecrt
+
+macos  ->  iterm2  
+macos  ->  自带的命令行终端  只要是有ssh 
+
+
+
+69.如何给与一个脚本可执行权限
+
+
+chmod u+x file
+chmod g+x file
+chmod o+x file
+
+70.过滤出settings.py中所有的空白和注释行
+
+grep -v "^$"  settings.py  #过滤出除了空白行的内容
+grep -v "^#"  settings.py 
+
+
+
+
+grep -v “^#” file |grep -v “^$”
+
+
+
+
+
+71.过滤出file1中以abc结尾的行
+grep “abc$” file1
+
+
+
+
+
+
+72.容器退出后，通过docker ps查看不到，数据会丢吗?
+
+
+
+不会丢，因为容器停止了，并没有被删除 docker ps -a可以看到
+
+
+
+
+
+
+73.如何批量清理后台停止的容器
+docker rm docker ps -aq
+
+
+
+docker rm `docker ps -aq`
+
+
+74.如何查看容器日志?
+docker logs -f  容器id 
+
+
+
+
+
+
+
+
+
+

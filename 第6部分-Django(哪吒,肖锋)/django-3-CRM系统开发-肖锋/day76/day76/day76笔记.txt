@@ -1,0 +1,80 @@
+day76
+1. 内容回顾
+	1. 展示信息
+		choices   get_字段名_display
+		自定义方法 
+			多对多关系    
+				    def show_classes(self):
+						return ' | '.join([str(i) for i in self.class_list.all()])
+						
+			显示状态  
+				mark_safe 
+					form django.utils.safestring import mark_safe
+					
+		母版和继承
+			母版：
+				定义block块   css js content 
+			子页面：
+				{% extends '母版名' %}
+				
+				{% block 块名 %}
+				{% endblock %}
+				
+				注意：
+					使用static静态文件相关  需要重新导入{% load static %}
+					
+	2. 分页
+
+2. 今日内容
+	1. 增加客户
+	2. 编辑客户
+		form_obj = CustomerForm(instance=obj)
+		form_obj带着原有的数据，根据数据生成input的值
+		
+		form_obj = CustomerForm(request.POST,instance=obj)
+		将提交的数据和要修改的实例交给form对象
+		form_obj.save()  对要修改的实例进行修改
+	3. 公户变私户
+		CBV
+			self.request
+		
+		反射
+		orm操作：
+			models.Customer.objects.filter(id__in=ids).update(consultant=self.request.user)
+			self.request.user.customers.add(*models.Customer.objects.filter(id__in=ids))
+	4. 私户变公户	
+		orm操作：
+			models.Customer.objects.filter(id__in=ids).update(consultant=None)
+			self.request.user.customers.remove(*models.Customer.objects.filter(id__in=ids))
+		
+	5. 模糊查询
+	
+		all_customer = models.Customer.objects.filter(Q(qq__contains=query) | Q(name__contains=query),
+                                                          consultant__isnull=True)
+		all_customer = models.Customer.objects.filter(Q(('qq__contains',query)) | Q(('name__contains',query)),
+                                                          consultant__isnull=True)
+														  
+		def get_search_contion(self,query_list):
+        
+			query = self.request.GET.get('query', '')
+			
+			q = Q()
+			q.connector = 'OR'
+			for i in query_list:
+				q.children.append(Q(('{}__contains'.format(i), query)))
+        
+        return q
+	
+	
+	6. 保留搜索条件
+		from django.http import QueryDict
+		
+		print('query',request.GET)  #  <QueryDict: {'query': ['alex']}>
+		
+		print(request.GET.urlencode()) query=alex
+		
+		
+		request.GET.copy()  深拷贝
+	
+	
+				
