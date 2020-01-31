@@ -10,10 +10,10 @@
         body {
             background-color: #eeeeee;
         }
+
         .login-box {
             margin-top: 50px;
         }
-
     </style>
 </head>
 <body>
@@ -29,7 +29,6 @@
                         <span class="help-block"></span>
                     </div>
                 </div>
-
                 <div class="form-group">
                     <label for="inputPassword3" class="col-sm-3 control-label">密码</label>
                     <div class="col-sm-9">
@@ -37,7 +36,6 @@
                         <span class="help-block"></span>
                     </div>
                 </div>
-
                 <div class="form-group">
                     <div class="col-sm-offset-3 col-sm-9">
                         <div class="checkbox">
@@ -47,7 +45,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="form-group">
                     <div class="col-sm-offset-3 col-sm-9">
                         <button type="button" id="b1" class="btn btn-block btn-primary">登录</button>
@@ -57,13 +54,12 @@
         </div>
     </div>
 </div>
-
 <script src="jQuery作业/jquery-3.3.1.js"></script>
 <script>
     $("#b1").click(function () {
         $("input:not([type='checkbox'])").each(function () {
             // 判断值为不为空
-            if ($(this).val().length === 0){
+            if ($(this).val().length === 0) {
                 // 展示错误提示
                 var errMsgPrefix = $(this).parent().prev().text();
                 $(this).next().text(errMsgPrefix + "不能为空");
@@ -71,7 +67,6 @@
             }
         });
     });
-
     // 给输入框绑定获取焦点的事件
     $("input:not([type='checkbox'])").focus(function () {
         // 清空错误提示

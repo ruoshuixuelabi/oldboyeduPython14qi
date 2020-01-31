@@ -2,6 +2,7 @@
 一个楼梯有50个台阶，每一步可以走一个台阶，也可以走两个台阶，请问走完这个楼梯共有多少种方法？
 """
 
+
 # ret = f(n)
 
 # 1. 不管怎么走， 最后要么剩一个台阶，要么剩两个台阶
@@ -22,7 +23,7 @@ def f(n):
     elif n == 2:
         return 2
     else:
-        return f(n-1) + f(n-2)
+        return f(n - 1) + f(n - 2)
 
 
 def func(num):
@@ -39,4 +40,3 @@ for i in range(5):
     print("第" + str(i) + "个值：", g.__next__())
 
 # 汉诺塔游戏如何用Python代码表示
-
